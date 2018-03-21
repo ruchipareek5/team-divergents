@@ -10,7 +10,7 @@ var divergents = angular.module('divergents', ['ngRoute',
 divergents.config(function($routeProvider, $httpProvider){
 	
 	$routeProvider.when('/nsdc', {
-	    templateUrl : 'nsdcAdmin.html'
+	    templateUrl : 'static/nsdcAdmin.html'
 
 	})
 	.otherwise('/');

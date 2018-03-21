@@ -7,7 +7,7 @@ var divergents = angular.module('divergents', ['ngRoute',
                                           'ui.grid.pagination']);
 
 
-divergents.config(function($routeProvider, $httpProvider){
+divergents.config(['$routeProvider','$httpProvider', function($routeProvider, $httpProvider){
 	
 	$routeProvider.when('/nsdc', {
 	    templateUrl : 'nsdcAdmin.html'
@@ -17,7 +17,7 @@ divergents.config(function($routeProvider, $httpProvider){
 	
 	$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 	
-});
+}]);
 divergents.controller('index', function($scope,$http,$rootScope,$route,$location){
 	
 });

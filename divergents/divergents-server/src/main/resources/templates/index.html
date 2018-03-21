@@ -42,7 +42,7 @@
 	   <span class="becomeTP"> <a href="#"> | Become a  TP</a></span>
 	    <span class="becomeTP"><i class="fa">&#xf2be;</i></span>
 
-	    <span class="becomeTP"> <a href="#">Login</a></span>
+	    <span class="becomeTP"> <a ng-click="screen='screen9'">Login</a></span>
 
 	</div>
 	</div>
@@ -83,6 +83,9 @@
 </div>
 <div ng-switch-when="screen8">
 <div ng-include src="'reportIssue.html'"></div>
+</div>
+<div ng-switch-when="screen9">
+<div ng-include src="'login.html'"></div>
 </div>
 </div>
 <!-- code to render body part which changes on click -->

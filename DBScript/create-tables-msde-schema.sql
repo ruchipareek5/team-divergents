@@ -11,6 +11,7 @@ use msde;
 drop table if exists user;
 drop table if exists application;
 drop table if exists applicationcomments;
+drop table if exists 
 
 /* create table for user */
 

@@ -75,11 +75,11 @@ public abstract class AbstractDatasource {
             pooledDataSource.setValidationInterval(300000);
 				
             // derive password
-            String password = getCustomPassword();
-            if (StringUtils.isEmpty(password)) {
-               throw new SQLException("Null password");
-            }
-            pooledDataSource.setPassword(password);
+//            String password = getCustomPassword();
+//            if (StringUtils.isEmpty(password)) {
+//               throw new SQLException("Null password");
+//            }
+            pooledDataSource.setPassword("MsdeApp123$$");
         } catch (Exception e) {
             LOGGER.error("Exception setting up datasource", e);
            

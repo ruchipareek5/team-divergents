@@ -18,3 +18,6 @@ divergents.config(function($routeProvider, $httpProvider){
 	$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 	
 });
+divergents.controller('index', function($scope,$http,$rootScope,$route,$location){
+	
+});

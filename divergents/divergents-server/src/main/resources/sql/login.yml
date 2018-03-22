@@ -1,7 +1,7 @@
 login:
  checkUserSql: >
-   SELECT EXISTS(SELECT * FROM user WHERE userId=:userId and password=:password)
+  SELECT EXISTS(SELECT * FROM user WHERE userId=:userId and password=:password)
    
- selectSql: > 
-   select userId,userRole,userStatus 
-    from user where userId=:userId and password=:password
+ selectUserDetails: > 
+  select userId,userRole,sPOCName
+    from user where userId= :userId and password= :password

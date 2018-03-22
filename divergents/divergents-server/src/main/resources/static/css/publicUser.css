@@ -21,7 +21,7 @@ margin-left: 0%;
 .msde{
   float: left;
 }
-
+/*login and Become training Partner*/
 .becomeTp{
   float: right;
   padding-top: 1%;
@@ -78,6 +78,7 @@ margin-left: 88%;
 .topnav a:hover {
   background-color: #008A9F;
   color: white;
+  cursor:pointer;
 }
 
 .active {

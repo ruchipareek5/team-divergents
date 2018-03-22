@@ -7,18 +7,18 @@ public class LoginDto extends BaseDto{
 	private String userId;
 	//private String password;
 	private String sPOCName;
-	private String userStatus;
+	//private String userStatus;
 	private String userRole;
 
 	
 	
 	
-	public String getUserStatus() {
-		return userStatus;
-	}
-	public void setUserStatus(String userStatus) {
-		this.userStatus = userStatus;
-	}
+//	public String getUserStatus() {
+//		return userStatus;
+//	}
+//	public void setUserStatus(String userStatus) {
+//		this.userStatus = userStatus;
+//	}
 	public String getUserId() {
 		return userId;
 	}
@@ -45,13 +45,17 @@ public class LoginDto extends BaseDto{
 	}
 	
 	
-	public LoginDto(String userId, String sPOCName, String userRole, String id) {
+	public LoginDto(String userId, String sPOCName, String userRole) {
 		super();
 		this.userId = userId;
 		//this.password = password;
 		this.sPOCName = sPOCName;
 		this.userRole = userRole;
 		
+	}
+	public LoginDto()
+	{
+		super();	
 	}
 	
 }

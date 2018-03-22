@@ -13,3 +13,15 @@
 .container-fluid {
 	padding:0;
 }
+/*latest Update*/
+.update{
+  width:100%;
+  background-color: whitesmoke;
+  margin-top: 1%;
+}
+
+
+.mainContent{
+  text-align: center;
+  font-size: 3em;
+}

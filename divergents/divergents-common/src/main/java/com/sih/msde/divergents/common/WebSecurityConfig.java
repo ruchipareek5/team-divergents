@@ -21,7 +21,7 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 			http
 					.httpBasic().and()
 					.authorizeRequests()
-					.antMatchers("/index.html", "/partials/home-carousel.html", "/viewQpPage.html","/","/csrFundingPublicUser.html","/tendersRfpsPublicUser.html","/findTrainingCenter.html","/webinarsPublicUser.html", "/skillGapStudyPublicUser.html","/reportIssue.html", "/login.html").permitAll()
+					.antMatchers("/index.html", "/partials/home-carousel.html", "/viewQpPage.html","/","/csrFundingPublicUser.html","/tendersRfpsPublicUser.html","/findTrainingCenter.html","/webinarsPublicUser.html", "/skillGapStudyPublicUser.html","/reportIssue.html", "/login.html","/loginUrl","/skillIndiaSignup").permitAll()
 					.anyRequest().authenticated()
 					.and()
 					.csrf()

@@ -1,7 +1,7 @@
 package com.sih.msde.divergents.dto;
 
 public class TrainingPartnerDto {
-private long trainingPartnerId;
+private int trainingPartnerId;
 private String organisationName;
 private String sPOCName;
 private String address;
@@ -16,7 +16,7 @@ public TrainingPartnerDto()
 {
 	super();
 }
-public TrainingPartnerDto(long trainingPartnerId, String organisationName,String sPOCName,
+public TrainingPartnerDto(int trainingPartnerId, String organisationName,String sPOCName,
 		String address,String website,String district,String state,long contactNumber, int applicationId, String undertakingPath)
 		{
 	super();
@@ -32,10 +32,10 @@ public TrainingPartnerDto(long trainingPartnerId, String organisationName,String
 	this.undertakingPath = undertakingPath;
 		}
 
-public long getTrainingPartnerId() {
+public int getTrainingPartnerId() {
 	return trainingPartnerId;
 }
-public void setTrainingPartnerId(long trainingPartnerId) {
+public void setTrainingPartnerId(int trainingPartnerId) {
 	this.trainingPartnerId = trainingPartnerId;
 }
 public String getOrganisationName() {

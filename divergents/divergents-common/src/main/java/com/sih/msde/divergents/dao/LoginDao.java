@@ -22,23 +22,36 @@ public class LoginDao extends AbstractTransactionalDao {
 	private static final LoginRowSelectRow ROW_MAPPER = new LoginRowSelectRow();
 	@Autowired
 	private LoginConfigSql loginConfigSql;
-
+    Integer userExistsStatus=-1;
 	private static final Logger LOGGER = LoggerFactory.getLogger(LoginDao.class);
 
 	public Integer userExistsStatus(String userId, String password) {
 		LOGGER.debug("Request received from Service");
 		LOGGER.debug("Checking existence of user with userId: " + userId);
-		Map<String,Object> parameters = new HashMap<>();
-		parameters.put("userId", userId);
-		parameters.put("password", password);
-		LOGGER.debug("Parameters inserted into hashmap");
-	   
-		return getJdbcTemplate().queryForObject(loginConfigSql.getCheckUserSql(),parameters,Integer.class);
+		try {
+			
+			Map<String,Object> parameters = new HashMap<>();
+			parameters.put("userId", userId);
+			parameters.put("password", password);
+			LOGGER.debug("Parameters inserted into hashmap");
+		   
+			userExistsStatus = getJdbcTemplate().queryForObject(loginConfigSql.getCheckUserSql(),parameters,Integer.class);
+		}
+		catch(Exception e) {
+			LOGGER.debug("An exception occured while checking existence of user in the database" + e);
+		}
+		
+		return userExistsStatus;
+		
 	}
+	
+	
 	
 	public  Collection<LoginDto> getUserDetails(String userId, String password) {
 		// TODO Auto-generated method stub
+		//int userLoginStatus=-5;
 		LOGGER.debug("In method getUserDetails to get user details for user with userId:" +userId);
+		
 		Map<String,Object> userCredentials = new HashMap<>();
 		userCredentials.put("userId", userId);
 		userCredentials.put("password", password);
@@ -54,10 +67,11 @@ public class LoginDao extends AbstractTransactionalDao {
 				throws SQLException {
 			        String userId = resultSet.getString("userId");
 					String userRole = resultSet.getString("userRole");
-					String userStatus = resultSet.getString("userStatus");
+					//String userStatus = resultSet.getString("userStatus");
 					String sPOCName = resultSet.getString("sPOCName");
 					
-					return new LoginDto(userId,userRole,userStatus,sPOCName);
+					
+					return new LoginDto(userId,sPOCName,userRole);
 		}
 	}
 

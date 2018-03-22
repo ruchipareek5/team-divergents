@@ -13,6 +13,7 @@ drop table if exists application;
 drop table if exists applicationcomments;
 drop table if exists trainingPartner;
 drop table if exists trainingPartnerQualificationPack;
+drop table if exists trainingCenter;
 
 /* create table for user */
 
@@ -64,5 +65,17 @@ trainingPartnerId int(10),
 qualificationPack varchar(200),
 jobRole varchar(200),
 scheme varchar(200),
+isActive boolean,
+foreign key (trainingPartnerId) references trainingPartner(trainingPartnerId));
+
+/*create table training center*/
+create table if not exists trainingCenter(
+trainingCenterId int(10) primary key auto_increment,
+centerName varchar(200),
+address varchar(200),
+district varchar(200),
+state varchar(200),
+contactNumber bigint,
+trainingPartnerId int(10),
 isActive boolean,
 foreign key (trainingPartnerId) references trainingPartner(trainingPartnerId));

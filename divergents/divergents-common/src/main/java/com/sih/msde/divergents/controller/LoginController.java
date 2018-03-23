@@ -29,17 +29,17 @@ public class LoginController {
 	    private SessionUserUtility sessionUserUtility;
 	
 	@RequestMapping(value="/loginUrl")
-	public Collection<LoginDto> getloginDto(@RequestBody LoginReceiveDataDto loginReceiveDataDto)
+	public Collection<LoginDto> getloginDto()
 	{
-		LOGGER.debug("Sending user Details from the controller to service to validate user with userEmail :" + loginReceiveDataDto.getUserId());
+		LOGGER.debug("Sending user Details from the controller to service to validate user with userEmail :" + sessionUserUtility
+				.getSessionMangementfromSession().getUsername());
 		return loginService.checkUser( sessionUserUtility
 				.getSessionMangementfromSession().getUsername(), sessionUserUtility
 				.getSessionMangementfromSession().getPassword() );
 		
 	}
-	
 
-	@RequestMapping("/getUserDetails")
+	@RequestMapping("/user")
 	public Principal user(Principal user) {
 		LOGGER.debug("In LoginController - user");
 		LOGGER.debug("Parameters Received from front end are - 'user': "+user);

@@ -25,9 +25,12 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 					.anyRequest().authenticated()
 					.and()
 					.csrf()
-					.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and().logout();
+					.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+							.and()
+						    .logout();
 			// @formatter:on
 		}
+		
 	}
 
 

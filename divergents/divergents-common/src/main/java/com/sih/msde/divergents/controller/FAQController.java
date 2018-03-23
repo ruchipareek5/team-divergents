@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sih.msde.divergents.common.Privilege;
 import com.sih.msde.divergents.dto.FAQBatchWiseCandidateDetailsDto;
 import com.sih.msde.divergents.dto.FAQCandidatesEnrolledAssessedCertifiedMonthWiseDto;
 import com.sih.msde.divergents.dto.FAQCandidatesTrainedAssessedCertifiedDto;
@@ -32,7 +31,7 @@ public class FAQController {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(FAQController.class);
 	
-	@Privilege(value={"MSDE"})
+	 
 	@RequestMapping("/getFAQTotalCandidatesTrainedAssessedCertified")
 	public Collection<FAQCandidatesTrainedAssessedCertifiedDto> getTotalCandidatesTrainedAssessedCertified()  {
 		LOGGER.debug("In FAQController - getTotalCandidatesTrainedAssessedCertified");
@@ -53,7 +52,7 @@ public class FAQController {
 		}
 	}
 	
-	@Privilege(value={"MSDE"})
+	 
 	@RequestMapping(method=RequestMethod.POST,value="/getFAQTotalCandidatesTrainedAssessedCertifiedSchemeWise")
 	public Collection<FAQCandidatesTrainedAssessedCertifiedDto> getTotalCandidatesTrainedAssessedCertifiedSchemeWise(@RequestParam("batchType") String batchType) {
 		LOGGER.debug("In FAQController - getTotalCandidatesTrainedAssessedCertifiedSchemeWise");
@@ -75,7 +74,7 @@ public class FAQController {
 		}
 	}
 	
-	@Privilege(value={"MSDE"})
+	 
 	@RequestMapping(value="/getFAQTotalTrainingCentresInAState",method=RequestMethod.POST)
 	public Integer getTotalTrainingCentresInAState(@RequestParam("state") String state) {
 		LOGGER.debug("In FAQController - getTotalTrainingCentresInAState");
@@ -97,7 +96,7 @@ public class FAQController {
 		}
 	}
 	
-	@Privilege(value={"MSDE"})
+	 
 	@RequestMapping(value="/getFAQCountOfTotalTrainingCentresConductingTraining")
 	public Integer getCountOfTotalTrainingCentresConductingTraining() {
 		LOGGER.debug("In FAQController - getCountOfTotalTrainingCentresConductingTraining");
@@ -118,7 +117,7 @@ public class FAQController {
 		}
 	}
 	
-	@Privilege(value={"MSDE"})
+	 
 	@RequestMapping(value="/getFAQCountOfCandidatesAssessmentUpcomingForAMonth",method=RequestMethod.POST)
 	public Integer getCountOfCandidatesAssessmentUpcomingForAMonth(@RequestParam("month") String month) {
 		LOGGER.debug("In FAQController - getCountOfCandidatesAssessmentUpcomingForAMonth");
@@ -140,7 +139,7 @@ public class FAQController {
 		}
 	}
 	
-	@Privilege(value={"MSDE"})
+	 
 	@RequestMapping(value="/getFAQNameOfAgencyToWhichABatchIsAssigned",method=RequestMethod.POST)
 	public String getNameOfAgencyToWhichABatchIsAssigned(@RequestParam("batchId") Integer batchId)throws EmptyResultDataAccessException {
 		LOGGER.debug("In FAQController - getNameOfAgencyToWhichABatchIsAssigned");
@@ -162,7 +161,7 @@ public class FAQController {
 		}
 	}
 	
-	@Privilege(value={"MSDE"})
+	 
 	@RequestMapping(value="/getFAQTotalCountOfBatchesAssignedToAAssessmentAgency",method=RequestMethod.POST)
 	public Integer getTotalCountOfBatchesAssignedToAAssessmentAgency(@RequestParam("agencyName") String agencyName)throws EmptyResultDataAccessException {
 		LOGGER.debug("In FAQController - getTotalCountOfBatchesAssignedToAAssessmentAgency");
@@ -184,7 +183,7 @@ public class FAQController {
 		}
 	}
 	
-	@Privilege(value={"MSDE"})
+	 
 	@RequestMapping(value="/getFAQCountOfTotalNumberOfBatchesAndTotalEnrolledInAParticularState",method=RequestMethod.POST)
 	public Collection<FAQTotalNumberOfBatchesAndTotalEnrolledInAParticularStateDto> getCountOfTotalNumberOfBatchesAndTotalEnrolledInAParticularState(@RequestParam("state") String state) {
 		LOGGER.debug("In FAQController - getCountOfTotalNumberOfBatchesAndTotalEnrolledInAParticularState");
@@ -207,7 +206,7 @@ public class FAQController {
 		}
 	}
 	
-	@Privilege(value={"MSDE"})
+	 
 	@RequestMapping(value="/getFAQCountOfTotalNumberOfBatchesAndTotalEnrolledInAParticularScheme",method=RequestMethod.POST)
 	public Collection<FAQTotalNumberOfBatchesAndTotalEnrolledInAParticularStateDto> getCountTotalNumberOfBatchesInAParticularScheme(@RequestParam("batchType") String batchType) {
 		LOGGER.debug("In FAQController - getCountTotalNumberOfBatchesInAParticularScheme");
@@ -229,7 +228,7 @@ public class FAQController {
 		}
 	}
 	
-	@Privilege(value={"MSDE"})
+	 
 	@RequestMapping(value="/getFAQCountTotalAssessorsOfAParticularAgencyInAParticularState",method=RequestMethod.POST)
 	public Integer getCountTotalAssessorsOfAParticularAgencyInAParticularState(@RequestParam("agencyName") String agencyName, @RequestParam("state") String state) {
 		LOGGER.debug("In FAQController - getCountTotalAssessorsOfAParticularAgencyInAParticularState");
@@ -251,7 +250,7 @@ public class FAQController {
 		}
 	}
 	
-	@Privilege(value={"MSDE"})
+	 
 	@RequestMapping(value="/getFAQStatusOfAParticularBatchWithId",method=RequestMethod.POST)
 	public Collection<FAQStatusOfAParticularBatchWithIdDto> getStatusOfAParticularBatchWithId(@RequestParam("batchId") Integer batchId) {
 		LOGGER.debug("In FAQController - getStatusOfAParticularBatchWithId");
@@ -273,7 +272,7 @@ public class FAQController {
 		}
 	}
 	
-	@Privilege(value={"MSDE"})
+	 
 	@RequestMapping(value="/getFAQCountBatchesForWhichResultIsPending")
 	public Integer getCountBatchesForWhichResultIsPending() {
 		LOGGER.debug("In FAQController - getCountBatchesForWhichResultIsPending");
@@ -294,7 +293,7 @@ public class FAQController {
 		}
 	}
 	
-	@Privilege(value={"MSDE"})
+	 
 	@RequestMapping(value="/getFAQBatchWiseCandidatesDetails",method=RequestMethod.POST)
 	public Collection<FAQBatchWiseCandidateDetailsDto> getBatchWiseCandidatesDetails(@RequestParam("batchId") Integer batchId) {
 		LOGGER.debug("In FAQController - getBatchWiseCandidatesDetails");
@@ -316,7 +315,7 @@ public class FAQController {
 		}
 	}
 	
-	@Privilege(value={"MSDE"})
+	 
 	@RequestMapping("/getFAQCountTotalNonAssignedBatches")
 	public Integer getCountTotalNonAssignedBatches() {
 		LOGGER.debug("In FAQController - getCountTotalNonAssignedBatches");
@@ -337,7 +336,7 @@ public class FAQController {
 		}
 	}
 	
-	@Privilege(value={"MSDE"})
+	 
 	@RequestMapping("/getFAQTrainingCentresNotTakingAnyBatches")
 	public Collection<FAQTrainingCentresNotTakingAnyBatchesDto> getTrainingCentresNotTakingAnyBatchesc(){
 		LOGGER.debug("In FAQController - getTrainingCentresNotTakingAnyBatchesc");
@@ -358,7 +357,7 @@ public class FAQController {
 		}
 	}
 	
-	@Privilege(value={"MSDE"})
+	 
 	@RequestMapping(method=RequestMethod.POST,value="/getFAQCandidatesEnrolledAssessedCertifiedMonthWise")
 	public Collection<FAQCandidatesEnrolledAssessedCertifiedMonthWiseDto> getCountTotalCandidatesEnrolledMonthWise(@RequestParam("year") Integer year, @RequestParam("candidates") String candidates) {
 		LOGGER.debug("In FAQController - getCountTotalCandidatesEnrolledMonthWise");
@@ -403,7 +402,7 @@ public class FAQController {
 		}
 	}
 	
-	@Privilege(value={"MSDE"})
+	 
 	@RequestMapping(method=RequestMethod.POST,value="/getFAQCandidatesEnrolledAssessedCertifiedMonthAndSchemeWise")
 	public Collection<FAQCandidatesEnrolledAssessedCertifiedMonthWiseDto> getCountTotalCandidatesEnrolledMonthAndSchemeWise(@RequestParam("year") Integer year, @RequestParam("candidates") String candidates, @RequestParam("batchType") String batchType)
 	{
@@ -449,7 +448,7 @@ public class FAQController {
 		}
 	}
 	
-	@Privilege(value={"MSDE"})
+	 
 	@RequestMapping(method=RequestMethod.POST,value="/getFAQTotalBatchesWithTotalCandidatesEnrolledYearWise")
 	public Collection<FAQTotalBatchesWithTotalCandidatesEnrolledMonthWiseDto> getTotalBatchesWithTotalCandidatesEnrolledYearWise(@RequestParam("year") int year) {
 		LOGGER.debug("In FAQController - getTotalBatchesWithTotalCandidatesEnrolledYearWise");

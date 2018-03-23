@@ -30,11 +30,11 @@
                      <div class="row">
                      
                <!-- LOGIN FORM -->   
-                     
-                        <form   id="login-form"  action="" method="post" role="form" style="display: block;"data-toggle="validator" ng-controller="loginCtrl">
+                     <div ng-controller="loginCtrl">
+                                             <form  id="login-form" method="post" role="form" style="display: block;"data-toggle="validator"  ng-submit="login()">
                            <div class="form-group input-group">
                               <div>
-                                 <input type="email" pattern="[a-zA-Z0-9-.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"  name="userId" id="userId"  tabindex="1" class="form-control" data-error="Invalid Email" placeholder="Email ID"  value=" " ng-model="user.userId" />
+                                 <input type="email" pattern="[a-zA-Z0-9-.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"  name="userId" id="userId"  tabindex="1" class="form-control" data-error="Invalid Email" placeholder="Email ID"  value=" " ng-model="crdentials.userId" />
                               </div>
                               <div class="help-block with-errors"> </div>
                               <span class=" input-group-addon" style="background-color:white;
@@ -45,7 +45,7 @@
                            </div>
                            <div class="wrraper">
                               <div class="form-group input-group">
-                                 <input type="password" data-minlength="6" name="password" id="password" tabindex="2" data-error="Minimum 6 Character" class="form-control"  placeholder="Password" ng-model="user.password" />
+                                 <input type="password" data-minlength="6" name="password" id="password" tabindex="2" data-error="Minimum 6 Character" class="form-control"  placeholder="Password" ng-model="credentials.password" />
                                  <div class="help-block with-errors"></div>
                                  <span class="input-group-addon" style="background-color:white; border:none; border-bottom:0px solid #ccc">
                                     <div>
@@ -63,6 +63,10 @@
                            </div>
                         </form>
                         
+                        <div class="alert alert-danger" ng-show="error">There was a problem logging in. Please try again.
+</div>
+                     </div>
+
                         
           <!-- SIGN UP FORM -->              
                         

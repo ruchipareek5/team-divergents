@@ -12,6 +12,7 @@
         <link  href="css/publicUser.css" rel="stylesheet"/>
         <link rel ='stylesheet' type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans">	  
     	<link rel="stylesheet" href="css/FAQ.css"/>
+    	
     		<!-- Angular Imports -->
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js" type="text/javascript"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.min.js" type="text/javascript"></script>
@@ -42,6 +43,9 @@
 		<script type="text/javascript" src="js/controller/webinarsPublicUser.js"></script>
 		<script type="text/javascript" src="js/controller/fAQ.js"></script>
 		<script type="text/javascript" src="js/controller/studentController.js"></script>
+		<script type="text/javascript" src="js/controller/login.js"></script>
+		<script type="text/javascript" src="js/controller/industry.js"></script>
+		
 </head>
 
 <body>
@@ -111,6 +115,43 @@
 
 </section>
 
+
+	
+	
+	</div>
+	</div>
+	<div ng-show="templateShow">
+	<head>
+	<link rel="stylesheet" href="css/student.css">
+	</head>
+<div class="container-fluid background-my-container" ng-controller="student">
+    <div class="img-banner">
+<!--<img src="images/carsousel_image1.png" class="img-banner img-responsive" /> -->
+    </div>
+
+    <div class=" layer-up">
+      <div class="topHeader">
+        <div> <img src="images/NSDC logo.png "class="NSDClogo" /></div>
+
+      <div class="topnav" id="myTopnav">
+
+        <a href="#" >View QPs</a>
+        <a href="#" >CSR Funding</a>
+        <a href="#" >Tenders/RFPs</a>
+        <a href="#"  >Find Training Center</a>
+        <a href="#"  >Webinars</a>
+          <a href="#"  >Skill Gap Study</a>
+            <a href="#" >Report Issues</a>
+        <a href="#" style="font-size:15px;" class="icon"  onclick="myFunction()">&#9776;</a>
+      </div>
+
+      </div>
+      <div class="lowerFooter col-md-12">
+      </div>
+
+      </div>
+    </div>
+	</div>
 </body>
 
 </html>

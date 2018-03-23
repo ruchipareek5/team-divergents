@@ -424,3 +424,6 @@ emailId varchar(200),
 contactNo bigInt(11),
 abId int(15) not null,
 foreign key (abId) References assessmentagencyregistration(abId));
+
+create table jobrole(jobRoleId varchar(30), jobRoleName varchar(80), jobRoleDescription varchar(200), jobRoleUrl varchar(100), ssc varchar(100))
+alter table jobrole add primary key (jobRoleId);

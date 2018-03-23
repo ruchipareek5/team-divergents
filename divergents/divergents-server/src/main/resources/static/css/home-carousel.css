@@ -1,27 +1,24 @@
-.item{
-  background-color: gray;
+@-webkit-keyframes zoomIn{
+  from {
+    -webkit-transform: scale(1, 1);
+  }
+  to {
+    -webkit-transform: scale(1.5, 1.5);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(1, 1);
+  }
+  to {
+    transform: scale(1.5, 1.5);
+  }
+}
+
+.carousel-inner .item > img {
+  -webkit-animation: zoomIn 20s;
+  animation: zoomIn 20s;
+ 
   width:100%;
-}
-
-.carousel-inner{
-  margin-top: 0%;
-}
-.carousel-inner>.item img {
-   height: 50%;
-   width:100%;
- }
-.container-fluid {
-	padding:0;
-}
-/*latest Update*/
-.update{
-  width:100%;
-  background-color: whitesmoke;
-  margin-top: 1%;
-}
-
-
-.mainContent{
-  text-align: center;
-  font-size: 3em;
 }

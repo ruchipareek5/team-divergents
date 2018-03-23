@@ -4,16 +4,13 @@
 	<title>NSDC</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- All the common files for the Project -->
-	
-	
-
-		<!-- CSS -->
+	<!-- CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.0.6/ui-grid.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <link  href="css/publicUser.css" rel="stylesheet"/>
-        <link rel ='stylesheet' type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans"  >
+        <link rel ='stylesheet' type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans">	  
     	<link rel="stylesheet" href="css/FAQ.css"/>
     		<!-- Angular Imports -->
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js" type="text/javascript"></script>
@@ -47,116 +44,73 @@
 		<script type="text/javascript" src="js/controller/studentController.js"></script>
 </head>
 
-<body ng-app="divergents">
-	<div class="container viewDiv" ></div>
-			<!-- Rendered Views -->
-			
-			<div  class="container-fluid">
-	  
-<div class ="clickIcons" ng-controller="loginCtrl">
-	    <span class="becomeTP"><i class="fa">&#xf2be;</i></span>
-	   <span class="becomeTP"> <a href="#"> Become TP</a></span>
-	    <span class="becomeTP"><i class="fa"> | &#xf2be;</i></span>
+<body>
+<section class="fullsize-video-bg">
+    <div class="inner">
+            <h1>Make india proud with your skills</h1>
+    </div>
+    <div class="layer-up">&nbsp;</div>
+            <video class="video" autoplay="true" muted="true" loop>
+                <source src="images\Video2.mp4" type="video/mp4">
+            </video>
+    <div class="square-img">
+        <div class="container">
+            <ul>
+                <li>
+                    <a href="/" ng-click="func()">
+                        <img src="images\student.png" width="300px" height="auto">
+                        <div class="wrapdiv">
+                            <div class="over-img">
+                                <img src="images\studentlogo.png" width="auto" height="42px">
+                                <p>Student</p>
+                               <img src="images\arrow.png" width="auto" height="42px">
+                            </div> 
 
-	    <span class="becomeTP" style="cursor:pointer;" > <a ng-click="screen='screen9'"> Login</a></span>
-	    	    <span class="becomeTP"><i class="fa"> | &#xf2be;</i></span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/" ng-click="func()">
+                        <img src="images\Industry.jpg" width="300px" height="auto">
+                        <div class="wrapdiv wrapdiv-sec">
+                            <div class="over-img"><img src="images\industry.png"  width="auto" height="42px">
+                                <p>Industry</p>
+                               <img src="images\arrow.png" width="auto" height="42px">
+                            </div>
 
-	    <span class="becomeTP" style="cursor:pointer;" > <a ng-click="logout()"> Logout</a></span>
-</div>
-	</div>
-	</div>
-	<!--  Top Navigation -->
-<div class="topnav" id="myTopnav">
-<span class="msde"> <img src ="images\nsdc.png" class="logo img-responsive" /></span>
-<a ng-click="screen='screen1'">Home</a>
-  <a ng-click="screen='screen2'">View QPs</a>
-  <a ng-click="screen='screen3'">CSR Funding</a>
-  
-  <a ng-click="screen='screen4'">Tenders/RFPs</a>
-  <a ng-click="screen='screen5'">Find Training Center</a>
-  <a ng-click="screen='screen6'">Webinars</a>
-  <a ng-click="screen='screen7'">Skill Gap Study</a>
-  <a ng-click="screen='screen8'">Report Issues</a>
-  <a ng-click="screen='screen10'">FAQ</a>
-  <a href="javascript:void(0);" style="font-size:15px;" class="icon"  onclick="myFunction()">&#9776;</a>
-</div>
-<div class=" container-fluid template ">
-<div ng-switch on="screen">
-
-<div ng-switch-when="screen1">
-<div ng-include src="'partials/home-carousel.html'"></div>
-</div>
-<div ng-switch-when="screen2">
-<div ng-include src="'viewQpPage.html'"></div>
-</div>
-<div ng-switch-when="screen3">
-<div ng-include src="'csrFundingPublicUser.html'"></div>
-</div>
-<div ng-switch-when="screen4">
-<div ng-include src="'tendersRfpsPublicUser.html'"></div>
-</div>
-<div ng-switch-when="screen5">
-<div ng-include src="'findTrainingCenter.html'"></div>
-</div>
-<div ng-switch-when="screen6">
-<div ng-include src="'webinarsPublicUser.html'"></div>
-</div>
-<div ng-switch-when="screen7">
-<div ng-include src="'skillGapStudyPublicUser.html'"></div>
-</div>
-<div ng-switch-when="screen8">
-<div ng-include src="'reportIssue.html'"></div>
-</div>
-<div ng-switch-when="screen9">
-<div ng-include src="'login.html'"></div>
-</div>
-<div ng-switch-when="screen10">
-<div ng-include src="'fAQ.html'"</div>
-</div>
-<!-- code to render body part which changes on click -->
-</div>
-
-<div class="footer">
-
-  <div class="logoBar">
-    <div class="image-wrap">
-
-      <img src="images\MSDE-jobs-2018-notification.png" alt="" class="MSDE-logo">
-
-          <img src="images\Image-of-Skill-India.png" alt="" class="logoSkillIndia">
-
-                <img src="images\pmkvy.jpg" alt="" class="logoPMKVY">
-
-                    <img src="images\logo_SMART.png" alt="" class="emblem">
-
-                         <img src="images\udaan.jpg" alt="" class="udaan">
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/" ng-click="func()">
+                        <img src="images\trainingpartner.png" width="300px" height="auto">
+                        <div class="wrapdiv wrapdiv-thir">
+                            <div class="over-img"><img src="images\TP.png"  width="auto" height="42px">
+                                <p>Training_Partner</p>
+                                <img src="images\arrow.png" width="auto" height="42px">
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/" ng-click="func()">
+                        <img src="images\govt.png" width="300px" height="auto">
+                        <div class="wrapdiv wrapdiv-four">
+                            <div class="over-img">
+                                <img src="images\government.png"  width="auto" height="42px">
+                                <p>Goverment</p>
+                                <img src="images\arrow.png" width="auto" height="42px">
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="clear"></div>
+        </div>
     </div>
 
-</div>
-<!--lower Footer-->
+</section>
 
-
-
-
-<footer>
-    <div class="upperFooter">
-        <div class="link-wrapper">
-            <a href="" class="link">About Us</a><span class="vert-bars"> | </span>
-            <a href="" class="link">Notices</a><span class="vert-bars"> | </span>
-            <a href="" class="link">Contact Us</a><span class="vert-bars"> | </span>
-            <a href="" class="link">Services</a><span class="vert-bars"> | </span>
-            <a href="" class="link">Vision and Mission </a>
-        </div>
-        <div class="lowerFooter">
-       <p class="copyright">Copyright &copy 2018 nsdcindia.org - All Rights Reserved.</p>
-   </div>
-</footer>
-
-</footer>
-
-	
-	
-	</div>
 </body>
 
 </html>

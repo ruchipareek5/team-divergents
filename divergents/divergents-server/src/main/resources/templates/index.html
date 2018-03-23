@@ -48,8 +48,8 @@
 		
 </head>
 
-<body>
-<section class="fullsize-video-bg">
+<body ng-app="divergents">
+<section class="fullsize-video-bg" ng-controller="home" ng-hide="templateShow">
     <div class="inner">
             <h1>Make india proud with your skills</h1>
     </div>
@@ -61,7 +61,7 @@
         <div class="container">
             <ul>
                 <li>
-                    <a href="/" ng-click="func()">
+                    <a  ng-click="openStudent()">
                         <img src="images\student.png" width="300px" height="auto">
                         <div class="wrapdiv">
                             <div class="over-img">
@@ -74,7 +74,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/" ng-click="func()">
+                    <a ng-click="openIndustry()">
                         <img src="images\Industry.jpg" width="300px" height="auto">
                         <div class="wrapdiv wrapdiv-sec">
                             <div class="over-img"><img src="images\industry.png"  width="auto" height="42px">
@@ -86,7 +86,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/" ng-click="func()">
+                    <a ng-click="openTrainingPartner()">
                         <img src="images\trainingpartner.png" width="300px" height="auto">
                         <div class="wrapdiv wrapdiv-thir">
                             <div class="over-img"><img src="images\TP.png"  width="auto" height="42px">
@@ -97,7 +97,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/" ng-click="func()">
+                    <a ng-click="openGovt()">
                         <img src="images\govt.png" width="300px" height="auto">
                         <div class="wrapdiv wrapdiv-four">
                             <div class="over-img">
@@ -114,16 +114,10 @@
     </div>
 
 </section>
-
-
-	
-	
-	</div>
-	</div>
 	<div ng-show="templateShow">
-	<head>
-	<link rel="stylesheet" href="css/student.css">
-	</head>
+	
+	<link rel="stylesheet" href="css/student.css" />
+	
 <div class="container-fluid background-my-container" ng-controller="student">
     <div class="img-banner">
 <!--<img src="images/carsousel_image1.png" class="img-banner img-responsive" /> -->
@@ -152,6 +146,10 @@
       </div>
     </div>
 	</div>
+<section>
+
+</section>
+
 </body>
 
 </html>

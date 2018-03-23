@@ -20,13 +20,13 @@ public class LoginService {
 	private LoginDao loginDao;
 	private int validUserExistence = -1;
 	Collection<LoginDto> login;
-	public Collection<LoginDto> checkUser(LoginReceiveDataDto loginReceiveDataDto)
+	public Collection<LoginDto> checkUser(String userId , String password)
 	{
-		validUserExistence = loginDao.userExistsStatus(loginReceiveDataDto.getUserId(),loginReceiveDataDto.getPassword());
+		validUserExistence = loginDao.userExistsStatus(userId,password);
 		if(validUserExistence == 1)
 		{
 			LOGGER.debug("User exists in the database");
-		    login = loginDao.getUserDetails(loginReceiveDataDto.getUserId(),loginReceiveDataDto.getPassword());
+		    login = loginDao.getUserDetails(userId,password);
 			LOGGER.debug("Response received from DAO and stored in the collection");
 			LOGGER.debug("Data captured in LoginDto");
 			}

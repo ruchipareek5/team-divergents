@@ -34,7 +34,7 @@
                                              <form  id="login-form" method="post" role="form" style="display: block;"data-toggle="validator"  ng-submit="login()">
                            <div class="form-group input-group">
                               <div>
-                                 <input type="email" pattern="[a-zA-Z0-9-.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"  name="userId" id="userId"  tabindex="1" class="form-control" data-error="Invalid Email" placeholder="Email ID"  value=" " ng-model="crdentials.userId" />
+                                 <input type="email" pattern="[a-zA-Z0-9-.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"  name="userId" id="userId"  tabindex="1" class="form-control" data-error="Invalid Email" placeholder="Email ID"  value=" " ng-model="credentials.userId" />
                               </div>
                               <div class="help-block with-errors"> </div>
                               <span class=" input-group-addon" style="background-color:white;
@@ -62,7 +62,13 @@
                               </div>
                            </div>
                         </form>
-                        
+                        <div class="form-group">
+                              <div class="row">
+                                 <div class="col-sm-6 col-sm-offset-3">
+                                    <input type="button" name="login-submit" id="login" tabindex="4" class="form-control button"  value="LOGOUT" ng-click="logout()"/>
+                                 </div>
+                              </div>
+                           </div>
                         <div class="alert alert-danger" ng-show="error">There was a problem logging in. Please try again.
 </div>
                      </div>

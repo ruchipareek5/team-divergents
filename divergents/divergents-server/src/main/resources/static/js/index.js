@@ -10,9 +10,17 @@ var divergents = angular.module('divergents', ['ngRoute',
 divergents.config( function($routeProvider, $httpProvider){
 	
 	$routeProvider.when('/nsdc', {
-	    templateUrl : 'nsdcAdmin.html'
-
+	    templateUrl : 'nsdcAdmin.html',
+	    	controller : 'nsdcAdmin'
 	})
+    .when('/login',{
+        templateUrl : 'becomeTP.html',
+        controller : 'becomeTP'
+    }).
+    when('/logout',{
+    	 templateUrl : 'webinarsPublicUser.html',
+         controller : 'webinarsPublicUser'
+    })
 	.otherwise('/');
 	
 	$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -22,6 +30,7 @@ divergents.controller('signupCtrl', function($scope,$http){
 	
 });
 divergents.controller('loginCtrl' , function($rootScope, $http, $location, $route,$scope,$timeout){
+	$rootScope.priv = "PU";
 	$scope.credentials = {
 			
 	};
@@ -30,17 +39,77 @@ divergents.controller('loginCtrl' , function($rootScope, $http, $location, $rout
 	 {
 		 
 	 }
+	 
+//	 //check and route to different tenplates
+//	    var checkAndSetState =function(submitRoutingUrl,acceptedRoutingUrl){
+//	        $http({
+//	            method: 'POST',
+//	            url: "/getApplicationState"})
+//	             .then(function(response){
+//	            	 var appState = response.data.applicationState;
+////	                 alert("Application get successful, state = " + appState);
+//	                 if(appState == 'Draft'){
+//	                     $location.path(submitRoutingUrl);
+//	                 }
+//
+//	                 else{
+//	                     //alert("Not routing to pc " + appState);
+//	                     $location.path(acceptedRoutingUrl);
+//	                 }
+//
+//	             });
+//
+//	     
+//
+//	    }
+	 //success callback function
+	    var successCallBack = function(authenticated) {
+	        if (authenticated) {
+	            var userType = $rootScope.type;
+	            var PU = '"PU"';
+	            var TP = '"TP"';
+	            var NSDC = '"NSDC"';
+	            var appState = "Submit";
+
+
+
+	            if(userType == PU){
+	                
+	              //  $location.path("/assessmentBody");
+	                $rootScope.priv = "PU";
+	                //$location.hrefcheckAndSetState("/profileCreationAb","/assessmentBody");
+	            }
+
+	            if(userType == TP){
+	                
+	                $rootScope.priv = "TP";
+	                //checkAndSetState("/profileCreationTp","/trainingPartner");
+	            }
+
+	            if(userType == NSDC){
+	                
+	                //$location.path("/master");
+	                $rootScope.priv = "NSDC";
+	            }
+
+	            $scope.error = false;
+	            $rootScope.authenticated = true;
+
+
+	        } 
+	    
+	}
 	 //Authenticate Function
 	var authenticate = function(credentials)
 	{
-		var setSession = "/getUserDetails";
+		var setSession = "/user";
 		  var headers = credentials ? {
 	          authorization : "Basic " + btoa(credentials.userId + ":" + credentials.password)
 	        } : {};
 	        $http.get(setSession,{
 	            headers : headers
 	        }).then(function(response){
-	        	if(response.name)
+	        	if(response.status == 200)
 	        		{
 	        		$rootScope.authenticated = true;
 	        		var loginControllerURI = "/loginUrl";
@@ -48,7 +117,7 @@ divergents.controller('loginCtrl' , function($rootScope, $http, $location, $rout
 	        		  $http({
 
 	        					url : loginControllerURI,
-	        					method : "POST",
+	        					method : "GET",
 	        					transformResponse: [function (data)  {
 	        	                    //console.log(data);
 
@@ -63,15 +132,23 @@ divergents.controller('loginCtrl' , function($rootScope, $http, $location, $rout
 	        		       }).then(function(response)
 	        		       
 	        		       	{
+	        		    	   
 	        		        var loginAction=response.data;
 	        		        console.log(loginAction);
 	        		       
+	        		       }, function(errorResponse){
+	        		    	   $rootScope.authenticated = false;
 	        		       });
+	        		  $location.path = "/login";
 	        		}
 	        	else
 	        		{
 	        		$rootScope.authenticated = false;
 	        		}
+	        	
+	        	$rootScope.type = JSON.stringify(response.data.authorities[0].authority);
+	            successCallBack($rootScope.authenticated);
+	            
 	        }, function(errorResponse){
 	        	$rootScope.authenticated = false;
 	        })
@@ -94,12 +171,16 @@ divergents.controller('loginCtrl' , function($rootScope, $http, $location, $rout
 	        });
 	    };
 $scope.logout = function()
-{$http.post("/logout").then(function(response){
+{
 	$rootScope.authenticated = false;
-	$location.path = '/';
+	$rootScope.type= "logout";
+	window.location.href ="/logout";
+	$http.post("logout").then(function(response){
+	
+	//$location.path = '/logout';
 }, function(errorResponse){
 	$rootScope.authenticated = false;
-	$location.path = '/';
+	window.location.href ="/";
 })
 	};
 	});

@@ -31,6 +31,9 @@
 	    	<!-- Angular Controllers -->
 		<script type="text/javascript" src="js/index.js" type="text/javascript"></script>
 		<script type="text/javascript" src="js/home.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/controller/nsdcAdminController.js"></script>
+		<script type="text/javascript" src="js/controller/becomeTP.js"></script>
+		<script type="text/javascript" src="js/controller/webinarsPublicUser.js"></script>
 </head>
 
 <body ng-app="divergents">
@@ -39,7 +42,7 @@
 			
 			<div  class="container-fluid">
 	  
-<div class ="clickIcons">
+<div class ="clickIcons" ng-controller="loginCtrl">
 	    <span class="becomeTP"><i class="fa">&#xf2be;</i></span>
 	   <span class="becomeTP"> <a href="#"> Become TP</a></span>
 	    <span class="becomeTP"><i class="fa"> | &#xf2be;</i></span>

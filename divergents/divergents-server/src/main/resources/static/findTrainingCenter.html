@@ -1,59 +1,57 @@
 <div>
-	<head>
-		<script type="text/javascript" src="js/controllers/findTrainingCenter.js"></script>
-	</head>
-	<div class="container">
-  <h6>Find a training Centre</h6>
-
-  <div class="panel-group">
+		<link href="css/findTC.css" type="text/stylesheets">
+	
+<div class="container" ng-controller="findtrainingcenter">
+  <h6>Find a Training Center</h6>
+ <div class="panel-group">
     <div class="panel panel-primary">
       <div class="panel-heading">Find a Training Center</div>
-      <div class="panel-body">
-    <form class="form-inline">
-    <div class="form-group">
-      <label for="state">STATE</label>
-      <select class="form-control" id="sel1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
+      <div class="panel-body col-md-6">
+    <form class="form-inline" ng-submit="findtc()">
+    <div >
+      <label for="state" class="col-md-2">STATE</label>
+      <select class="form-control col-md-4" id="state" ng-model="selectedState">
+        <option value="" disabled selected>Choose State</option>
+        <option ng-repeat="x in findTC" value="{{x.state}}">{{x.state}}</option>
       </select>
     </div>
-    <div class="form-group">
-      <label for="district">DISTRICT</label>
-      <select class="form-control" id="sel2" >
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
+    <div>
+      <label for="district" class="col-md-2">DISTRICT</label>
+      <select class="form-control col-md-4" id="district" ng-model="selectedDistrict">
+        <option value="" disabled selected>Choose District</option>
+        <option ng-repeat="x in findTC" value="{{x.district}}">{{x.district}}</option>
       </select>
+    </div>
+    <div >
+      <label for="jobrole" class="col-md-2">Block</label>
+      <select class="form-control"class="col-md-4" id="block" ng-model="selectedBlock">
+        <option value="" disabled selected>Choose Block</option>
+        <option ng-repeat="x in findTC" value="{{x.block}}">{{x.block}}</option>
+        </select>
     </div>
     <br>
-    <div class="form-group">
-      <label for="sector">SECTOR</label>
-      <select class="form-control" id="sel3">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
+    <div>
+      <label for="sector" class="col-md-2">SECTOR</label>
+      <select class="form-control" id="sector" ng-model="selectedSector" class="col-md-4">
+        <option value="" disabled selected>Choose Sector</option>
+        <option ng-repeat="x in findTC" value="{{x.sector}}">{{x.sector}}</option>
       </select>
     </div>
-    <div class="form-group">
-      <label for="jobrole">JOB ROLE</label>
-      <select class="form-control" id="sel4">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-      </select>
+    <div >
+      <label for="jobrole" class="col-md-2">JOB ROLE</label>
+      <select class="form-control" id="jobrole" ng-model="selectedJobrole" class="col-md-4">
+        <option value="" disabled selected>Choose Job Role</option>
+        <option ng-repeat="x in findTC" value="{{x.jobrole}}">{{x.jobrole}}</option>
+        </select>
     </div>
+    
     <br>
   
     <button type="submit" class="btn btn-primary">FIND</button>
   </form>
       </div>
     </div>
-  </div>
+  </div> 
 </div>
 
 </div>

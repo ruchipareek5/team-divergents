@@ -454,3 +454,5 @@ CREATE TABLE `msde`.`industrypartnerships` (
   PRIMARY KEY (`csrApplicationNumber`),
   UNIQUE INDEX `userPhone_UNIQUE` (`userPhone` ASC));
 
+alter table centre add jobRoleId varchar(30);
+alter table centre add foreign key (jobRoleId) references jobrole(jobRoleId);

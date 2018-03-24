@@ -1,7 +1,6 @@
 findtrainingcenter:
  selectSqlAllStates: > 
-  select distinct state
-   from centre
+  select distinct state from centre
    
  selectSqlAllDistrict: > 
   select distinct district
@@ -12,20 +11,18 @@ findtrainingcenter:
    from centre
    
  selectSqlAllSector: > 
-  select distinct sector
+  select distinct ssc
    from jobrole  
    
  selectSqlAllJobrole: > 
-  select distinct jobroleName
+  select distinct jobRoleName
    from jobrole
   
  selectSqlSpecfiedTrainingCenter1: > 
   select centreName,centreAddress,contact
-   from centre WHERE state=:state and district=:district and block=:block
+   from centre inner join jobrole on centre.jobRoleId= jobrole.jobRoleId WHERE state=:state and district=:district and block=:block and ssc=:sector and jobRoleName=:jobrole
    
- selectSqlSpecfiedTrainingCenter2: > 
-  select centreName,centreAddress,contact
-   from centre WHERE state=:state and district=:district
+ 
  
    
      

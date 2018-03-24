@@ -16,7 +16,6 @@ import com.sih.msde.divergents.dto.GetStatesDto;
 
 @Repository
 public class GetstateFindTrainingCenterDao extends AbstractTransactionalDao{
-
 	
 	@Autowired
 	public FindTrainingCenterConfig findTrainingCenterConfig;	

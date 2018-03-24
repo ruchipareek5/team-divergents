@@ -38,11 +38,10 @@ public class FindTrainingCenterDao extends AbstractTransactionalDao{
 		parameters.put("state", state);
 		parameters.put("district", district);
 		parameters.put("block", block);
-		parameters.put("sector", sector);
+		parameters.put("ssc", sector);
 		parameters.put("jobrole", jobrole);
 		
-		
-         return getJdbcTemplate().query(findTrainingCenterConfig.getSelectSqlSpecfiedTrainingCenter1(), parameters, ROW_MAPPER);
+        return getJdbcTemplate().query(findTrainingCenterConfig.getSelectSqlSpecfiedTrainingCenter1(), parameters, ROW_MAPPER);
 	}
 
 
@@ -51,9 +50,9 @@ private static class FindTrainingCenterRowSelectRowMapper implements RowMapper<F
 	@Override
 	public FindSpecifiedTrainingCenterDto mapRow(ResultSet resultSet, int rowNum)
 			throws SQLException {
-		String trainingCenterName = resultSet.getString("trainingCenterName");
-		String address = resultSet.getString("address");
-		String contactNumber = resultSet.getString("contactNumber");
+		String trainingCenterName = resultSet.getString("centreName");
+		String address = resultSet.getString("centreAddress");
+		String contactNumber = resultSet.getString("contact");
 		return new FindSpecifiedTrainingCenterDto(trainingCenterName, address, contactNumber);
 		
 	}

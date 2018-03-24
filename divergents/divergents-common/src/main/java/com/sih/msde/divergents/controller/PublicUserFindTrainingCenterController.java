@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sih.msde.divergents.dto.FindSpecifiedTrainingCenterDto;
 import com.sih.msde.divergents.dto.FindTrainingCenterDetailsDto;
+import com.sih.msde.divergents.dto.GetBlockDto;
+import com.sih.msde.divergents.dto.GetDistrictsDto;
+import com.sih.msde.divergents.dto.GetJobRoleDto;
+import com.sih.msde.divergents.dto.GetSectorDto;
 import com.sih.msde.divergents.dto.GetStatesDto;
 import com.sih.msde.divergents.service.FindTrainingCenterService;
 
@@ -28,6 +32,25 @@ public class PublicUserFindTrainingCenterController {
 		return findTrainingCenterService.getstatesData();
 	}
 	
+	@RequestMapping("/getallDistrict")
+	public Collection<GetDistrictsDto> getalltheDistrict(){
+		return findTrainingCenterService.getDistrictsData();
+	}
+	
+	@RequestMapping("/getallBlocks")
+	public Collection<GetBlockDto> getalltheBlock(){
+		return findTrainingCenterService.getBlockData();
+	}
+	
+	@RequestMapping("/getallSectors")
+	public Collection<GetSectorDto> getalltheSector(){
+		return findTrainingCenterService.getSectorData();
+	}
+	
+	@RequestMapping("/getallJobRoles")
+	public Collection<GetJobRoleDto> getalltheJobRoles(){
+		return findTrainingCenterService.getJobRoleData();
+	}
 	
 	@RequestMapping(value="/findTC",method=RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
 	public Collection<FindSpecifiedTrainingCenterDto> findtrainingcentercontrol(@RequestBody FindTrainingCenterDetailsDto findTrainingCenterDetailsDto){

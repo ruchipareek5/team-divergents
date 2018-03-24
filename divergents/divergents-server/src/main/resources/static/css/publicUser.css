@@ -62,6 +62,7 @@ video { display: block;
     font-weight: bold;
     text-transform: uppercase;
 }
+
 @media (min-width: 768px){
 .inner h1{
     top: 3%;
@@ -79,9 +80,24 @@ video { display: block;
     z-index: 9;
     color: #FFFFFF;
     text-align: center;
-    font-size: 30pt;
+    font-size: 48pt;
     font-weight: 900;
     text-transform: uppercase;
+}
+}
+@media (min-width: 1200px){
+	.inner1 h2{
+    left: 0;
+    margin: auto;
+    max-width: 1200px;
+    position: absolute;
+    right: 0;
+    top: 15%;
+    z-index: 9;
+    color: red;
+    text-align: center;
+    font-size: 28pt;
+    font-weight: 900;
 }
 }
 	@media (min-width: 1200px){
@@ -187,6 +203,7 @@ video { display: block;
     margin: 0;
     position: relative;
     z-index: 999;
+    line-height:normal;
 }
 .square-img li label {
     color: #fff;

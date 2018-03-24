@@ -8,12 +8,18 @@
 .navbar-brand img
 {
 	height:30pt;
+	margin-top:-2pt;
 }
 .navbar-brand img
-{
+{	
 	background-color:rgba(248,248,248,0.2);
+	margin-right : -2pt;
+	margin-bottom: -2pt;
+	margin-left: -2pt;
+	padding:0pt;
 }
-.navbar-default
+.navbar
 {
-	margin-bottom:0pt;
+	margin-bottom : 0pt;
+	background-color:rgba(225,225,225,0.2);
 }

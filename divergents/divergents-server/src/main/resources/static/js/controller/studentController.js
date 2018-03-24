@@ -4,6 +4,7 @@ student.controller('student' , function($scope, $http,$rootScope,$location){
    //$scope.studentHtml = 'studentHtml1';
    //$rootScope.templateShow = true;
 	$rootScope.screen = 'screen1';
+	$scope.studentSwitch = 'home';
 	//Method to change screen based on value
 	$scope.changeTemplate = function(){
 		if($rootScope.screen == 'screen1'){

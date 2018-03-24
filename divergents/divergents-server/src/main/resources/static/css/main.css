@@ -18,8 +18,11 @@
 	margin-left: -2pt;
 	padding:0pt;
 }
-.navbar
+.footer-blue
 {
-	margin-bottom : 0pt;
-	background-color:rgba(225,225,225,0.2);
+	background-color:rgb(3,117,180);
+}
+.navbar-default .navbar-nav>li>a {
+    color: #777;
+    cursor: pointer;
 }

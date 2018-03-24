@@ -142,7 +142,7 @@
           <ul class="nav navbar-nav">
           <li class=><a ></a></li>
           <li class=""><a ></a></li>
-            <li class="active"><a href="#">HOME</a></li>
+            <li class="active"><a ng-click="studentSwitch = 'home'">HOME</a></li>
             <li><a ng-click="studentSwitch = 'about-us'">ABOUTS US</a></li>
             <li><a ng-click="studentSwitch = 'join-us'">JOIN US</a></li>
             <li><a ng-click="studentSwitch = 'competetion'">COMPETETIONS</a></li>
@@ -164,8 +164,8 @@
     </nav>
 </header>
 <!-- View of Student section -->
-<div ng-view>
-<div ng-switch-on="studentSwitch">
+<div class="col-md-12" ng-show="templateShow">
+<div ng-switch on="studentSwitch">
 <div ng-switch-when="home">
 
 <div ng-include src="'partials/student-home-carousel.html'"></div>
@@ -187,6 +187,7 @@
 </div>           
 </div>
 </div>
+
 <div ng-show="templateShow">
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container-fluid">
@@ -199,11 +200,11 @@
           </button>
           <a class="navbar-brand" href="#"></a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+        <div id="navbar" class="navbar-collapse collapse footer-blue" aria-expanded="false" style="height: 1px;">
           <ul class="nav navbar-nav">
           <li class=><a >Want to be Skilled</a></li>
           <li class=""><a ></a></li>
-            <li><a ng-click="studentSwitch = 'champions'"><span><img src="images/"></span></a></li>
+            <li><a ng-click="studentSwitch = 'champions'"><span class="footer-nav-img"><img src="images/Tenders and RFP.png">JOB ROLES</span></a></li>
             <li><a >ABOUTS US</a></li>
             <li><a >JOIN US</a></li>
             <li><a >COMPETETIONS</a></li>

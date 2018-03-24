@@ -18,7 +18,8 @@ video { display: block;
 
 .fullsize-video-bg { height: 100%;
     position: relative;
-    } 
+    }
+    
     @media (min-width: 1200px){
     .fullsize-video-bg { height: 100%;
     overflow: hidden;
@@ -66,7 +67,7 @@ video { display: block;
 @media (min-width: 768px){
 .inner h1{
     top: 3%;
-    font-size: 20pt;
+    font-size: 24pt;
 }
 }
 @media (min-width: 1200px){
@@ -83,6 +84,25 @@ video { display: block;
     font-size: 48pt;
     font-weight: 900;
     text-transform: uppercase;
+}
+}
+.inner1 h2{
+    left: 0;
+    margin: auto;
+    max-width: 1200px;
+    position: absolute;
+    right: 0;
+    top: 6%;
+    z-index: 9;
+    color: red;
+    text-align: center;
+    font-size: 10pt;
+    font-weight: 900;
+}
+@media (min-width: 768px){
+.inner1 h2{
+    top: 6%;
+    font-size: 18pt;
 }
 }
 @media (min-width: 1200px){

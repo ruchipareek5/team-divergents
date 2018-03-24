@@ -425,5 +425,32 @@ contactNo bigInt(11),
 abId int(15) not null,
 foreign key (abId) References assessmentagencyregistration(abId));
 
-create table jobrole(jobRoleId varchar(30), jobRoleName varchar(80), jobRoleDescription varchar(200), jobRoleUrl varchar(100), ssc varchar(100))
-alter table jobrole add primary key (jobRoleId);
+create table jobrole(jobRoleId varchar(30) primary key, jobRoleName varchar(80), jobRoleDescription varchar(200), jobRoleUrl varchar(100), ssc varchar(100))
+
+/* Table for Sector Skill Council */
+CREATE TABLE `msde`.`sectorskillcouncil` (
+  `sscId` VARCHAR(10) NOT NULL,
+  `sscName` VARCHAR(45) NOT NULL,
+  `sscDomain` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`sscId`),
+  UNIQUE INDEX `sscName_UNIQUE` (`sscName` ASC));
+
+/*	Table for Industry Partnerships */
+CREATE TABLE `msde`.`industrypartnerships` (
+  `IndustryId` VARCHAR(20) NOT NULL,
+  `IndustryName` VARCHAR(45) NOT NULL,
+  `IndustryDomain` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`IndustryId`));
+  
+  /* CSR Funds */
+  CREATE TABLE `msde`.`csrfunds` (
+  `csrApplicationNumber` VARCHAR(20) NOT NULL,
+  `organisationName` VARCHAR(100) NOT NULL,
+  `sPOCName` VARCHAR(50) NOT NULL,
+  `userEmail` VARCHAR(45) NOT NULL,
+  `userPhone` INT(10) NOT NULL,
+  `amountDeposited` BIGINT(10) NULL,
+  `submissionDate` DATE NULL,
+  PRIMARY KEY (`csrApplicationNumber`),
+  UNIQUE INDEX `userPhone_UNIQUE` (`userPhone` ASC));
+

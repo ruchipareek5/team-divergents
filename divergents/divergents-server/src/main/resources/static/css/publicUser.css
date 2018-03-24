@@ -106,6 +106,8 @@ video { display: block;
     position: fixed;
     height: auto;
     padding:18pt;
+    margin-left:14%;
+    margin-right:14%;
 }
 	}
 	.square-img ul {
@@ -124,8 +126,7 @@ video { display: block;
 .container {
     padding-right: 15px;
     padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+   
 }
 }
 /* .square-img li {
@@ -230,6 +231,5 @@ video { display: block;
 @media (min-width: 1200px){
 .container {
     width: 1170px;
-    margin-left: 17.6%;
 }
 }

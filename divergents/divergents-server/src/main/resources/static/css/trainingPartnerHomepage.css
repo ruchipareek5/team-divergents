@@ -1,0 +1,10 @@
+
+/*carousel*/
+.mainCarousel{
+  padding: 0%;
+}
+
+.carousel-inner >.item >img{
+height:60vh;
+  width:100%;
+}

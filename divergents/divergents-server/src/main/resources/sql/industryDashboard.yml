@@ -13,3 +13,14 @@ industryDashboard:
   
  totalTrainingPartners: >
   select COUNT(distinct trainingPartnerId) as totalTrainingPartners from trainingPartner 
+  
+ topFiveCorporatesWithMaxCsrContributions: >
+  select organisationName, sum(amountDeposited) as totalCsrFunds from csrFunds where year(submissionDate) between 
+  Year(curDate()) - 2 and year(curDate()) group by organisationName order by 2 limit 5 
+ 
+ topFiveTrainingPartnersWithMaximumPlacementsAccordingToJobRole: >
+  select (trainingPartner.organizationName) as trainingPartnerName,(candidatesPlaced) as totalPlacements from placementInformation 
+   INNER JOIN trainingPartner on placementinformation.trainingPartnerId = trainingpartner.trainingPartnerId
+    where jobRole= :jobRole  and year(placementinformation.placementDate) between Year(curDate())-2 and Year(curDate()) 
+     group by organizationName order by 2 limit 5;
+   

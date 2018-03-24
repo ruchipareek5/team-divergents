@@ -52,7 +52,7 @@ public class PublicUserFindTrainingCenterController {
 		return findTrainingCenterService.getJobRoleData();
 	}
 	
-	@RequestMapping(value="/findTC",method=RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/findTC",method=RequestMethod.POST,consumes=MediaType.ALL_VALUE)
 	public Collection<FindSpecifiedTrainingCenterDto> findtrainingcentercontrol(@RequestBody FindTrainingCenterDetailsDto findTrainingCenterDetailsDto){
 		return findTrainingCenterService.findtrainingCenterwithSpecifiedDetails(findTrainingCenterDetailsDto);
 	}

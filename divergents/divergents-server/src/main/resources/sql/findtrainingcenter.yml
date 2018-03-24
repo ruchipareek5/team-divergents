@@ -20,7 +20,7 @@ findtrainingcenter:
   
  selectSqlSpecfiedTrainingCenter1: > 
   select centreName,centreAddress,contact
-   from centre inner join jobrole on centre.jobRoleId= jobrole.jobRoleId WHERE state=:state and district=:district and block=:block and ssc=:sector and jobRoleName=:jobrole
+   from centre inner join jobrole on centre.jobRoleId= jobrole.jobRoleId WHERE state=:state and district=:district and block=:block and ssc=:ssc and jobRoleName=:jobrole
    
  
  

@@ -49,7 +49,7 @@ public class FindTrainingCenterDetailsDto extends BaseDto{
 	}
 	public FindTrainingCenterDetailsDto() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	

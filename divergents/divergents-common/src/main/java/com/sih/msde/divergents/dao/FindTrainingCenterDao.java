@@ -31,14 +31,14 @@ public class FindTrainingCenterDao extends AbstractTransactionalDao{
 
 	private static final FindTrainingCenterRowSelectRowMapper ROW_MAPPER = new FindTrainingCenterRowSelectRowMapper();
 	
-	public Collection<FindSpecifiedTrainingCenterDto> getTrainingCenterwithSpecifiedDetails(String state, String district, String block, String sector, String jobrole) {
+	public Collection<FindSpecifiedTrainingCenterDto> getTrainingCenterwithSpecifiedDetails(String state, String district, String block, String ssc, String jobrole) {
 	
 		Map<String, Object> parameters = new HashMap<>();
 		
 		parameters.put("state", state);
 		parameters.put("district", district);
 		parameters.put("block", block);
-		parameters.put("ssc", sector);
+		parameters.put("ssc", ssc);
 		parameters.put("jobrole", jobrole);
 		
         return getJdbcTemplate().query(findTrainingCenterConfig.getSelectSqlSpecfiedTrainingCenter1(), parameters, ROW_MAPPER);

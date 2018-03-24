@@ -13,8 +13,9 @@ public class IndustryDashboardConfigSql {
 	private String totalCandidatesCertified;
 	private String totalJobRoles;
 	private String totalTrainingPartners;
-	
-	
+	private String topFiveCorporatesWithMaxCsrContributions;
+	private String topFiveTrainingPartnersWithMaximumPlacementsAccordingToJobRole;
+
 	public String getTotalPartnerships() {
 		return totalPartnerships;
 	}
@@ -45,5 +46,22 @@ public class IndustryDashboardConfigSql {
 	public void setTotalTrainingPartners(String totalTrainingPartners) {
 		this.totalTrainingPartners = totalTrainingPartners;
 	}
+	
+	public String getTopFiveCorporatesWithMaxCsrContributions() {
+		return topFiveCorporatesWithMaxCsrContributions;
+	}
+	public void setTopFiveCorporatesWithMaxCsrContributions(String topFiveCorporatesWithMaxCsrContributions) {
+		this.topFiveCorporatesWithMaxCsrContributions = topFiveCorporatesWithMaxCsrContributions;
+	}
+	public String gettopFiveTrainingPartnersWithMaximumPlacementsAccordingToJobRole() {
+		return topFiveTrainingPartnersWithMaximumPlacementsAccordingToJobRole;
+	}
+	
+	public void settopFiveTrainingPartnersWithMaximumPlacementsAccordingToJobRole(
+			String topFiveTrainingPartnersWithMaximumPlacementsAccordingToJobRole) {
+		this.topFiveTrainingPartnersWithMaximumPlacementsAccordingToJobRole = topFiveTrainingPartnersWithMaximumPlacementsAccordingToJobRole;
+	}
+	
+	
 	
 }

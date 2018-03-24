@@ -1,0 +1,15 @@
+industryDashboard:
+ totalPartnerships: >
+  select COUNT(distinct IndustryName) as totalPartnerships from industryPartnerships
+ 
+ totalCsrFunds: >
+  select SUM(amountDeposited) as totalCSRFunds from csrFunds where year(submissionDate) = year(curdate()) - 1 
+ 
+ totalCandidatesCertified: >
+  select sum(totalCertified) as totalCandidatesCertified from batch where assessmentDate < curdate()
+  
+ totalJobRoles: >
+  select COUNT(distinct jobRoleCode) as totalJobRoles from jobRole
+  
+ totalTrainingPartners: >
+  select COUNT(distinct trainingPartnerId) as totalTrainingPartners from trainingPartner 

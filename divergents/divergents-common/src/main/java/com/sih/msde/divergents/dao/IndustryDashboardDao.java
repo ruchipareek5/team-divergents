@@ -17,7 +17,7 @@ public class IndustryDashboardDao extends AbstractTransactionalDao {
 	private static final Logger LOGGER = LoggerFactory.getLogger(IndustryDashboardDao.class);
 	
 	@Autowired
-	private IndustryDashboardConfigSql industryDashboardConfigSql;
+	private IndustryDashboardConfigSql industryDashboardConfigSql; 
 	
 	public Integer getTotalPartnerships()
 	{

@@ -48,7 +48,10 @@ video { display: block;
     text-transform: uppercase;
 }
 .square-img{
-    margin-top: -25%;
+/*     margin-top: -25%; */
+        bottom: 0%;
+    position: fixed;
+    height: auto;
 }
 .square-img li {
     border-radius: 7px;

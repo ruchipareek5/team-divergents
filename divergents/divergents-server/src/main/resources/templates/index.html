@@ -35,39 +35,34 @@
         <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.js"></script>
         
-	    	<!-- Angular Controllers -->
+	    	<!-- Angular Controllers for landing page-->
 		<script type="text/javascript" src="js/index.js" type="text/javascript"></script>
 		<script type="text/javascript" src="js/home.js" type="text/javascript"></script>
-		<script type="text/javascript" src="js/controller/nsdcAdminController.js"></script>
-		<script type="text/javascript" src="js/controller/becomeTP.js"></script>
-		<script type="text/javascript" src="js/controller/webinarsPublicUser.js"></script>
-		<script type="text/javascript" src="js/controller/fAQ.js"></script>
-		<script type="text/javascript" src="js/controller/studentController.js"></script>
 		<script type="text/javascript" src="js/controller/login.js"></script>
-		<script type="text/javascript" src="js/controller/industry.js"></script>
+		
 		
 </head>
 
-<body ng-app="divergents">
+<body ng-app="divergents container-fluid">
 <section class="fullsize-video-bg" ng-controller="home" ng-hide="templateShow">
     <div class="inner">
             <h1>Make india proud with your skills</h1>
     </div>
     <div class="layer-up">&nbsp;</div>
             <video class="video" autoplay="true" muted="true" loop>
-                <source src="images\Video2.mp4" type="video/mp4">
+                <source src="images/Video2.mp4" type="video/mp4">
             </video>
     <div class="square-img">
         <div class="container">
             <ul>
                 <li>
                     <a  ng-click="openStudent()">
-                        <img src="images\student.png" width="300px" height="auto">
+                        <img src="images/student.png" width="300px" height="auto">
                         <div class="wrapdiv">
                             <div class="over-img">
-                                <img src="images\studentlogo.png" width="auto" height="42px">
+                                <img src="images/studentlogo.png" width="auto" height="42px">
                                 <p>Student</p>
-                               <img src="images\arrow.png" width="auto" height="42px">
+                               <img src="images/arrow.png" width="auto" height="42px">
                             </div> 
 
                         </div>
@@ -75,11 +70,11 @@
                 </li>
                 <li>
                     <a ng-click="openIndustry()">
-                        <img src="images\Industry.jpg" width="300px" height="auto">
+                        <img src="images/Industry.jpg" width="300px" height="auto">
                         <div class="wrapdiv wrapdiv-sec">
-                            <div class="over-img"><img src="images\industry.png"  width="auto" height="42px">
+                            <div class="over-img"><img src="images/industry.png"  width="auto" height="42px">
                                 <p>Industry</p>
-                               <img src="images\arrow.png" width="auto" height="42px">
+                               <img src="images/arrow.png" width="auto" height="42px">
                             </div>
 
                         </div>
@@ -87,23 +82,23 @@
                 </li>
                 <li>
                     <a ng-click="openTrainingPartner()">
-                        <img src="images\trainingpartner.png" width="300px" height="auto">
+                        <img src="images/trainingpartner.png" width="300px" height="auto">
                         <div class="wrapdiv wrapdiv-thir">
-                            <div class="over-img"><img src="images\TP.png"  width="auto" height="42px">
+                            <div class="over-img"><img src="images/TP.png"  width="auto" height="42px">
                                 <p>Training_Partner</p>
-                                <img src="images\arrow.png" width="auto" height="42px">
+                                <img src="images/arrow.png" width="auto" height="42px">
                             </div>
                         </div>
                     </a>
                 </li>
                 <li>
                     <a ng-click="openGovt()">
-                        <img src="images\govt.png" width="300px" height="auto">
+                        <img src="images/govt.png" width="300px" height="auto">
                         <div class="wrapdiv wrapdiv-four">
                             <div class="over-img">
-                                <img src="images\government.png"  width="auto" height="42px">
+                                <img src="images/government.png"  width="auto" height="42px">
                                 <p>Goverment</p>
-                                <img src="images\arrow.png" width="auto" height="42px">
+                                <img src="images/arrow.png" width="auto" height="42px">
                             </div>
                         </div>
                     </a>
@@ -114,42 +109,20 @@
     </div>
 
 </section>
-	<div ng-show="templateShow">
-	
-	<link rel="stylesheet" href="css/student.css" />
-	
-<div class="container-fluid background-my-container" ng-controller="student">
-    <div class="img-banner">
-<!--<img src="images/carsousel_image1.png" class="img-banner img-responsive" /> -->
-    </div>
+<header ng-show="templateShow">
 
-    <div class=" layer-up">
-      <div class="topHeader">
-        <div> <img src="images/NSDC logo.png "class="NSDClogo" /></div>
+</header>
+		<script type="text/javascript" src="js/controller/nsdcAdminController.js"></script>
+		<script type="text/javascript" src="js/controller/becomeTP.js"></script>
+		<script type="text/javascript" src="js/controller/webinarsPublicUser.js"></script>
+		<script type="text/javascript" src="js/controller/fAQ.js"></script>
+		<script type="text/javascript" src="js/controller/studentController.js"></script>
+		<script type="text/javascript" src="js/controller/industry.js"></script>
+<section ng-controller="student">
+<div ng-show="templateShow">
 
-      <div class="topnav" id="myTopnav">
-
-        <a href="#" >View QPs</a>
-        <a href="#" >CSR Funding</a>
-        <a href="#" >Tenders/RFPs</a>
-        <a href="#"  >Find Training Center</a>
-        <a href="#"  >Webinars</a>
-          <a href="#"  >Skill Gap Study</a>
-            <a href="#" >Report Issues</a>
-        <a href="#" style="font-size:15px;" class="icon"  onclick="myFunction()">&#9776;</a>
-      </div>
-
-      </div>
-      <div class="lowerFooter col-md-12">
-      </div>
-
-      </div>
-    </div>
-	</div>
-<section>
-
+</div>
 </section>
-
 </body>
 
 </html>

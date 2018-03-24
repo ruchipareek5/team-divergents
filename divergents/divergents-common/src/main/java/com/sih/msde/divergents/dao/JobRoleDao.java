@@ -6,7 +6,10 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
@@ -25,13 +28,23 @@ public class JobRoleDao extends AbstractTransactionalDao{
 
 	private static final JobRoleRowSelectRowMapper ROW_MAPPER = new JobRoleRowSelectRowMapper();
 	
+	private static final Logger LOGGER = LoggerFactory.getLogger(JobRoleDao.class);
+	
 	public Collection<JobRoleDto> getJobRoleDetails(String letter) {
 	
-		Map<String, Object> parameters = new HashMap<>();
-		
-		parameters.put("letter", letter);
-		
-        return getJdbcTemplate().query(jobRoleConfig.getSelectJobRole(), parameters, ROW_MAPPER);
+		try {
+			LOGGER.debug("Request Received from service to get Job Roles based on Letter selected");
+			
+			Map<String, Object> parameters = new HashMap<>();
+			
+			parameters.put("letter", letter);
+			
+			return getJdbcTemplate().query(jobRoleConfig.getSelectJobRole(), parameters, ROW_MAPPER);
+		} catch (Exception e) {
+			
+			LOGGER.debug("An error occured while getting the Jobe roles based on selected letter" + e);
+			return null;
+		}
 	}
 
 

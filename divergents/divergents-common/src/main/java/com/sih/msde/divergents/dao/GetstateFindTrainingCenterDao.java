@@ -6,6 +6,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -18,15 +20,25 @@ import com.sih.msde.divergents.dto.GetStatesDto;
 public class GetstateFindTrainingCenterDao extends AbstractTransactionalDao{
 	
 	@Autowired
-	public FindTrainingCenterConfig findTrainingCenterConfig;	
+	public FindTrainingCenterConfig findTrainingCenterConfig;
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(GetstateFindTrainingCenterDao.class);
 
 	private static final GetStateRowSelectRowMapper ROW_MAPPER = new GetStateRowSelectRowMapper();
 	
 	public Collection<GetStatesDto> getallthestates() {
 	
-		Map<String, Object> parameters = new HashMap<>();
-		
-         return getJdbcTemplate().query(findTrainingCenterConfig.getSelectSqlAllStates(), parameters, ROW_MAPPER);
+		try {
+			
+			LOGGER.debug("Request received to get all the states where training centers exist");
+			Map<String, Object> parameters = new HashMap<>();
+			
+			 return getJdbcTemplate().query(findTrainingCenterConfig.getSelectSqlAllStates(), parameters, ROW_MAPPER);
+		} catch (Exception e) {
+			
+			LOGGER.debug("An error occured while getting the states" + e);
+			return null;
+		}
 	}
 
 

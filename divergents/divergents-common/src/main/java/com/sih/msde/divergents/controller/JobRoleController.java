@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.sih.msde.divergents.dto.JobRoleDto;
-
+import com.sih.msde.divergents.dto.TrainingCenterAccordingToJobRoleDto;
 import com.sih.msde.divergents.service.JobRoleService;
 
 @RestController
@@ -19,9 +19,16 @@ public class JobRoleController {
 	@Autowired
 	private JobRoleService jobRoleService;
 	
+	
+	
 	@RequestMapping(value="/getJobRoleForSelectedLetter",method=RequestMethod.POST)
 	public Collection<JobRoleDto> getJobRolesForSelectedLetter(@RequestParam("letter") String letter){
 		return jobRoleService.getJobRoles(letter);
+	}
+	
+	@RequestMapping(value="/getTrainingCenterforJobRole",method=RequestMethod.POST)
+	public Collection<TrainingCenterAccordingToJobRoleDto> getTrainingCenterforJobRole(@RequestParam("jobroleId") String jobroleId){
+		return jobRoleService.gettrainingCenters(jobroleId);
 	}
 	
 }

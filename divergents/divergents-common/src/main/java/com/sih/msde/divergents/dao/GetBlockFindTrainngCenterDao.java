@@ -6,7 +6,10 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
@@ -14,21 +17,30 @@ import com.sih.msde.divergents.common.AbstractTransactionalDao;
 import com.sih.msde.divergents.config.FindTrainingCenterConfig;
 
 import com.sih.msde.divergents.dto.GetBlockDto;
-import com.sih.msde.divergents.dto.GetDistrictsDto;
 
 @Repository
 public class GetBlockFindTrainngCenterDao extends AbstractTransactionalDao{
 	
 	@Autowired
 	public FindTrainingCenterConfig findTrainingCenterConfig;	
-
+	
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(GetBlockFindTrainngCenterDao.class);
+	
 	private static final GetBlockRowSelectRowMapper ROW_MAPPER = new GetBlockRowSelectRowMapper();
 	
 	public Collection<GetBlockDto> getalltheblocks() {
 	
-		Map<String, Object> parameters = new HashMap<>();
+	try {
+			LOGGER.debug("Request Received from Service to get all the bloacks where Training Centers exist");
+			Map<String, Object> parameters = new HashMap<>();
+			return getJdbcTemplate().query(findTrainingCenterConfig.getSelectSqlAllBlock(), parameters, ROW_MAPPER);
 		
-         return getJdbcTemplate().query(findTrainingCenterConfig.getSelectSqlAllBlock(), parameters, ROW_MAPPER);
+		} catch (Exception e) {
+
+			LOGGER.debug("An error occured while getting the blocks" + e);
+			return null;
+		}
 	}
 
 

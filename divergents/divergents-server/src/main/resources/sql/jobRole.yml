@@ -5,6 +5,6 @@ jobRole:
    
  trainingcentreforJobRole: >
   select centreName, state
-   from centre WHERE jobRoleId=:jobroleId
+   from centre WHERE jobRoleId=:jobRoleId
    
    

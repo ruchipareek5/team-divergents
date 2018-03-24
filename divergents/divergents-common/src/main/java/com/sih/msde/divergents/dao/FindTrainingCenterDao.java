@@ -31,19 +31,29 @@ public class FindTrainingCenterDao extends AbstractTransactionalDao{
 
 	private static final FindTrainingCenterRowSelectRowMapper ROW_MAPPER = new FindTrainingCenterRowSelectRowMapper();
 	
-	public Collection<FindSpecifiedTrainingCenterDto> getTrainingCenterwithSpecifiedDetails(String state, String district, String block, String ssc, String jobrole) {
 	
-		Map<String, Object> parameters = new HashMap<>();
+		public Collection<FindSpecifiedTrainingCenterDto> getTrainingCenterwithSpecifiedDetails(String state, String district, String block, String ssc, String jobrole) {
 		
-		parameters.put("state", state);
-		parameters.put("district", district);
-		parameters.put("block", block);
-		parameters.put("ssc", ssc);
-		parameters.put("jobrole", jobrole);
+	try {
 		
-        return getJdbcTemplate().query(findTrainingCenterConfig.getSelectSqlSpecfiedTrainingCenter1(), parameters, ROW_MAPPER);
+		LOGGER.debug("Request Received from service to get the Training Center based on selected parameters");
+			Map<String, Object> parameters = new HashMap<>();
+			
+			parameters.put("state", state);
+			parameters.put("district", district);
+			parameters.put("block", block);
+			parameters.put("ssc", ssc);
+			parameters.put("jobrole", jobrole);
+			
+	        return getJdbcTemplate().query(findTrainingCenterConfig.getSelectSqlSpecfiedTrainingCenter1(), parameters, ROW_MAPPER);
+		}
+	
+	catch(Exception e) {
+		LOGGER.debug("An exception occured while getting Training Centers" + e);
+		return null;
+		
 	}
-
+}
 
 private static class FindTrainingCenterRowSelectRowMapper implements RowMapper<FindSpecifiedTrainingCenterDto> {
 

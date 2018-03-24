@@ -20,9 +20,31 @@
 }
 .footer-blue
 {
-	background-color:rgb(3,117,180);
+	background-color:rgba(3,117,180,0.6);
 }
 .navbar-default .navbar-nav>li>a {
     color: #777;
     cursor: pointer;
+ 
+}
+.footer-navbar-link{
+    color: white;
+    cursor: pointer;
+    border:1pt solid;
+    border-color:rgba(288,288,288,0.2);
+    font-size:12pt;
+}
+
+.footer-nav-img
+{
+	height:30pt;
+}
+#navbar-footer li:hover{
+	background-color:rgb(3,117,180);
+}
+#navbar-footer li p{
+	color:white;
+}
+#navbar-footer li :hover p{
+	color:white;
 }

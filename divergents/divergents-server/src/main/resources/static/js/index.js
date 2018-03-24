@@ -48,6 +48,7 @@ divergents.controller('loginCtrl' , function($rootScope, $http, $location, $rout
 	$rootScope.templateShowIndustry = false;
 	$rootScope.templateShowGovt = false;
 	$rootScope.templateShowTP = false;
+	
 
 
 // -----------------------------------------------------------------------------

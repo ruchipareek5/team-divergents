@@ -46,7 +46,7 @@
 </head>
 
 <body class="container-fluid divergents-fluid" ng-app="divergents">
-<section class="fullsize-video-bg" ng-controller="home" ng-hide="templateShow">
+<section class="fullsize-video-bg" ng-controller="home" ng-hide="templateShow || templateShowI || templateShowGovt || templateShowTP">
     <div class="inner">
             <h1>Make india proud with your skills</h1>
     </div>
@@ -141,11 +141,13 @@
             <li><a href="#contact">COMPETETIONS</a></li>
             <li><a href="#contact">RESOURCES</a></li>
             <li><a href="#contact">CHAMPIONS</a></li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">USER TYPE<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a ng-click="openIndustry()">INDUSTRY</a></li>
-                <li><a ng-click="openIndustry()">TRAINING PARTNER</a></li>
+                <li><a ng-click="openTrainingPartner()">TRAINING PARTNER</a></li>
                 <li><a ng-click="openGovt()">ADMIN</a></li>
               </ul>
             </li>
@@ -158,7 +160,7 @@
 <script type="text/javascript" src="js/controller/industry.js"></script>
 <section ng-controller="industry">
 
-	<header ng-show="templateShowIndustry">
+	<header ng-show="templateShowI">
 <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -179,7 +181,7 @@
             <li><a href="#contact">RESOURCES</a></li>
             <li><a href="#contact">CHAMPIONS</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">USER TYPE<span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">USER TYPE<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a ng-click="openStudent()">STUDENT</a></li>
                 <li><a ng-click="openTrainingPartner()">TRAINING PARTNER</a></li>
@@ -238,7 +240,7 @@
 
 <header ng-show="templateShowTP">
 <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
+      <div class="container ">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>

@@ -3,4 +3,17 @@
 	margin-left:0pt;
 	padding-right:0pt;
 	padding-left:0pt;
+	background-color:rgba(248,248,248,0.2)
+}
+.navbar-brand img
+{
+	height:30pt;
+}
+.navbar-brand img
+{
+	background-color:rgba(248,248,248,0.2);
+}
+.navbar-default
+{
+	margin-bottom:0pt;
 }

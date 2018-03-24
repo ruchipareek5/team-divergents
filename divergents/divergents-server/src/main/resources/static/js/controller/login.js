@@ -2,10 +2,6 @@ var login = angular.module('divergents');
 
 login.controller( 'home' , function($scope,$http,$rootScope,$location){
 	
-	//Method to route using $location.path()
-	 $scope.changePage=function(path){
-		 $location.path(path);
-	 };
 	$scope.screen = 'screen1';
 	$rootScope.templateShow = false;
 	$scope.openStudent = function()

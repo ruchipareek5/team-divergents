@@ -17,15 +17,15 @@ divergents.config( function($routeProvider, $httpProvider){
 		templateUrl : 'templates/student.html',
         controller : 'student'
 	})
-	.when('industry',{
+	.when('/industry',{
 		templateUrl : 'templates/industry.html',
         controller : 'industry'
 	})
-	.when('training-partner',{
+	.when('/training-partner',{
 		 templateUrl : 'templates/training-partner.html',
 	        controller : 'trainingPartner'
 	})
-	.when('government-and-state-machinery', {
+	.when('/government-and-state-machinery', {
         templateUrl : 'government-and-state-machinery.html',
         controller : 'govt'
     }).
@@ -45,9 +45,11 @@ divergents.controller('loginCtrl' , function($rootScope, $http, $location, $rout
 	$scope.screen = 'screen1';
 	
 	$rootScope.templateShow = false;
+	$rootScope.templateShowIndustry = false;
+	$rootScope.templateShowGovt = false;
+	$rootScope.templateShowTP = false;
 
 
-	
 // -----------------------------------------------------------------------------
 	$rootScope.priv = "PU";
 	$scope.credentials = {
@@ -59,6 +61,7 @@ divergents.controller('loginCtrl' , function($rootScope, $http, $location, $rout
 		 
 	 }
 	 
+
 //----------------------------------------------------------------------------	 
 //	 //check and route to different tenplates
 	    var checkAndSetState =function(submitRoutingUrl,acceptedRoutingUrl){

@@ -12,6 +12,7 @@
         <link  href="css/publicUser.css" rel="stylesheet"/>
         <link rel ='stylesheet' type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans">	  
     	<link rel="stylesheet" href="css/FAQ.css"/>
+    	<link rel="stylesheet" href="css/main.css"/>
     	
     		<!-- Angular Imports -->
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js" type="text/javascript"></script>
@@ -41,9 +42,10 @@
 		<script type="text/javascript" src="js/controller/login.js"></script>
 		
 		
+		
 </head>
 
-<body ng-app="divergents container-fluid">
+<body class="container-fluid divergents-fluid" ng-app="divergents">
 <section class="fullsize-video-bg" ng-controller="home" ng-hide="templateShow">
     <div class="inner">
             <h1>Make india proud with your skills</h1>
@@ -109,19 +111,164 @@
     </div>
 
 </section>
-<header ng-show="templateShow">
 
-</header>
-		<script type="text/javascript" src="js/controller/nsdcAdminController.js"></script>
+<script type="text/javascript" src="js/controller/nsdcAdminController.js"></script>
 		<script type="text/javascript" src="js/controller/becomeTP.js"></script>
 		<script type="text/javascript" src="js/controller/webinarsPublicUser.js"></script>
 		<script type="text/javascript" src="js/controller/fAQ.js"></script>
 		<script type="text/javascript" src="js/controller/studentController.js"></script>
-		<script type="text/javascript" src="js/controller/industry.js"></script>
+		
+		
+		<!-- Section for Student Page -->
 <section ng-controller="student">
-<div ng-show="templateShow">
+<header ng-show="templateShow">
+<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="images/nsdc-cropped.png"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">STUDENT</a></li>
+            <li><a href="#about">ABOUTS US</a></li>
+            <li><a href="#contact">JOIN US</a></li>
+            <li><a href="#contact">COMPETETIONS</a></li>
+            <li><a href="#contact">RESOURCES</a></li>
+            <li><a href="#contact">CHAMPIONS</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">USER TYPE<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a ng-click="openIndustry()">INDUSTRY</a></li>
+                <li><a ng-click="openIndustry()">TRAINING PARTNER</a></li>
+                <li><a ng-click="openGovt()">ADMIN</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+</header>
+</section>
+<script type="text/javascript" src="js/controller/industry.js"></script>
+<section ng-controller="industry">
 
-</div>
+	<header ng-show="templateShowIndustry">
+<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="images/nsdc-cropped.png"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">INDUSTRY</a></li>
+            <li><a href="#about">ABOUTS US</a></li>
+            <li><a href="#contact">JOIN US</a></li>
+            <li><a href="#contact">COMPETETIONS</a></li>
+            <li><a href="#contact">RESOURCES</a></li>
+            <li><a href="#contact">CHAMPIONS</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">USER TYPE<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a ng-click="openStudent()">STUDENT</a></li>
+                <li><a ng-click="openTrainingPartner()">TRAINING PARTNER</a></li>
+                <li><a ng-click="openGovt()">ADMIN</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+</header>
+
+</section>
+<script type="text/javascript" src="js/controller/govt.js"></script>
+<section ng-controller="govt">
+
+<header ng-show="templateShowGovt">
+<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="images/nsdc-cropped.png"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">GOVT</a></li>
+            <li><a href="#about">ABOUTS US</a></li>
+            <li><a href="#contact">JOIN US</a></li>
+            <li><a href="#contact">COMPETETIONS</a></li>
+            <li><a href="#contact">RESOURCES</a></li>
+            <li><a href="#contact">CHAMPIONS</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">USER TYPE<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a ng-click="openStudent()">STUDENT</a></li>
+                <li><a ng-click="openTrainingPartner()">TRINING PARTNER</a></li>
+                <li><a ng-click="openIndustry()">INDUSTRY</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+</header>
+
+
+</section>
+<script type="text/javascript" src="js/controller/trainingPartner.js"></script>
+<section ng-controller="trainingPartner">
+
+
+<header ng-show="templateShowTP">
+<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="images/nsdc-cropped.png"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">TRAINING PARTNER</a></li>
+            <li><a href="#about">ABOUTS US</a></li>
+            <li><a href="#contact">JOIN US</a></li>
+            <li><a href="#contact">COMPETETIONS</a></li>
+            <li><a href="#contact">RESOURCES</a></li>
+            <li><a ng-click="">CHAMPIONS</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">USER TYPE<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a ng-click="openTrainingPartner()">TRAINING PARTNER</a></li>
+                <li><a ng-click="openIndustry()">INDUSTRY</a></li>
+                <li><a ng-click="openGovt()">ADMIN</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+</header>
 </section>
 </body>
 

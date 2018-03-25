@@ -50,6 +50,19 @@ video { display: block;
 	 height: 100%;
 	}
 }
+.square-img .container {
+ padding:0;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 1200px){
+.square-img .container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+}
 .inner h1{
     left: 0;
     margin: auto;
@@ -123,7 +136,8 @@ video { display: block;
 	@media (min-width: 1200px){
 .square-img{
         bottom: 0%;
-    position: fixed;
+    /* position: fixed; */
+    margin-top:-25%;
     height: auto;
     padding:18pt;
 }
@@ -174,6 +188,11 @@ video { display: block;
 @media (min-width: 1200px){
 .square-img li:last-child{
     margin :0% 0% 0% 0%;
+}
+}
+@media (min-width: 1200px){
+.square-img li:first-child{
+    margin :0% 4% 0% 4%;
 }
 }
 .square-img li, .square-img li p {
@@ -240,6 +259,7 @@ video { display: block;
 @media (min-width: 768px){
 .square-img li label {
     font-size: 26pt;
+}
 }
 @media (min-width: 1200px){
 	.square-img li label{

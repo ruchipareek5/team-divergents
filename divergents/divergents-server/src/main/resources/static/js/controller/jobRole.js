@@ -16,12 +16,10 @@ jobRole.controller('jobRole' , function($scope,$http){
 	         paginationPageSize: 2,   
 	         useExternalPagination: true,   
 	         columnDefs: [
-	              { name: 'jobRoleId', displayName: 'ID', cellClass:'sno',headerCellClass:'Institution-Name'},
-	              { name: 'jobRoleName', displayName: 'Job Role' ,cellClass:'fname',headerCellClass:'Institution-Name' },
-	              { name: 'jobRoleDescription', displayName: 'Description', cellClass:'sno',headerCellClass:'Institution-Name', width: 30},
-	              { name: 'jobRoleUrl', displayName: 'To Visit' ,cellClass:'fname',headerCellClass:'Institution-Name' },
-	              { name: 'ssc',displayName: 'ssc' , cellClass:'Type',headerCellClass:'Institution-Name'},
-	              { name: 'Training Center | State', displayName:'Training Center | State' , cellTemplate: '<button type="button" class="btn btn-primary" ng-click=grid.appScope.showTrainingCenter(row)>Check</button>',headerCellClass:'Institution-Name',cellClass:'va'}
+	              { name: 'jobRoleId', displayName: 'ID', cellClass:'trainingCenterCellClass',headerCellClass:'trainingCenters', width: '10%'},
+	              { name: 'jobRoleName', displayName: 'Job Role' ,cellClass:'trainingCenterCellClass',headerCellClass:'trainingCenters' , width: '30%'},
+	              { name: 'ssc',displayName: 'Sector Skill Council' , cellClass:'trainingCenterCellClass',headerCellClass:'trainingCenters', width: '30%'},
+	              { name: 'Training Center | State', displayName:'Training Center | State' , cellTemplate: '<button type="button" class="btn btn-info btn-xs" style="margin-top:5pt" ng-click=grid.appScope.showTrainingCenter(row)>Check here</button>',headerCellClass:'trainingCenters',cellClass:'trainingCenterCellClass',width: '30%'}
 	              
 	    ]
 	  }; 	
@@ -38,9 +36,9 @@ jobRole.controller('jobRole' , function($scope,$http){
 	         paginationPageSize: 2,   
 	         useExternalPagination: true,   
 	         columnDefs: [
-	              { name: 'trainingCentreName', displayName: 'Training Centres', cellClass:'sno',headerCellClass:'Institution-Name', width: 30},
-	              { name: 'state', displayName: 'State' ,cellClass:'fname',headerCellClass:'Institution-Name',width: 30 },
-	              
+	          { name: 'trainingCentreName', displayName: 'Training Centres', cellClass:'trainingCenterCellClass',headerCellClass:'trainingCenters', width: '50%'},
+	          { name: 'state', displayName: 'State' ,cellClass:'trainingCenterCellClass',headerCellClass:'trainingCenters',width: '50%' },
+	          
 	    ]
 	  }; 	
 	
@@ -54,13 +52,13 @@ jobRole.controller('jobRole' , function($scope,$http){
 	    $http.post('/getJobRoleForSelectedLetter', fd, {
 	    transformRequest: angular.identity,
 	    headers: {'Content-Type': undefined}
-   })
-   .then(function(response){
-	   $scope.gridOptions.data = response.data;
-   },function errorCallback(response){
-        console.log(JSON.stringify(response.data));
-   });
-}
+	   })
+	   .then(function(response){
+		   $scope.gridOptions.data = response.data;
+	   },function errorCallback(response){
+	        console.log(JSON.stringify(response.data));
+	   });
+	}
 	
 	
 	
@@ -77,7 +75,6 @@ jobRole.controller('jobRole' , function($scope,$http){
 		    headers: {'Content-Type': undefined}
 	   })
 	   .then(function(response){
-		   console.log(response.data);
 		  $scope.gridOptionsTrainingCenter.data = response.data;
 	   },function errorCallback(response){
 	        console.log(JSON.stringify(response.data));
@@ -89,7 +86,8 @@ jobRole.controller('jobRole' , function($scope,$http){
 		else{
 			$scope.showCenters= false;
 		}
-	}
+	 }
+	
 	
 	
 	

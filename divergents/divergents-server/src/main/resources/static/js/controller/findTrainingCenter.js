@@ -6,8 +6,6 @@ findtrainingcenter.controller('findtrainingcenter', function($scope,$http){
 	$scope.showInterest= false;
 
 	
-	$scope.showCenters= false;
-	
 	$scope.gridOptions = {
 	         enableGridMenus : false,  
 	         enableSorting: false, 
@@ -18,10 +16,10 @@ findtrainingcenter.controller('findtrainingcenter', function($scope,$http){
 	         paginationPageSize: 2,   
 	         useExternalPagination: true,   
 	         columnDefs: [
-	              { name: 'trainingCenterName', displayName: 'Center Name', cellClass:'sno',headerCellClass:'Institution-Name', width: 30},
-	              { name: 'address', displayName: 'Address' ,cellClass:'fname',headerCellClass:'Institution-Name' },
-	              { name: 'contactNumber',displayName: 'Contact' , cellClass:'Type',headerCellClass:'Institution-Name'},
-	              { name: 'Interest', displayName:'Show Interest' , cellTemplate: '<i class="fa fa-thumbs-o-up" style="color: blue;" ng-click=grid.appScope.showYourInterest(row)> </i>',headerCellClass:'Institution-Name',cellClass:'va'}
+	              { name: 'trainingCenterName', displayName: 'Center Name', cellClass:'trainingCenterCellClass',headerCellClass:'trainingCenters'},
+	              { name: 'address', displayName: 'Address' ,cellClass:'trainingCenterCellClass',headerCellClass:'trainingCenters' },
+	              { name: 'contactNumber',displayName: 'Contact' , cellClass:'trainingCenterCellClass',headerCellClass:'trainingCenters'},
+	              { name: 'Interest', displayName:'Show Interest' , cellTemplate: '<i class="fa fa-thumbs-o-up" style="color: blue; cursor: pointer; font-size: 2em" ng-click=grid.appScope.showYourInterest(row)> </i>',headerCellClass:'trainingCenters',cellClass:'trainingCenterCellClass'}
 	              
 	    ]
 	  }; 
@@ -47,7 +45,6 @@ findtrainingcenter.controller('findtrainingcenter', function($scope,$http){
 	
 	$http.get('/getallBlocks')
     .success(function (response) {
-        console.log(response);
         $scope.findBlocks= response;
     })
     .error(function (error) {
@@ -57,7 +54,6 @@ findtrainingcenter.controller('findtrainingcenter', function($scope,$http){
 	
 	$http.get('/getallSectors')
     .success(function (response) {
-        console.log(response);
         $scope.findSector= response;
     })
     .error(function (error) {
@@ -67,7 +63,6 @@ findtrainingcenter.controller('findtrainingcenter', function($scope,$http){
 	
 	$http.get('/getallJobRoles')
     .success(function (response) {
-        console.log(response);
         $scope.findJobRole= response;
     })
     .error(function (error) {
@@ -84,7 +79,6 @@ findtrainingcenter.controller('findtrainingcenter', function($scope,$http){
             data : angular.toJson($scope.find)
         })
              .then(function(response){
-            	console.log(response.data);
             	$scope.gridOptions.data= response.data;
              },function Error(response) {
                  $scope.errorMessage = "Invalid selection" + response.statusText;

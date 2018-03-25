@@ -2,8 +2,8 @@ var trainingPartnerTabs = angular.module('divergents');
 
 trainingPartnerTabs.controller('trainingPartnerTabs',function($scope, $http) {
 	//write code here
-	//$scope.chartType = 'chart1';
-	$scope.chartTypeList = [{ id:'chart1',name:'Placement of top 5 TP'},{id:'chart1',name:'Maximum CSR contibutions'}];
+	$scope.chartType = 'chart1';
+	$scope.chartTypeList = [{ id:'chart1',name:'Placement of top 5 TP'},{id:'chart2',name:'Maximum CSR contibutions'}];
 	//write code here
 	$scope.generateChart = function()
 	{

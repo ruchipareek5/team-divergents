@@ -16,7 +16,7 @@ industryDashboard:
   
  topFiveCorporatesWithMaxCsrContributions: >
   select organisationName, sum(amountDeposited) as totalCsrFunds from csrFunds where year(submissionDate) between 
-  Year(curDate()) - 2 and year(curDate()) group by organisationName order by 2 limit 5 
+  Year(curDate()) - 2 and year(curDate()) group by organisationName order by 2 desc limit 5 
  
  topFiveTrainingPartnersWithMaximumPlacementsAccordingToJobRole: >
   select (trainingPartner.organizationName) as trainingPartnerName,(candidatesPlaced) as totalPlacements from placementInformation 

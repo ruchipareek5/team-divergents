@@ -147,8 +147,8 @@ industryTabs.controller('industryTabs' , function($scope,$http,$location,$rootSc
            trainingPartnerName=[];
            totalPlacements=[];
            totalPlacemetsSum=0
-            var jobRole='Safai karamchari';
-           $.getJSON("/PlacementPercentageOfTopFiveTp?jobRole=" +jobRole,function(data) {
+            
+           $.getJSON("/PlacementPercentageOfTopFiveTp",function(data) {
               for(var i=0;i<data.length;i++)
              {
               trainingPartnerName.push(data[i].trainingPartnerName);

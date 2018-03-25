@@ -1,0 +1,51 @@
+<div >
+<br>
+<br>
+<br>
+<div class="col-md-12 row" ng-controller="jobRole">
+
+
+<button class="roundButton" ng-click="alphabet ='A'; search(alphabet)">A</button>
+<button class="roundButton" ng-click="alphabet ='B'; search(alphabet)">B</button>
+<button class="roundButton" ng-click="alphabet ='C'; search(alphabet)">C</button>
+<button class="roundButton" ng-click="alphabet ='D'; search(alphabet)">D</button>
+<button class="roundButton" ng-click="alphabet ='E'; search(alphabet)">E</button>
+<button class="roundButton" ng-click="alphabet ='F'; search(alphabet)">F</button>
+<button class="roundButton" ng-click="alphabet ='G'; search(alphabet)">G</button>
+<button class="roundButton" ng-click="alphabet ='H'; search(alphabet)">H</button>
+<button class="roundButton" ng-click="alphabet ='I'; search(alphabet)">I</button>
+<button class="roundButton" ng-click="alphabet ='J'; search(alphabet)">J</button>
+<button class="roundButton" ng-click="alphabet ='K'; search(alphabet)">K</button>
+<button class="roundButton" ng-click="alphabet ='L'; search(alphabet)">L</button>
+<button class="roundButton" ng-click="alphabet ='M'; search(alphabet)">M</button>
+<button class="roundButton" ng-click="alphabet ='N'; search(alphabet)">N</button>
+<button class="roundButton" ng-click="alphabet ='O'; search(alphabet)">O</button>
+<button class="roundButton" ng-click="alphabet ='P'; search(alphabet)">P</button>
+<button class="roundButton" ng-click="alphabet ='Q'; search(alphabet)">Q</button>
+<button class="roundButton" ng-click="alphabet ='R'; search(alphabet)">R</button>
+<button class="roundButton" ng-click="alphabet ='S'; search(alphabet)">S</button>
+<button class="roundButton" ng-click="alphabet ='T'; search(alphabet)">T</button>
+<button class="roundButton" ng-click="alphabet ='U'; search(alphabet)">U</button>
+<button class="roundButton" ng-click="alphabet ='V'; search(alphabet)">V</button>
+<button class="roundButton" ng-click="alphabet ='W'; search(alphabet)">W</button>
+<button class="roundButton" ng-click="alphabet ='X'; search(alphabet)">X</button>
+<button class="roundButton" ng-click="alphabet ='Y'; search(alphabet)">Y</button>
+<button class="roundButton" ng-click="alphabet ='Z'; search(alphabet)">Z</button>
+
+
+<input type= "text" ng-model="letter" placeholder="letter"/>
+
+<button ng-click="search(letter)"><i class="fa fa-search"></i></button>
+<div ui-grid="gridOptions" ui-grid-edit ui-grid-cellNav class="grid grid-align "></div>
+
+    <div class="modal-dialog" ng-show="showCenters">
+      <div class="modal-content">
+        <div ui-grid="gridOptionsTrainingCenter" ui-grid-edit ui-grid-cellNav ui-grid-auto-resize class="grid grid-align "></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="showTrainingCenter()">Close</button>
+        </div>
+      </div>
+  </div>
+  
+  </div> 
+</div>

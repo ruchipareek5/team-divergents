@@ -1,65 +1,108 @@
 var findtrainingcenter = angular.module('divergents');
 
-findtrainingcenter.controller('findtrainingcenter', function($scope,$http){
-	console.log("Working TC");
+findtrainingcenter.controller('findtrainingcenter', function($scope,$http){	
 	
+	$scope.errorMessage="";
+	$scope.showInterest= false;
+
 	
+	$scope.showCenters= false;
 	
-		$http.get('/getallStates')
+	$scope.gridOptions = {
+	         enableGridMenus : false,  
+	         enableSorting: false, 
+	         enableFiltering: false,
+	         enableCellEdit : false,
+	         enableColumnMenus : false,
+	         paginationPageSizes: [10, 2, 50],
+	         paginationPageSize: 2,   
+	         useExternalPagination: true,   
+	         columnDefs: [
+	              { name: 'trainingCenterName', displayName: 'Center Name', cellClass:'sno',headerCellClass:'Institution-Name', width: 30},
+	              { name: 'address', displayName: 'Address' ,cellClass:'fname',headerCellClass:'Institution-Name' },
+	              { name: 'contactNumber',displayName: 'Contact' , cellClass:'Type',headerCellClass:'Institution-Name'},
+	              { name: 'Interest', displayName:'Show Interest' , cellTemplate: '<i class="fa fa-thumbs-o-up" style="color: blue;" ng-click=grid.appScope.showYourInterest(row)> </i>',headerCellClass:'Institution-Name',cellClass:'va'}
+	              
+	    ]
+	  }; 
+	
+	$http.get('/getallStates')
     .success(function (response) {
-        console.log("this is working" + response);
+        $scope.findState= response;
     })
-    .error(function (response) {
-       console.log("Error");
+    .error(function (error) {
+       console.log("Error"+ error);
     });
 
-//	
-//	
-//	$http.get('/getallDistrict')
-//    .success(function (response) {
-//        console.log(response);
-//    })
-//    .error(function (response) {
-//       console.log("Error");
-//    });
-//	
-//	
-//	$http.get('/getallBlock')
-//    .success(function (response) {
-//        console.log(response);
-//    })
-//    .error(function (response) {
-//       console.log("Error");
-//    });
-//	
-//	
-//	$http.get('/getallSector')
-//    .success(function (response) {
-//        console.log(response);
-//    })
-//    .error(function (response) {
-//       console.log("Error");
-//    });
-//	
-//	
-//	$http.get('/getallJobroles')
-//    .success(function (response) {
-//        console.log(response);
-//    })
-//    .error(function (response) {
-//       console.log("Error");
-//    });
 	
-//	$scope.findtc =function(){
-//        $http({
-//            method: 'POST',
-//            url: "/findtrainingcenter",
-//            data : angular.toJson($scope.x)
-//        })
-//             .then(function(response){
-//            	 
-//             });
-//        }
+	
+	$http.get('/getallDistrict')
+    .success(function (response) {
+        $scope.findDistrict= response;
+    })
+    .error(function (error) {
+       console.log("Error"+ error);
+    });
+	
+	
+	$http.get('/getallBlocks')
+    .success(function (response) {
+        console.log(response);
+        $scope.findBlocks= response;
+    })
+    .error(function (error) {
+       console.log("Error" + error);
+    });
+	
+	
+	$http.get('/getallSectors')
+    .success(function (response) {
+        console.log(response);
+        $scope.findSector= response;
+    })
+    .error(function (error) {
+       console.log("Error" + error);
+    });
+	
+	
+	$http.get('/getallJobRoles')
+    .success(function (response) {
+        console.log(response);
+        $scope.findJobRole= response;
+    })
+    .error(function (error) {
+       console.log("Error" + error);
+    });
+	
+	
+	
+	
+	$scope.findtc =function(){
+        $http({
+            method: 'POST',
+            url: "/findTC",
+            data : angular.toJson($scope.find)
+        })
+             .then(function(response){
+            	console.log(response.data);
+            	$scope.gridOptions.data= response.data;
+             },function Error(response) {
+                 $scope.errorMessage = "Invalid selection" + response.statusText;
+             });
+        }
+	
+	
+	
+	$scope.showYourInterest=function(){
+		if($scope.showInterest== false){
+		$scope.showInterest= true;}
+		else{
+			$scope.showInterest= false;
+		}
+		
+		
+	}
+	
 	
 	
 	

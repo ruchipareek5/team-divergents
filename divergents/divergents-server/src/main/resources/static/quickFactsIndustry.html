@@ -72,7 +72,7 @@
 <form>
 <div class="form-horizontal">
 <div class="form-group col-md-5">
-<select ng-model="chartType" ng-options="option.id as option.name for option in chartTypeList" class="form-control"> </select>
+<select ng-model="chartType" ng-init = "chartTypeList[0].id" ng-options="option.id as option.name for option in chartTypeList" class="form-control"> </select>
 </div>
 <div class="form-group col-md-5"><input type="button" class="btn btn-generate-chart" ng-click=generateChart() name="generateChart" value="View Chart"/></div>
 </div>
@@ -84,6 +84,7 @@
       <div id="total-csr" ng-show="chartType =='chart1'"></div>
       <div id="placement-percent" ng-show="chartType =='chart2'"></div>
 <!--       Code to generate chart -->
+<h3>{{response}}</h3>
       </div>  	
         
         </div>

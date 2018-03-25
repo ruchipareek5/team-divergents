@@ -1,18 +1,20 @@
 var industryTabs = angular.module('divergents');
 industryTabs.controller('industryTabs' , function($scope,$http,$location,$rootScope,$timeout){
   
-  //$scope.chartType = 'chart1';
-  $scope.chartTypeList = [{ id:'chart1',name:'Placement of top 5 TP'},{id:'chart1',name:'Maximum CSR contibutions'}];
+  $scope.chartType = 'chart1';
+  $scope.chartTypeList = [{ id:'chart1',name:'Placement of top 5 TP'},{id:'chart2',name:'Maximum CSR contibutions'}];
   //write code here
   $scope.generateChart = function()
   {
     if($scope.chartType == 'chart1')
       {
-        maxCsrContribution();
+        //$scope.response = "Ruchi";
+    	//maxCsrContribution();
       }
     else if ($scope.chartType == 'chart2')
       {
-         topFiveTpPlacementPercentage();
+    	//$scope.response = "Prateek";
+         //topFiveTpPlacementPercentage();
       }
     
   }

@@ -5,6 +5,9 @@
 .backfaq
 {
  background-color:#ECF0F1;
+ height:80vh;
+ margin-right:-5pt;
+ margin-left:-5pt;
     }
  
 .Rectangle
@@ -95,11 +98,11 @@
 	}
 /* 	change color of div */
 
-.panel-default > .panel-heading {
-    background-color:#ffffff;
+.panel-default >.panel-heading {
+    background-color:white;
     font-size:14px;
-    font-weight:500px;
-    color:#slate-grey;
+    font-weight:500;
+    color:black;
     border-color:black;
 }
 .panel-default > .panel-body{
@@ -111,4 +114,19 @@ div .pannel-group{
 }
 .ui-grid, .ui-grid-viewport {
     height: auto !important;
+}
+.panel-default >.panel-heading > .panel-title{
+    margin-top:7pt;
+    margin-bottom:7pt;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    font-size:12pt;
+    cursor:pointer;
+    text-decoration:none;
+}
+
+.panel-default >.panel-heading > .panel-title > a :hover{
+    text-decoration:none;
+    cursor:pointer;
 }

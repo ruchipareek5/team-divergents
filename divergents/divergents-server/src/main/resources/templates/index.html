@@ -126,7 +126,8 @@
 		
 		<!--Screen 1 Section for Student Page -->
 <section ng-controller="student">
-<header ng-show="templateShow">
+<div ng-show="templateShow">
+<header >
 <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -163,8 +164,10 @@
       </div>
     </nav>
 </header>
+
+
 <!-- View of Student section -->
-<div class="col-md-12" ng-show="templateShow">
+<div class="col-md-12 divergents-middle-view" ng-show="templateShow">
 <div ng-switch on="studentSwitch">
 <div ng-switch-when="home">
 
@@ -182,12 +185,29 @@
 <div ng-switch-when="resources">
 <div ng-include src="'partials/resources.html'"></div>
 </div>
-<div ng-switch-when="resources">
+<div ng-switch-when="champions">
 <div ng-include src="'partials/champions.html'"></div>
-</div>           
+</div> 
+<div ng-switch-when="student-jobrole">
+<div ng-include src="'partials/student-jobrole.html'"></div>
+</div>  
+<div ng-switch-when="student-find-tc">
+<div ng-include src="'partials/student-find-tc.html'"></div>
+</div> 
+<div ng-switch-when="student-view-qp">
+<div ng-include src="'partials/student-view-qp.html'"></div>
+</div> 
+<div ng-switch-when="student-connect-tp">
+<div ng-include src="'partials/student-connect-tp.html'"></div>
+</div> 
+<div ng-switch-when="student-govt-loan">
+<div ng-include src="'partials/student-govt-loan.html'"></div>
+</div>
+<div ng-switch-when="student-job-opportunity">
+<div ng-include src="'partials/student-job-opportunity.html'"></div>
+</div>      
 </div>
 </div>
-
 <div ng-show="templateShow">
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container-fluid footer-blue">
@@ -202,16 +222,17 @@
         </div>
         <div id="navbar-footer" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
           <ul class="nav navbar-nav pull-right">
-            <li class="footer-navbar-link"><a ng-click="studentSwitch = 'champions'"><span><img class="footer-nav-img" src="images/qp.png" /><p>Job Roles</p></span></a></li>
-            <li class="footer-navbar-link"><a ><span><img class="footer-nav-img" src="images/Find TC.png"/><p>Find a training center</p></span></a></li>
-            <li class="footer-navbar-link"><a ><span><img class="footer-nav-img" src="images/view QP.png"/><p>Training material</p></span></a></li>
-            <li class="footer-navbar-link"><a ><span><img class="footer-nav-img" src="images/training partner.png"/><p>Connect with Mentor</p></span></a></li>
-            <li class="footer-navbar-link"><a ><span><img class="footer-nav-img" src="images/Find TC.png"/><p>Govt. loan for Training</p></span></a></li>
-            <li class="footer-navbar-link"><a ><span><img class="footer-nav-img" src="images/Find TC.png"/><p>Job Opportunities</p></span></a></li>
+            <li class="footer-navbar-link"><a ng-click="studentSwitch = 'student-jobrole'"><span><img class="footer-nav-img" src="images/qp.png" /><p>&nbsp; &nbsp; &nbsp;Job Roles&nbsp; &nbsp; &nbsp;</p></span></a></li>
+            <li class="footer-navbar-link"><a ng-click="studentSwitch = 'student-find-tc'"><span><img class="footer-nav-img" src="images/Find TC.png"/><p>Find a training center</p></span></a></li>
+            <li class="footer-navbar-link"><a ng-click="studentSwitch = 'student-view-qp'"><span><img class="footer-nav-img" src="images/view QP.png"/><p>Training material &nbsp;</p></span></a></li>
+            <li class="footer-navbar-link"><a ng-click="studentSwitch = 'student-connect-tp'"><span><img class="footer-nav-img" src="images/training partner.png"/><p>Connect with Mentor</p></span></a></li>
+            <li class="footer-navbar-link"><a ng-click="studentSwitch = 'student-govt-loan'"><span><img class="footer-nav-img" src="images/Find TC.png"/><p>Govt. loan for Training</p></span></a></li>
+            <li class="footer-navbar-link"><a ng-click="studentSwitch = 'student-job-opportunity'"><span><img class="footer-nav-img" src="images/Find TC.png"/><p>Job Opportunities</p></span></a></li>
             </ul>
         </div>
   </div>
 </nav>
+</div>
 </div>
 </section>
 <!-- SCREEN 3 FOR INDUSTRY ----------------------------------------------------------------->

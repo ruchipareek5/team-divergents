@@ -30,14 +30,22 @@
 .footer-navbar-link{
     color: white;
     cursor: pointer;
-    border:1pt solid;
-    border-color:rgba(288,288,288,0.2);
-    font-size:12pt;
+    font-size:8pt;
+    text-align:center;
 }
-
+.footer-navbar-border label
+{
+	font-size:20pt;
+	border-right:1pt solid;
+	border-color:rgba(288,288,288,0.2);
+	color:rgba(288,288,288,0.2);
+}
 .footer-nav-img
 {
 	height:30pt;
+}
+#navbar-footer ul{
+	margin-right:-11pt;
 }
 #navbar-footer li:hover{
 	background-color:rgb(3,117,180);
@@ -47,4 +55,9 @@
 }
 #navbar-footer li :hover p{
 	color:white;
+}
+.divergents-middle-view
+{
+	margin-top:40pt;
+	position:relative;
 }

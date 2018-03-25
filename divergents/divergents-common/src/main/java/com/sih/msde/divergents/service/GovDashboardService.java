@@ -20,4 +20,10 @@ public class GovDashboardService {
 		LOGGER.debug("Request received from controller to get total training centers in India");
 		return govDashboardDao.getTotalTrainingCenters();	
 	}
+	
+	public Integer getTotalCandidatesPlaced()
+	{
+		LOGGER.debug("Request received from controller to get total candidates placed");
+		return govDashboardDao.getTotalCandidatesPlaced();
+	}
 }

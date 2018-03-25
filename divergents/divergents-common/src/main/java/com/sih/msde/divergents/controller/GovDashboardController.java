@@ -17,4 +17,10 @@ public class GovDashboardController {
     	return govDashboardService.getTotalTrainingCenters();
     }
     
+    @RequestMapping("/getTotalCandidatesPlaced")
+    public Integer getTotalCandidatesPlaced()
+    {
+    	return govDashboardService.getTotalCandidatesPlaced();
+    }
+    
 }

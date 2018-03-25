@@ -8,6 +8,17 @@ import org.springframework.stereotype.Component;
 public class GovDashboardConfigSql {
 
 	private String totalTrainingCenters;
+	private String totalCandidatesPlaced;
+	
+	
+
+	public String getTotalCandidatesPlaced() {
+		return totalCandidatesPlaced;
+	}
+
+	public void setTotalCandidatesPlaced(String totalCandidatesPlaced) {
+		this.totalCandidatesPlaced = totalCandidatesPlaced;
+	}
 
 	public String getTotalTrainingCenters() {
 		return totalTrainingCenters;

@@ -35,4 +35,21 @@ public class GovDashboardDao extends AbstractTransactionalDao {
 			return null;
 		}
 	}
-}
+	
+	public Integer getTotalCandidatesPlaced()
+	{
+		try {
+			
+			LOGGER.debug("Received request from service to get total candidates placed");
+			Map<String,Object> parameters = new HashMap<>();
+			LOGGER.debug("Trying to get total candidares placed in India");
+			return getJdbcTemplate().queryForObject(govDashboardConfigSql.getTotalCandidatesPlaced(), parameters, Integer.class);
+		}
+		catch(Exception e)
+		{
+			LOGGER.debug("An exception occured while fetching total candidates placed " +e);
+			LOGGER.debug("Returning Null");
+			return null;
+		}
+	}
+}	

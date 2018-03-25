@@ -260,11 +260,13 @@ video { display: block;
 @media (min-width: 768px){
 .square-img li label {
     font-size: 26pt;
+    line-height: 2.8;
 }
 }
 @media (min-width: 1200px){
 	.square-img li label{
 	font-size: 12pt;
+	line-height: 2.2;
 	}
 }
 .square-img li a:hover img {

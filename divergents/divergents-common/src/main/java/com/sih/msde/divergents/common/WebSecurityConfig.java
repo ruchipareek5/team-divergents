@@ -21,7 +21,7 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 //			http
 //					.httpBasic().and()
 //					.authorizeRequests()
-//					.antMatchers("/index.html", "/partials/home-carousel.html", "/viewQpPage.html","/","/csrFundingPublicUser.html","/tendersRfpsPublicUser.html","/findTrainingCenter.html","/webinarsPublicUser.html", "/skillGapStudyPublicUser.html","/reportIssue.html", "/login.html","/loginUrl","/skillIndiaSignup").permitAll()
+//					.antMatchers("/index.html","/chart","/chart.html","/partials/home-carousel.html", "/viewQpPage.html","/","/csrFundingPublicUser.html","/tendersRfpsPublicUser.html","/findTrainingCenter.html","/webinarsPublicUser.html", "/skillGapStudyPublicUser.html","/reportIssue.html", "/login.html","/loginUrl","/skillIndiaSignup").permitAll()
 //					.anyRequest().authenticated()
 //					.and()
 //					.csrf()
@@ -32,7 +32,8 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 //		}
 		 @Override
 		    protected void configure(HttpSecurity http) throws Exception {
-		        http.authorizeRequests().anyRequest().permitAll();
+		     http.csrf().disable();   
+			 http.authorizeRequests().anyRequest().permitAll();
 		    }
 		
 	}

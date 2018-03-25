@@ -3,10 +3,9 @@ industryDashboard:
   select COUNT(distinct IndustryName) as totalPartnerships from industryPartnerships
  
  totalCsrFunds: >
-  select SUM(amountDeposited) as totalCSRFunds from csrFunds where year(submissionDate) = year(curdate()) - 1 
- 
- totalCandidatesCertified: >
   select SUM(amountDeposited) as totalCSRFunds from csrFunds where year(submissionDate) between year(curdate())-1 and year(curdate())
+ totalCandidatesCertified: >
+  select SUM(candidatesPlaced) as totalCandidaesPlaced from placementInformation
   
  totalJobRoles: >
   select COUNT(distinct jobRoleCode) as totalJobRoles from jobRole
@@ -19,8 +18,7 @@ industryDashboard:
   Year(curDate()) - 2 and year(curDate()) group by organisationName order by 2 desc limit 5 
  
  topFiveTrainingPartnersWithMaximumPlacementsAccordingToJobRole: >
-  select (trainingPartner.organizationName) as trainingPartnerName,(candidatesPlaced) as totalPlacements from placementInformation 
+  select (trainingPartner.organizationName) as trainingPartnerName,SUM(candidatesPlaced) as totalPlacements from placementInformation 
    INNER JOIN trainingPartner on placementinformation.trainingPartnerId = trainingpartner.trainingPartnerId
-    where jobRole= :jobRole  and year(placementinformation.placementDate) between Year(curDate())-2 and Year(curDate()) 
+    where year(placementinformation.placementDate) between Year(curDate())-2 and Year(curDate()) 
      group by organizationName order by 2 limit 5;
-   

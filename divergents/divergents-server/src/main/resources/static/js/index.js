@@ -28,10 +28,6 @@ divergents.config( function($routeProvider, $httpProvider){
 	.when('/government-and-state-machinery', {
         templateUrl : 'government-and-state-machinery.html',
         controller : 'govt'
-    }).
-    when('/logout',{
-    	 templateUrl : 'webinarsPublicUser.html',
-         controller : 'webinarsPublicUser'
     })
 	.otherwise('/');
 	

@@ -167,7 +167,7 @@
 
 
 <!-- View of Student section -->
-<div class="col-md-12 divergents-middle-view" ng-show="templateShow">
+<div class="col-md-12 divergents-middle-view">
 <div ng-switch on="studentSwitch">
 <div ng-switch-when="home">
 
@@ -208,7 +208,7 @@
 </div>      
 </div>
 </div>
-<div ng-show="templateShow">
+<div>
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container-fluid footer-blue">
 <div class="navbar-header">
@@ -314,13 +314,15 @@
 
 
 </section>
+
+<!--SCREEN 2  SECTION  FOR TRAINING PARTNER-->
 <script type="text/javascript" src="js/controller/trainingPartner.js"></script>
+<script type="text/javascript" src="js/controllers/trainingPartnerHomepage.js"></script>
 <section ng-controller="trainingPartner">
-
-
-<header ng-show="templateShowTP">
+	<div ng-show="templateShowTP">
+<header >
 <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid ">
+      <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -328,21 +330,25 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"></a>
+          <a class="navbar-brand" href="#"><img src="images/nsdc-cropped.png"/></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">TRAINING PARTNER</a></li>
-            <li><a ng-click="">ABOUTS US</a></li>
-            <li><a>JOIN US</a></li>
-            <li><a>COMPETETIONS</a></li>
-            <li><a>RESOURCES</a></li>
-            <li><a>CHAMPIONS</a></li>
+          <li class=><a ></a></li>
+          <li class=""><a ></a></li>
+            <li class="active"><a ng-click="tpSwitch = 'home'">HOME</a></li>
+            <li><a ng-click="tpSwitch = 'about-us'">ABOUTS US</a></li>
+            <li><a ng-click="tpSwitch = 'join-us'">JOIN US</a></li>
+            <li><a ng-click="tpSwitch = 'competetion'">COMPETETIONS</a></li>
+            <li><a ng-click="tpSwitch = 'resources'">RESOURCES</a></li>
+            <li><a ng-click="tpSwitch = 'champions'">CHAMPIONS</a></li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">USER TYPE<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">USER TYPE<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a ng-click="openStudent()">STUDENT</a></li>
                 <li><a ng-click="openIndustry()">INDUSTRY</a></li>
+                <li><a ng-click="openStudent()">STUDENT</a></li>
                 <li><a ng-click="openGovt()">ADMIN</a></li>
               </ul>
             </li>
@@ -351,11 +357,75 @@
       </div>
     </nav>
 </header>
-<!-- Content to change here -->
-<div ng-view>
 
+
+<!-- View of tRAINING PARTNER section ------------------------------------>
+<div class="col-md-12 divergents-middle-view">
+<div ng-switch on="tpSwitch">
+<div ng-switch-when="home">
+
+<div ng-include src="'trainingPartnerHomepage.html'"></div>
 </div>
-<footer> </footer>
+<div ng-switch-when="about-us">
+<div ng-include src="'partials/about-us.html'"></div>
+</div>
+<div ng-switch-when="join-us">
+<div ng-include src="'partials/join-us.html'"></div>
+</div>
+<div ng-switch-when="competetion">
+<div ng-include src="'partials/competetion.html'"></div>
+</div>
+<div ng-switch-when="resources">
+<div ng-include src="'partials/resources.html'"></div>
+</div>
+<div ng-switch-when="champions">
+<div ng-include src="'partials/champions.html'"></div>
+</div> 
+<div ng-switch-when="quick-facts-tp">
+<div ng-include src="'partials/quick-facts-tp.html'"></div>
+</div>  
+<div ng-switch-when="register">
+<div ng-include src="'partials/register-with-nsdc.html'"></div>
+</div> 
+<div ng-switch-when="fund-a-loan">
+<div ng-include src="'partials/fund-a-loan.html'"></div>
+</div> 
+<div ng-switch-when="domain">
+<div ng-include src="'partials/domain.html'"></div>
+</div> 
+<div ng-switch-when="placements">
+<div ng-include src="'partials/placements.html'"></div>
+</div>
+<div ng-switch-when="relevant-documents">
+<div ng-include src="'partials/relevant-documents.html'"></div>
+</div>      
+</div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid footer-blue">
+<div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"></a>
+        </div>
+        <div id="navbar-footer" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          <ul class="nav navbar-nav pull-right">
+            <li class="footer-navbar-link"><a ng-click="tpSwitch = 'quick-facts-tp'"><span><img class="footer-nav-img" src="images/qp.png" /><p>&nbsp; &nbsp; &nbsp;Quick Facts&nbsp; &nbsp; &nbsp;</p></span></a></li>
+            <li class="footer-navbar-link"><a ng-click="tpSwitch = 'register'"><span><img class="footer-nav-img" src="images/Find TC.png"/><p>Register with NSDC</p></span></a></li>
+            <li class="footer-navbar-link"><a ng-click="tpSwitch = 'fund-a-loan'"><span><img class="footer-nav-img" src="images/view QP.png"/><p>Fund a loan &nbsp;</p></span></a></li>
+            <li class="footer-navbar-link"><a ng-click="tpSwitch = 'domain'"><span><img class="footer-nav-img" src="images/training partner.png"/><p>Domains and SSCs</p></span></a></li>
+            <li class="footer-navbar-link"><a ng-click="tpSwitch = 'placements'"><span><img class="footer-nav-img" src="images/Find TC.png"/><p>Placement of trained candidates</p></span></a></li>
+            <li class="footer-navbar-link"><a ng-click="tpSwitch = 'relevant-documents'"><span><img class="footer-nav-img" src="images/Find TC.png"/><p>Relevant Documents</p></span></a></li>
+            </ul>
+        </div>
+  </div>
+</nav>
+</div>
 </section>
 </body>
 

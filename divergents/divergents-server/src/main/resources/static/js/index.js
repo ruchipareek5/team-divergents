@@ -41,7 +41,7 @@ divergents.controller('loginCtrl' , function($rootScope, $http, $location, $rout
 	$scope.screen = 'screen1';
 	
 	$rootScope.templateShow = false;
-	$rootScope.templateShowIndustry = false;
+	$rootScope.templateShowI = false;
 	$rootScope.templateShowGovt = false;
 	$rootScope.templateShowTP = false;
 	

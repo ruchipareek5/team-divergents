@@ -23,9 +23,9 @@
     	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
     
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.0.6/ui-grid.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.js"></script>
-		<script tye="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap.min.js"></script>
+<!-- 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.js"></script> -->
+<!-- 		<script tye="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap.js"></script> -->
+<!-- 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap.min.js"></script> -->
 
 
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js" type="text/javascript"></script> -->
@@ -35,6 +35,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.js"></script>
+    
         
 	    	<!-- Angular Controllers for landing page-->
 		<script type="text/javascript" src="js/index.js" type="text/javascript"></script>
@@ -235,11 +236,13 @@
 </div>
 </div>
 </section>
-<!-- SCREEN 3 FOR INDUSTRY ----------------------------------------------------------------->
+<!---------------------------------------- SCREEN 3 FOR INDUSTRY ----------------------------------------------------------------->
 <script type="text/javascript" src="js/controller/industry.js"></script>
-<section ng-controller="industry">
+<script type="text/javascript" src="js/controller/industryTabsController.js"></script>
 
-	<header ng-show="templateShowI">
+<section ng-controller="industry">
+<div ng-show="templateShowI">
+<header >
 <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -253,16 +256,20 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">INDUSTRY</a></li>
-            <li><a>ABOUTS US</a></li>
-            <li><a>JOIN US</a></li>
-            <li><a href="#contact">COMPETETIONS</a></li>
-            <li><a href="#contact">RESOURCES</a></li>
-            <li><a href="#contact">CHAMPIONS</a></li>
+          <li class=><a ></a></li>
+          <li class=""><a ></a></li>
+            <li class="active"><a ng-click="switchIndustry = 'home'">HOME</a></li>
+            <li><a ng-click="switchIndustry = 'about-us'">ABOUTS US</a></li>
+            <li><a ng-click="switchIndustry = 'join-us'">JOIN US</a></li>
+            <li><a ng-click="switchIndustry = 'competetion'">COMPETETIONS</a></li>
+            <li><a ng-click="switchIndustry = 'resources'">RESOURCES</a></li>
+            <li><a ng-click="switchIndustry = 'champions'">CHAMPIONS</a></li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">USER TYPE<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">USER TYPE<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a ng-click="openStudent()">STUDENT</a></li>
+                <li><a ng-click="openIndustry()">INDUSTRY</a></li>
                 <li><a ng-click="openTrainingPartner()">TRAINING PARTNER</a></li>
                 <li><a ng-click="openGovt()">ADMIN</a></li>
               </ul>
@@ -273,12 +280,82 @@
     </nav>
 </header>
 
-</section>
-<!-------------------- SCREEN 4 FOR GOVERNMENT AND STATE MACHINERY--------------------------- ----------------------->
+
+<!-- View of Industry section -->
+<div class="col-md-12 divergents-middle-view">
+<div ng-switch on="switchIndustry">
+<div ng-switch-when="home">
+
+<div ng-include src="'partials/student-home-carousel.html'"></div>
+</div>
+<div ng-switch-when="about-us">
+<div ng-include src="'partials/about-us.html'"></div>
+</div>
+<div ng-switch-when="join-us">
+<div ng-include src="'partials/join-us.html'"></div>
+</div>
+<div ng-switch-when="competetion">
+<div ng-include src="'partials/competetion.html'"></div>
+</div>
+<div ng-switch-when="resources">
+<div ng-include src="'partials/resources.html'"></div>
+</div>
+<div ng-switch-when="champions">
+<div ng-include src="'partials/champions.html'"></div>
+</div> 
+<div ng-switch-when="quick-facts-industry">
+<div ng-include src="'partials/quick-facts-industry.html'"></div>
+</div>  
+<div ng-switch-when="partnership-model">
+<div ng-include src="'partials/partnership-model.html'"></div>
+</div> 
+<div ng-switch-when="csr">
+<div ng-include src="'partials/csr.html'"></div>
+</div> 
+<div ng-switch-when="key-policy-decision">
+<div ng-include src="'partials/key-policy-decision.html'"></div>
+</div> 
+<div ng-switch-when="talent-acquisition">
+<div ng-include src="'partials/talent-acquisition.html'"></div>
+</div>
+<div ng-switch-when="relevant-document">
+<div ng-include src="'partials/relevant-document.html'"></div>
+</div>      
+</div>
+</div>
+<div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid footer-blue">
+<div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"></a>
+        </div>
+        <div id="navbar-footer" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          <ul class="nav navbar-nav pull-right">
+            <li class="footer-navbar-link"><a ng-click="switchIndustry = 'quick-facts-industry'"><span><img class="footer-nav-img" src="images/qp.png" /><p>&nbsp; &nbsp; &nbsp;Quick Facts&nbsp; &nbsp; &nbsp;</p></span></a></li>
+            <li class="footer-navbar-link"><a ng-click="switchIndustry = 'partnership-model'"><span><img class="footer-nav-img" src="images/Find TC.png"/><p>Industry Partnership model</p></span></a></li>
+            <li class="footer-navbar-link"><a ng-click="switchIndustry = 'csr'"><span><img class="footer-nav-img" src="images/view QP.png"/><p>&nbsp;&nbsp;&nbsp;&nbsp;CSR &nbsp;&nbsp;&nbsp;&nbsp;</p></span></a></li>
+            <li class="footer-navbar-link"><a ng-click="switchIndustry = 'key-policy-decision'"><span><img class="footer-nav-img" src="images/training partner.png"/><p>Key Policy decisions</p></span></a></li>
+            <li class="footer-navbar-link"><a ng-click="switchIndustry = 'talent-acquisition'"><span><img class="footer-nav-img" src="images/Find TC.png"/><p>Talent Acquisition</p></span></a></li>
+            <li class="footer-navbar-link"><a ng-click="switchIndustry = 'relevant-document'"><span><img class="footer-nav-img" src="images/Find TC.png"/><p>Relevant Documents</p></span></a></li>
+            </ul>
+        </div>
+  </div>
+</nav>
+</div>
+</div></section>
+
+<!------------------------------------ SCREEN 4 FOR GOVERNMENT AND STATE MACHINERY--------------------------- ----------------------->
+
 <script type="text/javascript" src="js/controller/govt.js"></script>
 <section ng-controller="govt">
-
-<header ng-show="templateShowGovt">
+<div ng-show="templateShowGovt">
+<header >
 <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -292,18 +369,22 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">GOVT</a></li>
-            <li><a href="#about">ABOUTS US</a></li>
-            <li><a href="#contact">JOIN US</a></li>
-            <li><a href="#contact">COMPETETIONS</a></li>
-            <li><a href="#contact">RESOURCES</a></li>
-            <li><a href="#contact">CHAMPIONS</a></li>
+          <li class=><a ></a></li>
+          <li class=""><a ></a></li>
+            <li class="active"><a ng-click="switchGovt = 'home'">HOME</a></li>
+            <li><a ng-click="switchGovt = 'about-us'">ABOUTS US</a></li>
+            <li><a ng-click="switchGovt = 'join-us'">JOIN US</a></li>
+            <li><a ng-click="switchGovt = 'competetion'">COMPETETIONS</a></li>
+            <li><a ng-click="switchGovt = 'resources'">RESOURCES</a></li>
+            <li><a ng-click="switchGovt = 'champions'">CHAMPIONS</a></li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">USER TYPE<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a ng-click="">STUDENT</a></li>
-                <li><a ng-click="openTrainingPartner()">TRAINING PARTNER</a></li>
                 <li><a ng-click="openIndustry()">INDUSTRY</a></li>
+                <li><a ng-click="openTrainingPartner()">TRAINING PARTNER</a></li>
+                <li><a ng-click="openStudent()">STUDENT</a></li>
               </ul>
             </li>
           </ul>
@@ -313,9 +394,77 @@
 </header>
 
 
-</section>
+<!-- View of Government section -->
+<div class="col-md-12 divergents-middle-view">
+<div ng-switch on="switchGovt">
+<div ng-switch-when="home">
 
-<!--SCREEN 2  SECTION  FOR TRAINING PARTNER-->
+<div ng-include src="'partials/student-home-carousel.html'"></div>
+</div>
+<div ng-switch-when="about-us">
+<div ng-include src="'partials/about-us.html'"></div>
+</div>
+<div ng-switch-when="join-us">
+<div ng-include src="'partials/join-us.html'"></div>
+</div>
+<div ng-switch-when="competetion">
+<div ng-include src="'partials/competetion.html'"></div>
+</div>
+<div ng-switch-when="resources">
+<div ng-include src="'partials/resources.html'"></div>
+</div>
+<div ng-switch-when="champions">
+<div ng-include src="'partials/champions.html'"></div>
+</div> 
+<div ng-switch-when="quick-facts-govt">
+<div ng-include src="'partials/quick-facts-govt.html'"></div>
+</div>  
+<div ng-switch-when="sector-skill-council">
+<div ng-include src="'partials/sector-skill-council.html'"></div>
+</div> 
+<div ng-switch-when="policy-govt">
+<div ng-include src="'partials/policy-govt.html'"></div>
+</div> 
+<div ng-switch-when="reports-govt">
+<div ng-include src="'partials/reports-govt.html'"></div>
+</div> 
+<div ng-switch-when="faq-govt">
+<div ng-include src="'partials/faq-govt.html'"></div>
+</div>
+<div ng-switch-when="relevant-document-govt">
+<div ng-include src="'partials/relevant-document-govt.html'"></div>
+</div>      
+</div>
+</div>
+<div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid footer-blue">
+<div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"></a>
+        </div>
+        <div id="navbar-footer" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          <ul class="nav navbar-nav pull-right">
+            <li class="footer-navbar-link"><a ng-click="switchGovt = 'quick-facts-govt'"><span><img class="footer-nav-img" src="images/qp.png" /><p>&nbsp; &nbsp; &nbsp;Quick Facts&nbsp; &nbsp; &nbsp;</p></span></a></li>
+            <li class="footer-navbar-link"><a ng-click="switchGovt = 'sector-skill-council'"><span><img class="footer-nav-img" src="images/Find TC.png"/><p>Sector Skill Councils</p></span></a></li>
+            <li class="footer-navbar-link"><a ng-click="switchGovt = 'policy-govt'"><span><img class="footer-nav-img" src="images/view QP.png"/><p>&nbsp;&nbsp;&nbsp;&nbsp;Policies &nbsp;&nbsp;&nbsp;&nbsp;</p></span></a></li>
+            <li class="footer-navbar-link"><a ng-click="switchGovt = 'reports-govt'"><span><img class="footer-nav-img" src="images/training partner.png"/><p>Reports</p></span></a></li>
+            <li class="footer-navbar-link"><a ng-click="switchGovt = 'faq-govt'"><span><img class="footer-nav-img" src="images/Find TC.png"/><p>FAQs</p></span></a></li>
+            <li class="footer-navbar-link"><a ng-click="switchGovt = 'relevant-document-govt'"><span><img class="footer-nav-img" src="images/Find TC.png"/><p>Lorem Ipsum</p></span></a></li>
+            </ul>
+        </div>
+  </div>
+</nav>
+</div>
+</div></section>
+
+<!-----------------------------------SCREEN 2  SECTION  FOR TRAINING PARTNER-------------------------------------->
+
 <script type="text/javascript" src="js/controller/trainingPartner.js"></script>
 <script type="text/javascript" src="js/controllers/trainingPartnerHomepage.js"></script>
 <section ng-controller="trainingPartner">
@@ -363,7 +512,6 @@
 <div class="col-md-12 divergents-middle-view">
 <div ng-switch on="tpSwitch">
 <div ng-switch-when="home">
-
 <div ng-include src="'trainingPartnerHomepage.html'"></div>
 </div>
 <div ng-switch-when="about-us">

@@ -5,7 +5,7 @@ govt.controller( 'govt' , function($scope,$http,$rootScope,$location){
 	//Method to route using $location.path()
 	
 	//$rootScope.screen = 'screen4';
-	
+$scope.switchGovt = 'home';	
 	$rootScope.templateShow = false;
 	$scope.openStudent = function()
 	{

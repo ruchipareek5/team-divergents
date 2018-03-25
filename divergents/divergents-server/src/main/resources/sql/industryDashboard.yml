@@ -6,7 +6,7 @@ industryDashboard:
   select SUM(amountDeposited) as totalCSRFunds from csrFunds where year(submissionDate) = year(curdate()) - 1 
  
  totalCandidatesCertified: >
-  select sum(totalCertified) as totalCandidatesCertified from batch where assessmentDate < curdate()
+  select SUM(amountDeposited) as totalCSRFunds from csrFunds where year(submissionDate) between year(curdate())-1 and year(curdate())
   
  totalJobRoles: >
   select COUNT(distinct jobRoleCode) as totalJobRoles from jobRole

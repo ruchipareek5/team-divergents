@@ -28,15 +28,11 @@ public class PlacementPercentageOfTopFiveTp extends AbstractTransactionalDao{
 	
 	
 
-	public Collection<PlacementPercentageOfTopFiveTpDto> getPlacementPercentageOfTopFiveTp(String jobRole) {
+	public Collection<PlacementPercentageOfTopFiveTpDto> getPlacementPercentageOfTopFiveTp() {
 		// TODO Auto-generated method stub
 		try {
-			LOGGER.debug("Request Parameter Job Role received in DAO");
+			LOGGER.debug("Request received from service to get top 5 training partners");
 			Map<String,Object> parameters = new HashMap<>();
-			LOGGER.debug("Creating Hashmap of objects");
-			parameters.put("jobRole", jobRole);
-			LOGGER.debug("Parameters inserted into the hashmap");
-
 			return getJdbcTemplate().query(industryDashboardConfigSql.gettopFiveTrainingPartnersWithMaximumPlacementsAccordingToJobRole() ,parameters, ROW_MAPPER);
 		}
 		catch(Exception e) {

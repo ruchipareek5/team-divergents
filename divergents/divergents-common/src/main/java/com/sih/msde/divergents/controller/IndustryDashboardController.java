@@ -58,17 +58,17 @@ public class IndustryDashboardController {
 	}
 	
 	@RequestMapping("/PlacementPercentageOfTopFiveTp")
-	public Collection<PlacementPercentageOfTopFiveTpDto> getPlacementPercentageOfTopFiveTp(@RequestParam("jobRole") String jobRole)
+	public Collection<PlacementPercentageOfTopFiveTpDto> getPlacementPercentageOfTopFiveTp()
 	{
 		try {
 			
 			LOGGER.debug("Request Parameter jobRole received in Controller");
 			LOGGER.debug("Sending the request parameter to service");
-			return industryDashboardService.getPlacementPercentageOfTopFiveTp(jobRole);
+			return industryDashboardService.getPlacementPercentageOfTopFiveTp();
 		}
 		
 		catch(Exception e) {
-			LOGGER.debug("An error occured while receiving the request parameter jobRole in controller");
+			LOGGER.debug("An error occured while fetching the top five training partners");
 			LOGGER.debug("Error:" +e);
 			LOGGER.debug("Returning Null");
 			return null;

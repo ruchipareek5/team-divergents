@@ -60,4 +60,20 @@
 {
 	margin-top:40pt;
 	position:relative;
+
+}
+.btn-generate-chart
+{
+	background-color:rgba(3,117,180,0.8);
+	border-color:rgb(3,117,180);
+	color:white;
+	font-weight:200;
+}
+.btn-generate-chart :hover
+{
+	background-color:rgba(3,117,180);
+	border-color:rgb(3,117,180);
+	color:white;
+	font-weight:200;
+	cursor:pointer;
 }

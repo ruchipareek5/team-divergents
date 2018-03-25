@@ -13,16 +13,17 @@ public class GetJobRoleDto extends BaseDto{
 
 	public GetJobRoleDto() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
-	public String getDistricts() {
+	public String getJobrole() {
 		return jobrole;
 	}
 
-	public void setDistricts(String districts) {
-		this.jobrole = districts;
+	public void setJobrole(String jobrole) {
+		this.jobrole = jobrole;
 	}
+
 	
 
 }

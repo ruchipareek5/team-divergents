@@ -213,6 +213,7 @@ video { display: block;
     position: absolute;
     width: 100%;
     bottom: 0;
+    text-align:center;
 }
 .wrapdiv.wrapdiv-sec{
     background: #328CC1 none repeat scroll 0 0;
@@ -253,8 +254,8 @@ video { display: block;
     color: #fff;
     font-size: 12pt;
     font-weight:bold;
-    line-height: normal;
-    padding:2%;
+    line-height: 2.2;
+    margin-bottom: 0px;
 }
 @media (min-width: 768px){
 .square-img li label {

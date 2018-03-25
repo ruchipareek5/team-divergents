@@ -1,6 +1,6 @@
 <div ng-controller="industryTabs">
 <head>
-        <link href="css/Dashboard.css" type="text/css" rel="stylesheet">
+        <link href="css/dashboardIndustry.css" type="text/css" rel="stylesheet">
     </head>
 	<div class="dashborad-container">
         <div class="dashboard-panelWrap">
@@ -10,7 +10,7 @@
                 <div class="dashboard-col-sm-2">
                     <div class="dashboard-panel">
                         <div class="dashboard-panel-body" style="background-color:#F6AB3D;">
-                            <div class="Enrolled">
+                            <div class="IndustryPartnerships">
                       <b>{{totalIndustryPartnerships}}</b> 
 
                             </div>
@@ -46,7 +46,7 @@
                 <div class="dashboard-col-sm-2">
                     <div class="panel panel-default">
                         <div class="dashboard-panel-body" style="background-color:#57C5D9;">
-                            <div class="totalJobRoles" class="TotalTC">
+                            <div class="totalJobRoles">
                                 
                              <b>{{totalJobRoles}}</b> 
                             </div>
@@ -84,10 +84,10 @@
 </div>
         	
       <div class="col-md-6" id="chart">
-      <div id="total-csr" ng-show="chartType =='chart1'"></div>
-      <div id="placement-percent" ng-show="chartType =='chart2'"></div>
+      <div id="total-csr" ng-show="chartType =='chart2'" style="width:550px;height:325px"></div>
+      <div id="placement-percent" ng-show="chartType =='chart1'" style="width:550px;height:325px"></div>
 <!--       Code to generate chart -->
-<h3>{{response}}</h3>
+
       </div>  	
         
         </div>

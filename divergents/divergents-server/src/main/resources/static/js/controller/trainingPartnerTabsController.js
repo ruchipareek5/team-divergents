@@ -17,4 +17,56 @@ trainingPartnerTabs.controller('trainingPartnerTabs',function($scope, $http) {
 			}
 		
 	}
+	
+	
+	
+	
+	 $http.get("/getTotalJobRoles")
+    .then(function(response) {
+        $scope.totalJobRoles = response.data;
+    });
+
+    $http.get("/getTotalCandidatesTrained")
+          .then(function(response) {
+              $scope.totalCandidatesTrained =response.data;
+          });
+
+       $http.get("/getTotalTrainingPartners")
+                .then(function(response) {
+                    $scope.totalTrainingPartners = response.data;
+                });
+
+
+        $http.get("/getTotalSectorSkillCouncil")
+                  .then(function(response) {
+                      $scope.totalSectorSkillCouncils = response.data;
+                  });
+
+        $http.get("/getAnnualTarget")
+                          .then(function(response) {
+                              $scope.annualTarget = response.data;
+                          });
+                          
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 });

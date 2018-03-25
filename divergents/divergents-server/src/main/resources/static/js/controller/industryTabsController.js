@@ -130,7 +130,7 @@ industryTabs.controller('industryTabs' , function($scope,$http,$location,$rootSc
             json.series = series;
             json.plotOptions = plotOptions;  
             json.credits = credits;
-            $('#csr').highcharts(json);
+            $('#total-csr').highcharts(json);
   
          });
           });
@@ -213,7 +213,7 @@ industryTabs.controller('industryTabs' , function($scope,$http,$location,$rootSc
             json.series = series;
             json.plotOptions = plotOptions;  
             json.credits = credits;
-            $('#chart').highcharts(json);
+            $('#placement-percent').highcharts(json);
   
          });
           });			

@@ -8,7 +8,7 @@ industryDashboard:
   select SUM(candidatesPlaced) as totalCandidaesPlaced from placementInformation
   
  totalJobRoles: >
-  select COUNT(distinct jobRoleCode) as totalJobRoles from jobRole
+  select COUNT(distinct jobRoleId) as totalJobRoles from jobRole
   
  totalTrainingPartners: >
   select COUNT(distinct trainingPartnerId) as totalTrainingPartners from trainingPartner 

@@ -57,6 +57,16 @@
 #navbar-footer li :hover p{
 	color:white;
 }
+#navbar-footer .navbar-brand img
+{	
+	background-color:rgba(248,248,248,0.2);
+	margin-right : -2pt;
+	margin-bottom: -2pt;
+	margin-left: -2pt;
+	padding:0pt;
+	width:50pt;
+}
+
 .divergents-middle-view
 {
 	margin-top:40pt;

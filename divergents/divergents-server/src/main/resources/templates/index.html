@@ -9,9 +9,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.0.6/ui-grid.css">
         <link  href="css/publicUser.css" rel="stylesheet"/>
         <link rel ='stylesheet' type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans">	  
-          <link rel="stylesheet" type="text/css" href="js/slick/slick.css" charset="utf-8" />
-  <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css" charset="utf-8" />
-  <link rel="stylesheet" type="text/css" href="css/carousel.css">
+          <link rel="stylesheet" type="text/css" href="js/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css"/>
+<!--   <link rel="stylesheet" type="text/css" href="css/carousel.css"> -->
     	
     	
     		<!-- Angular Imports -->
@@ -51,8 +51,7 @@
     	<link rel="stylesheet" href="css/findTC.css"/>
     	<link rel="stylesheet" href="css/main.css"/>
     	
-    
-		  <style type="text/css">
+        <style type="text/css">
     html, body {
       margin: 0;
       padding: 0;
@@ -94,6 +93,7 @@
       opacity: 1;
     }
   </style>
+		
 		
 		
 </head>
@@ -191,6 +191,8 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#"><img src="images/nsdc-cropped.png"/></a>
+          <a class="navbar-brand" href="#"><img src="images/Image-of-Skill-India.png"/></a>
+          
         </div>
         <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
           <ul class="nav navbar-nav pull-right">
@@ -600,69 +602,81 @@
 
 </section>
 <!-- 	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
- 	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-      	<script src="js/slick/slick.js" type="text/javascript" charset="utf-8"></script>
+<!--  	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
+<!--       	<script src="js/slick/slick.js" type="text/javascript" charset="utf-8"></script> -->
       		<script src = "https://code.highcharts.com/highcharts.js"></script>
  	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+ 	   <script type="text/javascript">
+ 	  $(document).on('ready', function() {
+ 	      $(".vertical-center-4").slick({
+ 	        dots: true,
+ 	        vertical: true,
+ 	        centerMode: true,
+ 	        slidesToShow: 4,
+ 	        slidesToScroll: 2
+ 	      });
+ 	      $(".vertical-center-3").slick({
+ 	        dots: true,
+ 	        vertical: true,
+ 	        centerMode: true,
+ 	        slidesToShow: 3,
+ 	        slidesToScroll: 3
+ 	      });
+ 	      $(".vertical-center-2").slick({
+ 	        dots: true,
+ 	        vertical: true,
+ 	        centerMode: true,
+ 	        slidesToShow: 2,
+ 	        slidesToScroll: 2
+ 	      });
+ 	      $(".vertical-center").slick({
+ 	        dots: true,
+ 	        vertical: true,
+ 	        centerMode: true,
+ 	      });
+ 	      $(".vertical").slick({
+ 	        dots: true,
+ 	        vertical: true,
+ 	        slidesToShow: 3,
+ 	        slidesToScroll: 3
+ 	      });
+ 	      $(".regular").slick({
+ 	        dots: true,
+ 	        infinite: true,
+ 	        slidesToShow: 3,
+ 	        slidesToScroll: 3
+ 	      });
+ 	      $(".center").slick({
+ 	        dots: true,
+ 	        infinite: true,
+ 	        centerMode: true,
+ 	        slidesToShow: 5,
+ 	        slidesToScroll: 3
+ 	      });
+ 	      $(".variable").slick({
+ 	        dots: true,
+ 	        infinite: true,
+ 	        variableWidth: true
+ 	      });
+ 	      $(".lazy").slick({
+ 	        lazyLoad: 'ondemand', // ondemand progressive anticipated
+ 	        infinite: true,
+ 			autoplay:true,
+ 			  autoplaySpeed:3000,
+ 			   arrows:false
+ 	      });
+ 		  $(".home").slick({
+ 			  accessibility:true,
+ 			  autoplay:true,
+ 			  autoplaySpeed:3000,
+ 			  arrows:true,
+ 			  mobileFirst:true,
+ 			  
+ 	    });
+ 	 });
+</script>
 </body>
 
- <script type="text/javascript">
-    $(document).on('ready', function() {
-      $(".vertical-center-4").slick({
-        dots: true,
-        vertical: true,
-        centerMode: true,
-        slidesToShow: 4,
-        slidesToScroll: 2
-      });
-      $(".vertical-center-3").slick({
-        dots: true,
-        vertical: true,
-        centerMode: true,
-        slidesToShow: 3,
-        slidesToScroll: 3
-      });
-      $(".vertical-center-2").slick({
-        dots: true,
-        vertical: true,
-        centerMode: true,
-        slidesToShow: 2,
-        slidesToScroll: 2
-      });
-      $(".vertical-center").slick({
-        dots: true,
-        vertical: true,
-        centerMode: true,
-      });
-      $(".vertical").slick({
-        dots: true,
-        vertical: true,
-        slidesToShow: 3,
-        slidesToScroll: 3
-      });
-      $(".regular").slick({
-        dots: true,
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 3
-      });
-      $(".center").slick({
-        dots: true,
-        infinite: true,
-        centerMode: true,
-        slidesToShow: 5,
-        slidesToScroll: 3
-      });
-      $(".variable").slick({
-        dots: true,
-        infinite: true,
-        variableWidth: true
-      });
-      $(".lazy").slick({
-        lazyLoad: 'ondemand', // ondemand progressive anticipated
-        infinite: true
-      });
-    });
-</script>
+
 
 </html>

@@ -1,0 +1,5 @@
+rpl:
+ 
+ expressInterestForRpl: >
+  INSERT INTO rpl (organisationName,areaOfOperation,noOfemployeesTobeCertified,companyIncorporationNumber,hrPocEmail) values
+     (organisationName,areaOfOperation,numberOfEmployeesToBeCertified,companyIncorporationNumber,hrPocEmail);

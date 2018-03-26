@@ -56,10 +56,10 @@ public class IndustryDashboardService {
 		return topFiveCorporatesWithMaxCsrContributions.getTopFiveCorporates();
 	}
 	
-	public Collection<PlacementPercentageOfTopFiveTpDto> getPlacementPercentageOfTopFiveTp(){
+	public Collection<PlacementPercentageOfTopFiveTpDto> getPlacementPercentageOfTopFiveTp(String jobRole){
 		try {
 			LOGGER.debug("Received request from controller to get top 5 training partner with max placement record");
-			return placementPercentageOfTopFiveTp.getPlacementPercentageOfTopFiveTp();
+			return placementPercentageOfTopFiveTp.getPlacementPercentageOfTopFiveTp(jobRole);
 		}
 		catch(Exception e)
 		{

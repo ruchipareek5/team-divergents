@@ -4,7 +4,7 @@ trainingPartner.controller( 'trainingPartner' , function($scope,$http,$rootScope
 	
 	//Method to route using $location.path()
 	
-	$scope.tpSwitch = 'home';
+	$scope.tpSwitch = 'quick-facts-tp';
 	//$rootScope.screen = 'screen2';
 	//$rootScope.templateShow = false;
 	$scope.openStudent = function()

@@ -7,3 +7,10 @@ function myFunction() {
         x.className = "topnav";
     }
 }
+$(document).ready(function() { 
+	var $li = $('#navbar-footer li').click(function() {
+	    $li.removeClass('selected-tab');
+	    $(this).addClass('selcted-tab');
+	});
+});
+

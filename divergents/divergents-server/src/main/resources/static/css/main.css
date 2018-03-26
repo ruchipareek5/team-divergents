@@ -27,11 +27,13 @@
     cursor: pointer;
  
 }
-.footer-navbar-link{
+#navbar-footer .pull-right .footer-navbar-link{
     color: white;
     cursor: pointer;
     font-size:8pt;
     text-align:center;
+    border-right:1pt solid;
+    border-color:rgb(288,288,288,0.2);
 }
 .footer-navbar-border label
 {
@@ -52,11 +54,16 @@
 	background-color:rgb(3,117,180);
 }
 #navbar-footer li p{
-  width: 104pt;
+  width: 110pt;
   color:white
 }
 #navbar-footer li :hover p{
 	color:white;
+}
+#navbar-footer li .active a {
+
+  background-color:rgb(3,117,180);
+
 }
 .divergents-middle-view
 {
@@ -100,4 +107,8 @@
 #navbar-footer .navbar-brand
 {
 	padding:0pt;
+}
+li .selected-tab
+{
+	background-color:rgb(3,117,180);
 }

@@ -32,3 +32,8 @@
 .alphaHeading li {
     list-style: outside none none;
 }
+
+.alphaHeading ul li:hover {
+    background-color: #b7c0ce;
+    color: white;
+}

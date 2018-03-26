@@ -1,6 +1,6 @@
 .csrheading{
 	font-size:2em;
-	color:#FFAA00;
+	color:#1F497D;
 	
 }
 .model1{
@@ -52,16 +52,14 @@
 	color:white;
 	  transition: transform 0.25s ease;
 }
-.contentMainContainer{
-	width:48%;
-}
+
 .verticalLine{
 	   border-left: 6px solid black;
     height: 500px;
     
 }
 .contentContainer{
-	border:1px solid black;
+	
 	height:250pt;
 }
 
@@ -71,5 +69,5 @@
 	margin-top:1%;
 	background-color:#55AAFF;
 	color:white;
-	width:30%;
+
 }

@@ -18,6 +18,7 @@
 --
 -- Dumping data for table `abassessor`
 --
+use msde;
 
 LOCK TABLES `abassessor` WRITE;
 /*!40000 ALTER TABLE `abassessor` DISABLE KEYS */;

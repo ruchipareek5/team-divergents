@@ -4,6 +4,9 @@ industryTabs.controller('industryTabs' , function($scope,$http,$location,$rootSc
   $scope.chartType = 'chart1';
   $scope.chartTypeList = [{ id:'chart1',name:'Placement of top 5 TP'},{id:'chart2',name:'Maximum CSR contibutions'}];
   //write code here
+   $scope.selectedJobRole;
+   
+   
   $scope.generateChart = function()
   {
     if($scope.chartType == 'chart1')
@@ -18,10 +21,17 @@ industryTabs.controller('industryTabs' , function($scope,$http,$location,$rootSc
       }
     
   }
-
-
-
-
+	
+	$http.get('/getallJobRoles')
+    .success(function (response) {
+        $scope.jobRole= response;
+    })
+    .error(function (error) {
+       console.log("Error" + error);
+    });
+	
+	
+	
 
   $http.get("/getTotalPartnerships")
     .then(function(response) {
@@ -147,8 +157,10 @@ industryTabs.controller('industryTabs' , function($scope,$http,$location,$rootSc
            trainingPartnerName=[];
            totalPlacements=[];
            totalPlacemetsSum=0
-            
-           $.getJSON("/PlacementPercentageOfTopFiveTp",function(data) {
+           var jobRole=$scope.selectedJobRole; 
+           
+           console.log(jobRole);         
+           $.getJSON("/PlacementPercentageOfTopFiveTp?jobRole=" +jobRole,function(data) {
               for(var i=0;i<data.length;i++)
              {
               trainingPartnerName.push(data[i].trainingPartnerName);

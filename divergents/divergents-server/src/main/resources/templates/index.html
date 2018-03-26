@@ -9,6 +9,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.0.6/ui-grid.css">
         <link  href="css/publicUser.css" rel="stylesheet"/>
         <link rel ='stylesheet' type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans">	  
+          <link rel="stylesheet" type="text/css" href="js/slick/slick.css" charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css" charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="css/carousel.css">
     	
     	
     		<!-- Angular Imports -->
@@ -24,8 +27,8 @@
 <!-- 		<script tye="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap.js"></script> -->
 <!-- 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap.min.js"></script> -->
 		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-      	
-      
+      	<script src="js/slick/slick.js" type="text/javascript" charset="utf-8"></script>
+<!--       	<script src="js/carousel.js" type="text/javascript" charset="utf-8"></script> -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js" type="text/javascript"></script> -->
     <!-- javascript -->
   	
@@ -48,9 +51,49 @@
     	<link rel="stylesheet" href="css/findTC.css"/>
     	<link rel="stylesheet" href="css/main.css"/>
     	
-    	<script src = "https://code.highcharts.com/highcharts.js"></script>
- 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
-		
+    
+		  <style type="text/css">
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .slider {
+        width: 50%;
+        margin: 100px auto;
+    }
+
+    .slick-slide {
+      margin: 0px 20px;
+    }
+
+    .slick-slide img {
+      width: 100%;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+      color: black;
+    }
+
+
+    .slick-slide {
+      transition: all ease-in-out .3s;
+      opacity: .2;
+    }
+    
+    .slick-active {
+      opacity: .5;
+    }
+
+    .slick-current {
+      opacity: 1;
+    }
+  </style>
 		
 		
 </head>
@@ -219,17 +262,9 @@
 <div>
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container-fluid footer-blue">
-<div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#"><img alt="" src="want to be skilled.png"></a>
-        </div>
         <div id="navbar-footer" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
-          <ul class="nav navbar-nav pull-right">
+          <ul class="nav navbar-nav">
+            <li class="footer-navbar-link" ><img class="footer-nav-img-brand" src="images/want_to_be_skilled.png" /></li>
             <li class="footer-navbar-link"><a ng-click="studentSwitch = 'student-jobrole'"><span><img class="footer-nav-img" src="images/job role.png" /><p>&nbsp; &nbsp; &nbsp;Job Roles&nbsp; &nbsp; &nbsp;</p></span></a></li>
             <li class="footer-navbar-link"><a ng-click="studentSwitch = 'student-find-tc'"><span><img class="footer-nav-img" src="images/Find TC.png"/><p>Find a training center</p></span></a></li>
             <li class="footer-navbar-link"><a ng-click="studentSwitch = 'student-view-qp'"><span><img class="footer-nav-img" src="images/view QP.png"/><p>Training material &nbsp;</p></span></a></li>
@@ -582,6 +617,69 @@
 
 </section>
 <!-- 	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
- 	
+ 	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+      	<script src="js/slick/slick.js" type="text/javascript" charset="utf-8"></script>
+      		<script src = "https://code.highcharts.com/highcharts.js"></script>
+ 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 </body>
+
+ <script type="text/javascript">
+    $(document).on('ready', function() {
+      $(".vertical-center-4").slick({
+        dots: true,
+        vertical: true,
+        centerMode: true,
+        slidesToShow: 4,
+        slidesToScroll: 2
+      });
+      $(".vertical-center-3").slick({
+        dots: true,
+        vertical: true,
+        centerMode: true,
+        slidesToShow: 3,
+        slidesToScroll: 3
+      });
+      $(".vertical-center-2").slick({
+        dots: true,
+        vertical: true,
+        centerMode: true,
+        slidesToShow: 2,
+        slidesToScroll: 2
+      });
+      $(".vertical-center").slick({
+        dots: true,
+        vertical: true,
+        centerMode: true,
+      });
+      $(".vertical").slick({
+        dots: true,
+        vertical: true,
+        slidesToShow: 3,
+        slidesToScroll: 3
+      });
+      $(".regular").slick({
+        dots: true,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3
+      });
+      $(".center").slick({
+        dots: true,
+        infinite: true,
+        centerMode: true,
+        slidesToShow: 5,
+        slidesToScroll: 3
+      });
+      $(".variable").slick({
+        dots: true,
+        infinite: true,
+        variableWidth: true
+      });
+      $(".lazy").slick({
+        lazyLoad: 'ondemand', // ondemand progressive anticipated
+        infinite: true
+      });
+    });
+</script>
+
 </html>

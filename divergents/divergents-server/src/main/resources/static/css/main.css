@@ -7,7 +7,7 @@
 }
 .navbar-brand img
 {
-	height:30pt;
+	height:25pt;
 	margin-top:-2pt;
 }
 .navbar-brand img
@@ -15,7 +15,7 @@
 	background-color:rgba(248,248,248,0.2);
 	margin-right : -2pt;
 	margin-bottom: -2pt;
-	margin-left: -2pt;
+	margin-left: 5pt;
 	padding:0pt;
 }
 .footer-blue

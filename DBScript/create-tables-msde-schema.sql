@@ -456,3 +456,9 @@ CREATE TABLE `msde`.`industrypartnerships` (
 
 alter table centre add jobRoleId varchar(30);
 alter table centre add foreign key (jobRoleId) references jobrole(jobRoleId);
+/* create table for relevantdocumentstp */
+create table if not exists relevantdocumentstp(
+policyId varchar(30) primary key,
+policyNo varchar(80),
+title varchar(200),
+policyDocUrl varchar(100));

@@ -264,17 +264,17 @@ page4.controller('page4',function($scope, $http) {
         columnDefs: [{
                 name: 'totalNoOfCandidatesEnrolled',
                 displayName: 'Total No. Of Candidate Enrolled',
-                width: 250
+                width: "30%"
             },
             {
                 name: 'totalNoOfCandidatesAssessed',
                 displayName: 'Total No. Of Candidate Assessed',
-                width: 250
+                width: "30%"
             },
             {
                 name: 'totalNoOfCandidatesCertified',
                 displayName: 'Total No. Of Candidate Certified',
-                width: 250
+                width: "40%"
             }
         ]
     };
@@ -288,17 +288,17 @@ page4.controller('page4',function($scope, $http) {
         columnDefs: [{
                 name: 'totalNoOfCandidatesEnrolled',
                 displayName: 'Total No. Of Candidate Enrolled',
-                width: 250
+                width: "30%"
             },
             {
                 name: 'totalNoOfCandidatesAssessed',
                 displayName: 'Total No. Of Candidate Assessed',
-                width: 250
+                width: "30%"
             },
             {
                 name: 'totalNoOfCandidatesCertified',
                 displayName: 'Total No. Of Candidate Certified',
-                width: 250
+                width: "40%"
             }
         ]
     };
@@ -312,12 +312,12 @@ page4.controller('page4',function($scope, $http) {
         columnDefs: [{
                 name: 'month',
                 displayName: 'Months',
-                width: 350
+                width: "50%"
             },
             {
                 name: 'numberOfCandidates',
                 displayName: 'Number of Candidates',
-                width: 350
+                width: "50%"
             }
         ]
     };
@@ -331,12 +331,12 @@ page4.controller('page4',function($scope, $http) {
         columnDefs: [{
                 name: 'month',
                 displayName: 'Months',
-                width: 350
+                width: "50%"
             },
             {
                 name: 'numberOfCandidates',
                 displayName: 'Number of Candidates',
-                width: 350
+                width: "50%"
             }
         ]
     };
@@ -350,12 +350,12 @@ page4.controller('page4',function($scope, $http) {
         columnDefs: [{
                 name: 'batches',
                 displayName: 'Number of batches',
-                width: 350
+                width: "50%"
             },
             {
                 name: 'totalCandidates',
                 displayName: 'Number of Candidates',
-                width: 350
+                width: "50%"
             }
         ]
     };
@@ -369,12 +369,12 @@ page4.controller('page4',function($scope, $http) {
         columnDefs: [{
                 name: 'batches',
                 displayName: 'Number of batches',
-                width: 350
+                width: "50%"
             },
             {
                 name: 'totalCandidates',
                 displayName: 'Number of Candidates',
-                width: 350
+                width: "50%"
             }
         ]
     };
@@ -388,17 +388,17 @@ page4.controller('page4',function($scope, $http) {
         columnDefs: [{
                 name: 'month',
                 displayName: 'Month',
-                width: 250
+                width: "40%"
             },
             {
                 name: 'totalBatches',
                 displayName: 'Number of Batches',
-                width: 250
+                width: "30%"
             },
             {
                 name: 'candidatesEnrolled',
                 displayName: 'Total Candidates Enrolled',
-                width: 250
+                width: "30%"
             }
         ]
     };
@@ -412,12 +412,12 @@ page4.controller('page4',function($scope, $http) {
         columnDefs: [{
                 name: 'centreId',
                 displayName: 'Center Id',
-                width: 400
+                width: "50%"
             },
             {
                 name: 'centreName',
                 displayName: 'Center Name',
-                width: 400
+                width: "50%"
             }
         ]
     };
@@ -431,32 +431,32 @@ page4.controller('page4',function($scope, $http) {
         columnDefs: [{
                 name: 'batchId',
                 displayName: 'Batch Id',
-                width: 130
+                width: "10%"
             },
             {
                 name: 'trainingPartnerName',
                 displayName: 'Training Partner Name',
-                width: 130
+                width: "30%"
             },
             {
                 name: 'batchStartDate',
                 displayName: 'Batch Start Date',
-                width: 130
+                width: "10%"
             },
             {
                 name: 'batchEndDate',
                 displayName: 'Batch End Date',
-                width: 130
+                width: "20%"
             },
             {
                 name: 'assessmentDate',
                 displayName: 'Assessment Date',
-                width: 130
+                width: "20%"
             },
             {
                 name: 'resultApproved',
                 displayName: 'Result Approved',
-                width: 130
+                width: "10%"
             }
         ]
     };

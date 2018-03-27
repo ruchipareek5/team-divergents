@@ -35,27 +35,63 @@ industryTabs.controller('industryTabs' , function($scope,$http,$location,$rootSc
 
   $http.get("/getTotalPartnerships")
     .then(function(response) {
-        $scope.totalIndustryPartnerships = response.data;
+    	if(response.data == null)
+    		{
+    		$scope.totalIndustryPartnerships = 0;
+    		}
+    	else
+    		{
+    		$scope.totalIndustryPartnerships = response.data;
+    		}
+        
     });
 
     $http.get("/getTotalCsrFunds")
           .then(function(response) {
-              $scope.totalCsrFunds =response.data;
+        	  if(response.data == null)
+        		  {
+        		  $scope.totalCsrFunds = 0;
+        		  }
+        	  else
+        		  {
+        		  $scope.totalCsrFunds =response.data;
+        		  }
+              
           });
 
        $http.get("/getTotalCandidatesCertified")
                 .then(function(response) {
-                    $scope.totalCandidatesCertified = response.data;
+                	if(response.data == null)
+                		{
+                		$scope.totalCandidatesCertified = 0;
+                		}
+                	else
+                		{
+                		$scope.totalCandidatesCertified = response.data;
+                		}
+                    
                 });
 
 
         $http.get("/getTotalJobRolesIndustry")
                   .then(function(response) {
-                      $scope.totalJobRoles = response.data;
+                	  if(response==null)
+                		  {
+                		  $scope.totalJobRoles = 0;
+                		  }
+                	  else
+                		  {
+                		  $scope.totalJobRoles = response.data;
+                		  }
+                      
                   });
 
         $http.get("/getTotalTrainingPartnersIndustry")
                           .then(function(response) {
+                        	  if(response.data ==  null)
+                        		  {
+                        		  $scope.totalTP = 0;
+                        		  }
                               $scope.totalTP = response.data;
                           });
                           

@@ -25,28 +25,68 @@ govPartnerTabs.controller('govPartnerTabs',function($scope, $http) {
 	
 	$http.get("/getAnnualTarget")
                           .then(function(response) {
-                              $scope.annualTarget = response.data;
+                        	  if(response.data == null)
+                        		  {
+                        		  $scope.annualTarget = 0;
+                        		  }
+                        	  else
+                        		  {
+                        		  $scope.annualTarget = response.data;  
+                        		  }
+                              
                           });
 	
 	  $http.get("/getTotalCandidatesTrained")
           .then(function(response) {
-              $scope.totalCandidatesTrained =response.data;
+        	  if(response.data)
+        		  {
+        		  $scope.totalCandidatesTrained = 0;
+        		  }
+        	  else
+        		  {
+        		  $scope.totalCandidatesTrained =response.data;
+        		  }
+              
           });
 	
 	 $http.get("/getTotalCandidatesCertified")
                 .then(function(response) {
-                    $scope.totalCandidatesCertified = response.data;
+                	if(response.data == null)
+                		{
+                		$scope.totalCandidatesCertified = 0;
+                		}
+                	else
+                		{
+                		$scope.totalCandidatesCertified = response.data;
+                		}
+                    
                 });
                 
       
       $http.get("/getTotalTrainingCenters")
                 .then(function(response) {
-                    $scope.totalTrainingCenters = response.data;
+                	if(response.data == null)
+                		{
+                		$scope.totalTrainingCenters = 0;
+                		}
+                	else
+                		{
+                		$scope.totalTrainingCenters = response.data;
+                		}
+                    
                 });
                 
        $http.get("/getTotalCandidatesPlaced")
                 .then(function(response) {
-                    $scope.totalCandidatesPlaced = response.data;
+                	if(response.data == null)
+                		{
+                		$scope.totalCandidatesPlaced = 0;
+                		}
+                	else
+                		{
+                		$scope.totalCandidatesPlaced = response.data;
+                		}
+                    
                 });
                           
                 
@@ -54,7 +94,6 @@ govPartnerTabs.controller('govPartnerTabs',function($scope, $http) {
         
         //Top 5 Corporates with maximum CSR Contribution in last 2 years
         
-                
         
         
       $(document).ready(function() {  

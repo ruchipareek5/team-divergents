@@ -123,9 +123,16 @@ div .pannel-group{
    font-size:12pt;
    font-weight:500;
    cursor:pointer;
-   text-deocration:none;
 }
 .panel-default > .panel-heading > .panel-title > a :hover{
    cursor:pointer;
-   text-decoration:noe;
+   text-decoration:none;
+}
+.panel-default > .panel-heading > .panel-title >  :hover{
+   cursor:pointer;
+   text-decoration:none;
+}
+.panel-default >  :hover{
+	
+    box-shadow: 3pt 3pt 3pt #c6c4c4;
 }

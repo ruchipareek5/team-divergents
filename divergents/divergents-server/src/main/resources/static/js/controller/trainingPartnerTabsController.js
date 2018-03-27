@@ -25,28 +25,64 @@ trainingPartnerTabs.controller('trainingPartnerTabs',function($scope, $http) {
 	
 	 $http.get("/getTotalJobRoles")
     .then(function(response) {
-        $scope.totalJobRoles = response.data;
+    	if(response.data == null){
+    		$scope.totalJobRoles = 0;
+    	}
+    	else
+    		{
+    		$scope.totalJobRoles = response.data;
+    		}
+        
     });
 
     $http.get("/getTotalCandidatesTrained")
           .then(function(response) {
-              $scope.totalCandidatesTrained =response.data;
+        	  if(response.data == null)
+        		  {
+        		  $scope.totalCandidatesTrained =0;  
+        		  }
+        	  else
+        		  {
+        		  $scope.totalCandidatesTrained =response.data;
+        		  }
+        	  
           });
 
        $http.get("/getTotalTrainingPartners")
                 .then(function(response) {
-                    $scope.totalTrainingPartners = response.data;
+                	if(response.data == null)
+                		{
+                		$scope.totalTrainingPartners = 0;
+                		}
+                	else
+                		{
+                		$scope.totalTrainingPartners = response.data;
+                		}
                 });
 
 
         $http.get("/getTotalSectorSkillCouncil")
                   .then(function(response) {
-                      $scope.totalSectorSkillCouncils = response.data;
+                	  if(response.data == null)
+                		  {
+                		  $scope.totalSectorSkillCouncils = 0;
+                		  }
+                	  else
+                		  {
+                		  $scope.totalSectorSkillCouncils = response.data;
+                		  }
                   });
 
         $http.get("/getAnnualTarget")
                           .then(function(response) {
-                              $scope.annualTarget = response.data;
+                        	  if(response.data == null)
+                        		  {
+                        		  $scope.annualTarget = 0;
+                        		  }
+                        	  else
+                        		  {
+                        		  $scope.annualTarget = response.data;
+                        		  }
                           });
                           
 	

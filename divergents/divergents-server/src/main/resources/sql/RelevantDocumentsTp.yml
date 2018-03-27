@@ -1,0 +1,4 @@
+RelevantDocumentsTp:
+ selectDocument: > 
+  select *
+   from relevantDocumentsTp WHERE title like :letter

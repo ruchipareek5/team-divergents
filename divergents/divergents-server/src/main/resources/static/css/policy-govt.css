@@ -27,14 +27,14 @@
  */
 
 .alphaHeading{
-	background: #fcfcfc none repeat scroll 0 0;
+	    background: #fcfcfc none repeat scroll 0 0;
     border: 1px solid #ccc;
     padding: 15px;
     box-shadow: 1px 2px 3px #ddd;
     margin: 5px 0 15px;
 }
 
-.alphaHeading-right-border{
+.alphaHeading ul li {
     border-right: 1px solid #ccc;
     cursor: pointer;
     display: inline-block;
@@ -43,18 +43,9 @@
     text-transform: uppercase;
     margin-right: -3pt;
 }
-.alphaHeading-no-border{
-    cursor: pointer;
-    display: inline-block;
-    margin-left: -4px;
-    padding: 0 16pt 0 13pt;
-    text-transform: uppercase;
-    margin-right: -3pt;
-}
-
 
 .alphaHeading ul{
-/* 	margin-left: 18pt; */
+	margin-left: -18pt;
 	
 }
 

@@ -1,0 +1,4 @@
+RelevantDocIndustry:
+ selectDocPolicy: > 
+  select *
+   from relevantdocumentsindustry WHERE title like :letter

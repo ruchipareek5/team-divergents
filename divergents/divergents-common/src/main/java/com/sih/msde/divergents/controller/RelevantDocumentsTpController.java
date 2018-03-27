@@ -21,7 +21,7 @@ public class RelevantDocumentsTpController {
 	
 	
 	@RequestMapping(value="/getPolicyForSelectedLetter")
-	public Collection<RelevantDocumentsTpDto> getJobRolesForSelectedLetter(@RequestParam("letter") String letter){
+	public Collection<RelevantDocumentsTpDto> getPolicyForSelectedLetter(@RequestParam("letter") String letter){
 	
 		return relevantDocumentsTpService.getPolicyTp(letter);
 	}

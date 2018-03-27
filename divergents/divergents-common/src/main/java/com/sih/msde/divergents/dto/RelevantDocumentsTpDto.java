@@ -3,10 +3,6 @@ package com.sih.msde.divergents.dto;
 import com.sih.msde.divergents.common.BaseDto;
 
 public class RelevantDocumentsTpDto extends BaseDto{
-	
-	public class java {
-
-	}
 
 	private String policyId;
 	private String policyNo;

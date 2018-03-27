@@ -8,18 +8,27 @@
     margin: 5px 0 15px;
 }
 
-.alphaHeading ul li {
-    border-right: 1px solid #ccc;
+.alphaHeading-right-border {
+    border-right: 1pt solid #ccc;
     cursor: pointer;
     display: inline-block;
-    margin-left: -4px;
+    margin-left: -4pt;
+    padding: 0 16pt 0 13pt;
+    text-transform: uppercase;
+    margin-right: -3pt;
+}
+.alphaHeading-no-border{
+
+    cursor: pointer;
+    display: inline-block;
+    margin-left: -4pt;
     padding: 0 16pt 0 13pt;
     text-transform: uppercase;
     margin-right: -3pt;
 }
 
 .alphaHeading ul{
-	margin-left: -18pt;
+/* 	margin-left: -18pt; */
 	
 }
 

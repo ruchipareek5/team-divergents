@@ -295,6 +295,10 @@ CREATE TABLE `candidate` (
   `employmentType` varchar(50) NOT NULL,
   `batchId` int(10) DEFAULT NULL,
   `employerId` int(10) DEFAULT NULL,
+  `candidateAge` int(11) DEFAULT NULL,
+  `candidateLocation` varchar(50) DEFAULT NULL,
+  `candidateContact` bigint(12) DEFAULT NULL,
+  `candidateMail` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`candidateDetailsId`),
   KEY `batchId` (`batchId`),
   KEY `employerId` (`employerId`),
@@ -337,17 +341,15 @@ DROP TABLE IF EXISTS `certificate`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `certificate` (
-  `certificateId` int(10) NOT NULL AUTO_INCREMENT,
-  `certificateName` varchar(50) DEFAULT NULL,
-  `certificateUploadDate` date DEFAULT NULL,
-  `batchId` int(10) DEFAULT NULL,
-  `userId` varchar(200) DEFAULT NULL,
+  `certificateId` varchar(50) NOT NULL,
+  `candidateId` int(11) DEFAULT NULL,
+  `jobroleId` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`certificateId`),
-  KEY `batchId` (`batchId`),
-  KEY `userId` (`userId`),
-  CONSTRAINT `certificate_ibfk_1` FOREIGN KEY (`batchId`) REFERENCES `batch` (`batchId`),
-  CONSTRAINT `certificate_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `jobroleId` (`jobroleId`),
+  KEY `candidateId` (`candidateId`),
+  CONSTRAINT `certificate_ibfk_1` FOREIGN KEY (`jobroleId`) REFERENCES `jobrole` (`jobRoleId`),
+  CONSTRAINT `certificate_ibfk_2` FOREIGN KEY (`candidateId`) REFERENCES `candidate` (`candidateDetailsId`)
+)  ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -793,6 +795,25 @@ CREATE TABLE `trainingpartnerregistration` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
+--
+-- Table structure for table `trainingmaterial`
+--
+
+DROP TABLE IF EXISTS `trainingmaterial`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `trainingmaterial` (
+  `trainingmaterialid` int(11) NOT NULL AUTO_INCREMENT,
+  `trainingtitle` varchar(100) DEFAULT NULL,
+  `trainingmaterialurl` varchar(100) DEFAULT NULL,
+  `joberoleid` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`trainingmaterialid`),
+  KEY `joberoleid_idx` (`joberoleid`),
+  CONSTRAINT `joberoleid` FOREIGN KEY (`joberoleid`) REFERENCES `jobrole` (`jobRoleId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 --
 -- Table structure for table `user`
 --
@@ -824,88 +845,3 @@ CREATE TABLE `user` (
 
 -- Dump completed on 2018-03-26 18:45:29
 
---
--- Table structure for table `policygovernment`
---
-
-DROP TABLE IF EXISTS `policygovernment`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `policygovernment` (
-  `policygovId` varchar(30) NOT NULL,
-  `policygovNo` varchar(80) DEFAULT NULL,
-  `title` varchar(200) DEFAULT NULL,
-  `policydocUrl` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`policygovId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `policygovernment`
---
-
-LOCK TABLES `policygovernment` WRITE;
-/*!40000 ALTER TABLE `policygovernment` DISABLE KEYS */;
-/*!40000 ALTER TABLE `policygovernment` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `relevantdocumentsindustry`
---
-
-DROP TABLE IF EXISTS `relevantdocumentsindustry`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `relevantdocumentsindustry` (
-  `documentId` varchar(30) NOT NULL,
-  `documentNo` varchar(80) DEFAULT NULL,
-  `title` varchar(200) DEFAULT NULL,
-  `documentUrl` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`documentId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `relevantdocumentsindustry`
---
-
-LOCK TABLES `relevantdocumentsindustry` WRITE;
-/*!40000 ALTER TABLE `relevantdocumentsindustry` DISABLE KEYS */;
-/*!40000 ALTER TABLE `relevantdocumentsindustry` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `reportgovernment`
---
-
-DROP TABLE IF EXISTS `reportgovernment`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `reportgovernment` (
-  `reportgovId` varchar(30) NOT NULL,
-  `reportgovNo` varchar(80) DEFAULT NULL,
-  `title` varchar(200) DEFAULT NULL,
-  `reportdocUrl` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`reportgovId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `reportgovernment`
---
-
-LOCK TABLES `reportgovernment` WRITE;
-/*!40000 ALTER TABLE `reportgovernment` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reportgovernment` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2018-03-27 10:55:12

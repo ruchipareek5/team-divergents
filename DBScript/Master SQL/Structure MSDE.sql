@@ -823,3 +823,89 @@ CREATE TABLE `user` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2018-03-26 18:45:29
+
+--
+-- Table structure for table `policygovernment`
+--
+
+DROP TABLE IF EXISTS `policygovernment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `policygovernment` (
+  `policygovId` varchar(30) NOT NULL,
+  `policygovNo` varchar(80) DEFAULT NULL,
+  `title` varchar(200) DEFAULT NULL,
+  `policydocUrl` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`policygovId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `policygovernment`
+--
+
+LOCK TABLES `policygovernment` WRITE;
+/*!40000 ALTER TABLE `policygovernment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `policygovernment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `relevantdocumentsindustry`
+--
+
+DROP TABLE IF EXISTS `relevantdocumentsindustry`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `relevantdocumentsindustry` (
+  `documentId` varchar(30) NOT NULL,
+  `documentNo` varchar(80) DEFAULT NULL,
+  `title` varchar(200) DEFAULT NULL,
+  `documentUrl` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`documentId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `relevantdocumentsindustry`
+--
+
+LOCK TABLES `relevantdocumentsindustry` WRITE;
+/*!40000 ALTER TABLE `relevantdocumentsindustry` DISABLE KEYS */;
+/*!40000 ALTER TABLE `relevantdocumentsindustry` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `reportgovernment`
+--
+
+DROP TABLE IF EXISTS `reportgovernment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `reportgovernment` (
+  `reportgovId` varchar(30) NOT NULL,
+  `reportgovNo` varchar(80) DEFAULT NULL,
+  `title` varchar(200) DEFAULT NULL,
+  `reportdocUrl` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`reportgovId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `reportgovernment`
+--
+
+LOCK TABLES `reportgovernment` WRITE;
+/*!40000 ALTER TABLE `reportgovernment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `reportgovernment` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2018-03-27 10:55:12

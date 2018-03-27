@@ -1,7 +1,7 @@
 .csrheading{
 	font-size:2em;
 	color:#1F497D;
-	
+	font-family:OpenSansRegular;
 }
 .model1{
 	background-color:#F6AB3D;
@@ -53,11 +53,7 @@
 	  transition: transform 0.25s ease;
 }
 
-.verticalLine{
-	   border-left: 6px solid black;
-    height: 500px;
-    
-}
+
 .contentContainer{
 	
 	height:250pt;

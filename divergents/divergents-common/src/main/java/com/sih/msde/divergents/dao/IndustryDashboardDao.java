@@ -6,6 +6,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.sih.msde.divergents.common.AbstractTransactionalDao;
@@ -27,6 +28,11 @@ public class IndustryDashboardDao extends AbstractTransactionalDao {
 			Map<String,Object>parameters = new HashMap<>();
 			return getJdbcTemplate().queryForObject(industryDashboardConfigSql.getTotalPartnerships(), parameters, Integer.class);
 		}
+		catch(DataAccessException e)
+		{
+			LOGGER.debug("An exception was caught while fetching the total number of partnerships " +e);
+			return 0;
+		}
 		catch(Exception e)
 		{
 			LOGGER.debug("An exception was caught while fetching the total number of partnerships " +e);
@@ -42,6 +48,11 @@ public class IndustryDashboardDao extends AbstractTransactionalDao {
 			LOGGER.debug("Request received from service to get total CSR Funds");
 			Map<String,Object>parameters = new HashMap<>();
 			return getJdbcTemplate().queryForObject(industryDashboardConfigSql.getTotalCsrFunds(), parameters, Integer.class);
+		}
+		catch(DataAccessException e)
+		{
+			LOGGER.debug("An exception occured while fetching total csr funds");
+			return 0;
 		}
 		catch(Exception e)
 		{
@@ -59,6 +70,11 @@ public class IndustryDashboardDao extends AbstractTransactionalDao {
 			Map<String,Object>parameters = new HashMap<>();
 			return getJdbcTemplate().queryForObject(industryDashboardConfigSql.getTotalCandidatesCertified(), parameters, Integer.class);
 		}
+		catch(DataAccessException e)
+		{
+			LOGGER.debug("An exception occured while fetching total number of candiadtes certified" + e);
+			return 0;
+		}
 		catch(Exception e)
 		{
 			LOGGER.debug("An exception was caught while fetching the total number of candidates certified " +e);
@@ -75,6 +91,11 @@ public class IndustryDashboardDao extends AbstractTransactionalDao {
 			Map<String,Object>parameters = new HashMap<>();
 			return getJdbcTemplate().queryForObject(industryDashboardConfigSql.getTotalJobRoles(), parameters, Integer.class);
 		}
+		catch(DataAccessException e)
+		{
+			LOGGER.debug("An exception occured while fetching total number of candiadtes certified" + e);
+			return 0;
+		}
 		catch(Exception e)
 		{
 			LOGGER.debug("An exception was caught while fetching the total number of job roles " +e);
@@ -89,6 +110,11 @@ public class IndustryDashboardDao extends AbstractTransactionalDao {
 			LOGGER.debug("Request received from service to get total number of Training Partners");
 			Map<String,Object>parameters = new HashMap<>();
 			return getJdbcTemplate().queryForObject(industryDashboardConfigSql.getTotalTrainingPartners(), parameters, Integer.class);
+		}
+		catch(DataAccessException e)
+		{
+			LOGGER.debug("An exception occured while fetching total number of Training Partners" + e);
+			return 0;
 		}
 		catch(Exception e)
 		{

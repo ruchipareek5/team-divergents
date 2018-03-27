@@ -6,6 +6,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.sih.msde.divergents.common.AbstractTransactionalDao;
@@ -27,7 +28,11 @@ public class TpDashboardDao extends AbstractTransactionalDao {
 			Map<String,Object> parameters = new HashMap<>();
 			return getJdbcTemplate().queryForObject(tpDashboardConfigSql.getTotalJobRoles(), parameters, Integer.class);
 		}
-		
+		catch(DataAccessException e)
+		{
+			LOGGER.debug("An Exception occured while getting total number of Job Roles " +e);
+			return 0;
+		}
 		catch(Exception e) {
 		
 			LOGGER.debug("An Exception occured while getting total number of Job Roles " +e);
@@ -44,6 +49,12 @@ public class TpDashboardDao extends AbstractTransactionalDao {
 			return getJdbcTemplate().queryForObject(tpDashboardConfigSql.getTotalCandidatesTrained(), parameters, Integer.class);
 		}
 		
+		catch(DataAccessException e)
+		{
+			LOGGER.debug("An Exception occured while getting total number of trained candidates" +e);
+			return 0;
+		}
+		
 		catch(Exception e) {
 		
 			LOGGER.debug("An Exception occured while getting total number of candidates trained " +e);
@@ -58,6 +69,11 @@ public class TpDashboardDao extends AbstractTransactionalDao {
 			LOGGER.debug("Request Received from service to get the total number of training partners");
 			Map<String,Object> parameters = new HashMap<>();
 			return getJdbcTemplate().queryForObject(tpDashboardConfigSql.getTotalTrainingPartners(), parameters, Integer.class);
+		}
+		catch(DataAccessException e)
+		{
+			LOGGER.debug("An exception occured while getting total training partners");
+			return 0;
 		}
 		
 		catch(Exception e) {
@@ -76,6 +92,11 @@ public class TpDashboardDao extends AbstractTransactionalDao {
 			return getJdbcTemplate().queryForObject(tpDashboardConfigSql.getTotalSectorSkillCouncil(), parameters, Integer.class);
 		}
 		
+		catch(DataAccessException e)
+		{
+			LOGGER.debug("An exception occured while finding total sector skill council");
+			return 0;
+		}
 		catch(Exception e) {
 		
 			LOGGER.debug("An Exception occured while getting total number of sector skill councils " +e);
@@ -91,7 +112,11 @@ public class TpDashboardDao extends AbstractTransactionalDao {
 			Map<String,Object> parameters = new HashMap<>();
 			return getJdbcTemplate().queryForObject(tpDashboardConfigSql.getAnnualTarget(), parameters, Integer.class);
 		}
-		
+		catch(DataAccessException e)
+		{
+			LOGGER.debug("An exception occured while finding total annual budget");
+			return 0;
+		}
 		catch(Exception e) {
 		
 			LOGGER.debug("An Exception occured while getting total number of sector skill councils " +e);

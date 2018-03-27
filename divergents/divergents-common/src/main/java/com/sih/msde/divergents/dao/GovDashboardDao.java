@@ -6,6 +6,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.sih.msde.divergents.common.AbstractTransactionalDao;
@@ -29,6 +30,11 @@ public class GovDashboardDao extends AbstractTransactionalDao {
 			return getJdbcTemplate().queryForObject(govDashboardConfigSql.getTotalTrainingCenters(),parameters ,Integer.class);
 			
 		}
+		catch(DataAccessException e)
+		{
+			LOGGER.debug("An exception occured while fetching total number of training centers" + e);
+			return 0;
+		}
 		catch(Exception e) {
 			LOGGER.debug("An exception occured while fetching the total number of training centers" +e);
 			LOGGER.debug("Returning NULL as a response");
@@ -44,6 +50,11 @@ public class GovDashboardDao extends AbstractTransactionalDao {
 			Map<String,Object> parameters = new HashMap<>();
 			LOGGER.debug("Trying to get total candidares placed in India");
 			return getJdbcTemplate().queryForObject(govDashboardConfigSql.getTotalCandidatesPlaced(), parameters, Integer.class);
+		}
+		catch(DataAccessException e)
+		{
+			LOGGER.debug("An exception occured while fetching total number of training candidates placed" + e);
+			return 0;
 		}
 		catch(Exception e)
 		{

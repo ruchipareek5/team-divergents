@@ -25,8 +25,15 @@
 .navbar-default .navbar-nav>li>a {
     color: #777;
     cursor: pointer;
- 
 }
+.navbar-default .navbar-nav>li>a {
+    color: #777;
+    cursor: pointer;
+}
+.dropdown-menu>li>a {
+    cursor: pointer;
+}
+
 #navbar-footer .pull-right .footer-navbar-link{
     color: white;
     cursor: pointer;

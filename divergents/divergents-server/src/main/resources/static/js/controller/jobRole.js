@@ -19,7 +19,7 @@ jobRole.controller('jobRole' , function($scope,$http){
 	              { name: 'jobRoleId', displayName: 'ID', cellClass:'trainingCenterCellClass',headerCellClass:'trainingCenters', width: '10%'},
 	              { name: 'jobRoleName', displayName: 'Job Role' ,cellClass:'trainingCenterCellClass',headerCellClass:'trainingCenters' , width: '30%'},
 	              { name: 'ssc',displayName: 'Sector Skill Council' , cellClass:'trainingCenterCellClass',headerCellClass:'trainingCenters', width: '30%'},
-	              { name: 'Training Center | State', displayName:'Training Center | State' , cellTemplate: '<button type="button" class="btn btn-info btn-xs" style="margin-top:5pt" ng-click=grid.appScope.showTrainingCenter(row)>Check here</button>',headerCellClass:'trainingCenters',cellClass:'trainingCenterCellClass',width: '30%'}
+	              { name: 'Training Center | State', displayName:'Training Center | State' , cellTemplate: '<button type="button" class="btn btn-info btn-xs" style="margin-top:5pt" ng-click=grid.appScope.showTrainingCenter(row)>Check Training Center</button>',headerCellClass:'trainingCenters',cellClass:'trainingCenterCellClass',width: '30%'}
 	              
 	    ]
 	  }; 	

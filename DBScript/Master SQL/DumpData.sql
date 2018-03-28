@@ -315,6 +315,24 @@ INSERT INTO `user` VALUES ('smalt and beryl','pravek','pravek@gmail.com','pravek
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
+
+
+LOCK TABLES `interestedtp` WRITE;
+/*!40000 ALTER TABLE `interestedtp` DISABLE KEYS */;
+INSERT INTO `interestedtp` VALUES (1,'smalt and beryl','delhi','surya mitra','pravek','pravek@gmail.com'),(2,'Smalt and Beryl','New Delhi','Safai Karamchari','Pravek','pravek@gmail.com'),(3,'Smalt and Beryl','New Delhi','Safai ','Pravek','pravek@gmail.com');
+/*!40000 ALTER TABLE `interestedtp` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;

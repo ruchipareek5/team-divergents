@@ -18,15 +18,15 @@ public class RplInterestExpressionController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(RplInterestExpressionController.class);
 	@Autowired
 	 private RplInterestExpressionService rplInterestExpressionService;
-	 int submitStatus = -5;
+	 int submitStatus ;
 	@RequestMapping(value="/registerForRpl", method=RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
 	public Integer registerForRpl(@RequestBody RplInterestExpressionDto rplInterestExpressionDto)
 	{
 		try
 		{
-			LOGGER.debug("Request received from front end to submit the rpl registration request");
-			submitStatus = rplInterestExpressionService.registerForRpl(rplInterestExpressionDto);
-			return submitStatus;
+			LOGGER.debug("Request received from front end to submit the rpl registration request" +rplInterestExpressionDto.getNumberOfEmployeesToBeCertified());
+		    submitStatus = rplInterestExpressionService.registerForRpl(rplInterestExpressionDto);
+			return  submitStatus;
 		}
 		catch(Exception e){
 			LOGGER.debug("An exception occured while registring for RPL" +e);

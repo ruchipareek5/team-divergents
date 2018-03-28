@@ -5,7 +5,7 @@ public class RplInterestExpressionDto {
 	private String organisationName;
 	private String areaOfOperation;
 	private String numberOfEmployeesToBeCertified;
-	private long companyIncorporationNumber;
+	private String companyIncorporationNumber;
 	private String hrPocEmail;
 	
 	
@@ -28,10 +28,10 @@ public class RplInterestExpressionDto {
 	public void setNumberOfEmployeesToBeCertified(String numberOfEmployeesToBeCertified) {
 		this.numberOfEmployeesToBeCertified = numberOfEmployeesToBeCertified;
 	}
-	public long getCompanyIncorporationNumber() {
+	public String getCompanyIncorporationNumber() {
 		return companyIncorporationNumber;
 	}
-	public void setCompanyIncorporationNumber(long companyIncorporationNumber) {
+	public void setCompanyIncorporationNumber(String companyIncorporationNumber) {
 		this.companyIncorporationNumber = companyIncorporationNumber;
 	}
 	public String getHrPocEmail() {
@@ -41,7 +41,7 @@ public class RplInterestExpressionDto {
 		this.hrPocEmail = hrPocEmail;
 	}
 	public RplInterestExpressionDto(String organisationName, String areaOfOperation,
-			String numberOfEmployeesToBeCertified, long companyIncorporationNumber, String hrPocEmail) {
+			String numberOfEmployeesToBeCertified, String companyIncorporationNumber, String hrPocEmail) {
 		super();
 		this.organisationName = organisationName;
 		this.areaOfOperation = areaOfOperation;

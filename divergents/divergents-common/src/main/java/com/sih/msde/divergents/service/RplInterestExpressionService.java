@@ -11,15 +11,16 @@ import com.sih.msde.divergents.dto.RplInterestExpressionDto;
 @Service
 public class RplInterestExpressionService {
 
-	int submitStatus=-5;
+	
 	private static final Logger LOGGER = LoggerFactory.getLogger(RplInterestExpressionService.class);
 	@Autowired
 	private RplInterestExpressionDao  rplInterestExpressionDao;
 	
-	public Integer registerForRpl(RplInterestExpressionDto rplInterestExpressionDto)
+	public int registerForRpl(RplInterestExpressionDto rplInterestExpressionDto)
 	{
+		int submitStatus;
 		LOGGER.debug("Request received from controller to submit data from frontend");
-		int submitStaus = rplInterestExpressionDao.registerForRpl(rplInterestExpressionDto);
+		 submitStatus = rplInterestExpressionDao.registerForRpl(rplInterestExpressionDto);
 		return submitStatus;
 	}
 }

@@ -19,27 +19,28 @@ public class RplInterestExpressionDao extends AbstractTransactionalDao{
 	@Autowired
 	private RplInterestExpressionConfigSql rplInterestExpressionConfigSql;
 	
-	int submitStatus=-5;
-	public Integer registerForRpl(RplInterestExpressionDto rplInterestExpressionDto)
+	int submitStatus;
+	public int registerForRpl(RplInterestExpressionDto rplInterestExpressionDto)
 	{
 		try {
-			LOGGER.debug("Received Request from service to insert details into the database");
+			LOGGER.debug("Received Request from service to insert details into the database" +rplInterestExpressionDto.getOrganisationName());
 			Map<String,Object> parameters = new HashMap<>();
 			LOGGER.debug("Creating hashmap of objects");
-			parameters.put("organisationName", rplInterestExpressionDto.getOrganisationName());
-			parameters.put("areaOfOpreration",rplInterestExpressionDto.getAreaOfOperation());
+			parameters.put("organisationName",rplInterestExpressionDto.getOrganisationName());
+			parameters.put("areaOfOperation",rplInterestExpressionDto.getAreaOfOperation());
 			parameters.put("numberOfEmployeesToBeCertified",rplInterestExpressionDto.getNumberOfEmployeesToBeCertified());
-			parameters.put("companyIncorporationNumber", rplInterestExpressionDto.getCompanyIncorporationNumber());
-			parameters.put("hrPocEmail", rplInterestExpressionDto.getHrPocEmail());
+			parameters.put("companyIncorporationNumber",rplInterestExpressionDto.getCompanyIncorporationNumber());
+			parameters.put("hrPocEmail",rplInterestExpressionDto.getHrPocEmail());
 			
-			submitStatus = getJdbcTemplate().queryForObject(rplInterestExpressionConfigSql.getExpressInterestForRpl(), parameters, Integer.class);
-		
+		 submitStatus = getJdbcTemplate().update(rplInterestExpressionConfigSql.getExpressInterestForRpl(), parameters);
+		LOGGER.debug("status" + submitStatus);
 			return submitStatus;
 			
 		}
 		catch(Exception e)
 		{
 			LOGGER.debug("An exception occured while inserting values in the database" +e);
+			LOGGER.debug("ERROR!");
 			LOGGER.debug("Returning submitStatus");
 			return submitStatus;
 		}

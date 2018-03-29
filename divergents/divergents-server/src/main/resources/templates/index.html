@@ -53,6 +53,8 @@
     	<link rel="stylesheet" href="css/jobRole.css"/>
     	<link rel="stylesheet" href="css/findTC.css"/>
     	<link rel="stylesheet" href="css/jobOpening.css"/>
+    	<link rel="stylesheet" href="css/trainingMaterial.css"/>
+    	<link rel="stylesheet" href="css/jobOpening.css"/>
     	<link rel="stylesheet" href="css/main.css"/>
 		
 		
@@ -140,6 +142,8 @@
 		<script type="text/javascript" src="js/controller/findTrainingCenter.js"></script>
 		<script type="text/javascript" src="js/controller/ssc.js"></script>
 		<script type="text/javascript" src="js/controller/jobOpening.js"></script>
+		<script type="text/javascript" src="js/controller/trainingMaterial.js"></script>
+		
 		
 				
 		<!--Screen 1 Section for Student Page -->
@@ -250,6 +254,7 @@
 <!---------------------------------------- SCREEN 3 FOR INDUSTRY ----------------------------------------------------------------->
 <script type="text/javascript" src="js/controller/industry.js"></script>
 <script type="text/javascript" src="js/controller/industryTabsController.js"></script>
+<script type="text/javascript" src="js/controller/talentAcquisition.js"></script>
 
 <section ng-controller="industry">
 <div ng-show="templateShowI">
@@ -528,7 +533,7 @@
 <div ng-include src="'partials/champions.html'"></div>
 </div> 
 <div ng-switch-when="quick-facts-tp">
-<div ng-include src="'partials/quick-facts-tp.html'"></div>
+<div ng-include src="'quickFactsIndustry.html'"></div>
 </div>  
 <div ng-switch-when="register">
 <div ng-include src="'partials/register-with-nsdc.html'"></div>

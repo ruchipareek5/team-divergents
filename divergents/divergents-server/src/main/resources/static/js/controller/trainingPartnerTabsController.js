@@ -2,6 +2,8 @@ var trainingPartnerTabs = angular.module('divergents');
 
 trainingPartnerTabs.controller('trainingPartnerTabs',function($scope, $http) {
 	//write code here
+	$scope.selectedJobRole;
+	$scope.showChart = "";
   $scope.chartType = 'chart1';
   $scope.chartTypeList = [{ id:'chart1',name:'Placement of top 5 TP'},{id:'chart2',name:'Maximum CSR contibutions'}];
   //write code here
@@ -9,18 +11,23 @@ trainingPartnerTabs.controller('trainingPartnerTabs',function($scope, $http) {
   {
     if($scope.chartType == 'chart1')
       {
-        //$scope.response = "Ruchi";
+        $scope.showChart = "show1";
     	//maxCsrContribution();
       }
     else if ($scope.chartType == 'chart2')
       {
-    	//$scope.response = "Prateek";
+    	$scope.showChart = "show2";
          //topFiveTpPlacementPercentage();
       }
     
   }
 
-
+$http.get("/getallJobRoles").then(function(response){
+	
+	$scope.jobRoleList = response.data;
+}, function(errorResponse){
+	
+});
 	
 	
 	 $http.get("/getTotalJobRoles")
@@ -179,9 +186,11 @@ trainingPartnerTabs.controller('trainingPartnerTabs',function($scope, $http) {
           
            trainingPartnerName=[];
            totalPlacements=[];
-           totalPlacemetsSum=0
-            
-           $.getJSON("/PlacementPercentageOfTopFiveTp",function(data) {
+           totalPlacemetsSum=0;
+var jobRole=$scope.selectedJobRole; 
+           
+           console.log(jobRole);         
+           $.getJSON("/PlacementPercentageOfTopFiveTp?jobRole="+jobRole,function(data) {
               for(var i=0;i<data.length;i++)
              {
               trainingPartnerName.push(data[i].trainingPartnerName);

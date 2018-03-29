@@ -76,7 +76,7 @@
 <div class="form-horizontal">
 <div class="form-group col-md-5">
 <select ng-model="chartType" ng-init = "chartTypeList[0].id" ng-options="option.id as option.name for option in chartTypeList" class="form-control"> </select>
-<select class="form-control" id="jobrole" ng-model="selectedJobRole" required><option value="" disabled selected>Choose Job Role</option>
+<select class="form-control" id="jobrole" ng-model="selectedJobRole" required>
 <option ng-repeat="x in jobRole" value="{{x.jobrole}}">{{x.jobrole}}</option>
 </select>
 </div>

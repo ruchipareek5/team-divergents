@@ -21,16 +21,15 @@ industryTabs.controller('industryTabs' , function($scope,$http,$location,$rootSc
       }
     
   }
-	
-	$http.get('/getallJobRoles')
-    .success(function (response) {
-        $scope.jobRole= response;
-    })
-    .error(function (error) {
-       console.log("Error" + error);
-    });
-	
-	
+  
+  $http.get('/getallJobRoles')
+  .success(function (response) {
+	  console.log(response);
+      $scope.jobroleList = response;
+  })
+  .error(function (error) {
+     console.log("Error"+ error);
+  });
 	
 
   $http.get("/getTotalPartnerships")
@@ -94,12 +93,7 @@ industryTabs.controller('industryTabs' , function($scope,$http,$location,$rootSc
                         		  }
                               $scope.totalTP = response.data;
                           });
-                          
-        
-        
-        
-        
-        
+
         //High Charts
         
         //Top 5 Corporates with maximum CSR Contribution in last 2 years
@@ -118,6 +112,7 @@ industryTabs.controller('industryTabs' , function($scope,$http,$location,$rootSc
               csrFunds.push(data[i].csrFunds);
                  csrFundsSum+=csrFunds[i];
              }
+             console.log(organisationName);
             var chart = {
                type: 'column'
             };
@@ -196,7 +191,7 @@ industryTabs.controller('industryTabs' , function($scope,$http,$location,$rootSc
            var jobRole=$scope.selectedJobRole; 
            
            console.log(jobRole);         
-           $.getJSON("/PlacementPercentageOfTopFiveTp?jobRole=" +jobRole,function(data) {
+           $.getJSON("/PlacementPercentageOfTopFiveTp?jobRole="+jobRole,function(data) {
               for(var i=0;i<data.length;i++)
              {
               trainingPartnerName.push(data[i].trainingPartnerName);

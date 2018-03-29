@@ -1,42 +1,25 @@
-<!--<div ng-controller="CarouselDemoCtrl">-->
-    <!--<div style="height: 305px">-->
-        <!--<div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">-->
-            <!--<div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">-->
-                <!--<img ng-src="{{slide.image}}" style="margin:auto;">-->
-                <!--<div class="carousel-caption">-->
-                    <!--<h4>Slide {{slide.id}}</h4>-->
-                    <!--<p>{{slide.text}}</p>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
 
-<div id="carouselFade" class="carousel slide carousel-fade" data-ride="carousel">
+<div id="carouselFade" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#carouselFade" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselFade" data-slide-to="1"></li>
+        <li data-target="#carouselFade" data-slide-to="2"></li>
+    </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <div class="carousel-caption">
-                <h1 class="animated fadeInDown">Who watches the watchmen?</h1>
-                <button class="btn btn-primary animated slideInUp" type="button" name="button">Shop Now</button>
-            </div>
+            <img src="images/tp_craousel_1.jpg">
         </div>
         <div class="item">
-            <div class="carousel-caption">
-                <h2 class="animated fadeInDown">Tonight, a comedian died.</h2>
-                <button class="btn btn-primary animated slideInUp" type="button" name="button">See More</button>
-            </div>
+            <img src="images/tp_craousel_2.jpg">
         </div>
         <div class="item">
-            <div class="carousel-caption">
-                <h2 class="animated fadeInDown">Never compromise,<br> not even in the face of armageddon.</h2>
-                <button type="button" class="btn btn-primary video-btn animated slideInUp" data-toggle="modal" data-src="https://www.youtube.com/embed/Jfrjeg26Cwk" data-target="#myModal">
-                    Play Video
-                </button>
-            </div>
+            <img src="images/tp_craousel_3.jpg">
         </div>
     </div>
+
     <!-- Controls -->
     <a class="left carousel-control" href="#carouselFade" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -48,137 +31,20 @@
     </a>
 </div>
 <style>
-   body{
-     font-family: 'Lato', sans-serif;
-   }
-   .carousel-fade .carousel-inner .item {
-     opacity: 0;
-     transition-property: opacity;
-   }
+.mainCarousel{
+  padding: 0%;
+}
 
-   .carousel-fade .carousel-inner .active {
-     opacity: 1;
-   }
+.carousel-inner >.item >img{
+  height:75vh;
+  width:100%;
+}
 
-   .carousel-fade .carousel-inner .active.left,
-   .carousel-fade .carousel-inner .active.right {
-     left: 0;
-     opacity: 0;
-     z-index: 1;
-   }
-
-   .carousel-fade .carousel-inner .next.left,
-   .carousel-fade .carousel-inner .prev.right {
-     opacity: 1;
-   }
-
-   .carousel-fade .carousel-control {
-     z-index: 2;
-   }
-   @media all and (transform-3d), (-webkit-transform-3d) {
-       .carousel-fade .carousel-inner > .item.next,
-       .carousel-fade .carousel-inner > .item.active.right {
-         opacity: 0;
-         -webkit-transform: translate3d(0, 0, 0);
-       }
-       .carousel-fade .carousel-inner > .item.prev,
-       .carousel-fade .carousel-inner > .item.active.left {
-         opacity: 0;
-         -webkit-transform: translate3d(0, 0, 0);
-         transform: scale(2,2);
-         transition: all 1s;
-       }
-       .carousel-fade .carousel-inner > .item.next.left,
-       .carousel-fade .carousel-inner > .item.prev.right,
-       .carousel-fade .carousel-inner > .item.active {
-         opacity: 1;
-         -webkit-transform: translate3d(0, 0, 0);
-       }
-
-       .animation-delay{
-         animation-delay: 2s;
-       }
-
-       .delay-1 {
-         animation-delay: .25s;
-       }
-   }
-   .carousel-caption {
-     font-size: 20px;
-     color: white;
-     margin-bottom: 15%;
-   }
-   .carousel-caption h3 {
-     font-size: 30px;
-     font-family: 'Lato', sans-serif;
-   }
-       html,
-       body,
-       .carousel,
-       .carousel-inner,
-       .carousel-inner .item {
-         height: 100%;
-       }
-       .item:nth-child(1) {
-         background: url('../images/carsousel_image1.png');
-     background-size: cover;
-     background-position: center center;
-     background-repeat: no-repeat;
-       }
-
-       .item:nth-child(2) {
-         background: url('../images/carousel_image2.jpeg');
-     background-size: cover;
-     background-position: center center;
-     background-repeat: no-repeat;
-       }
-
-       .item:nth-child(3) {
-         background: url('../images/carousel_image3.jpeg');
-     background-size: cover;
-     background-position: center center;
-     background-repeat: no-repeat;
-       }
-
-   .modal-dialog {
-         max-width: 800px;
-         margin: 30px auto;
-     }
-
-   .modal-body {
-     position:relative;
-     padding:0px;
-   }
-   .close {
-     position:absolute;
-     right:-30px;
-     top:0;
-     z-index:999;
-     font-size:2rem;
-     font-weight: normal;
-     color:#fff;
-     opacity:1;
-   }
-
-   </style>
-<script type="text/javascript">
+</style>
+<script>
     $('#carouselFade').carousel({
       interval: 2000,
       pause: false
     });
+</script>
 
-    var $videoSrc;
-    $('.video-btn').click(function() {
-        $videoSrc = $(this).data( "src" );
-    });
-    // when the modal is opened autoplay it
-    $('#myModal').on('shown.bs.modal', function (e) {
-    // set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
-    $("#video").attr('src',$videoSrc + "?rel=0&amp;showinfo=0&amp;modestbranding=1&amp;autoplay=1" );
-    })
-    // stop playing the youtube video when I close the modal
-    $('#myModal').on('hide.bs.modal', function (e) {
-        // a poor man's stop video
-        $("#video").attr('src',$videoSrc);
-    })
-    </script>

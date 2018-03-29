@@ -806,10 +806,10 @@ CREATE TABLE `trainingmaterial` (
   `trainingmaterialid` int(11) NOT NULL AUTO_INCREMENT,
   `trainingtitle` varchar(100) DEFAULT NULL,
   `trainingmaterialurl` varchar(100) DEFAULT NULL,
-  `joberoleid` varchar(30) DEFAULT NULL,
+  `jobroleid` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`trainingmaterialid`),
-  KEY `joberoleid_idx` (`joberoleid`),
-  CONSTRAINT `joberoleid` FOREIGN KEY (`joberoleid`) REFERENCES `jobrole` (`jobRoleId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `jobroleid_idx` (`jobroleid`),
+  CONSTRAINT `jobroleid` FOREIGN KEY (`jobroleid`) REFERENCES `jobrole` (`jobRoleId`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -947,10 +947,10 @@ CREATE TABLE `trainingmaterial` (
   `trainingmaterialid` int(11) NOT NULL AUTO_INCREMENT,
   `trainingtitle` varchar(100) DEFAULT NULL,
   `trainingmaterialurl` varchar(100) DEFAULT NULL,
-  `joberoleid` varchar(30) DEFAULT NULL,
+  `jobroleid` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`trainingmaterialid`),
-  KEY `joberoleid_idx` (`joberoleid`),
-  CONSTRAINT `joberoleid` FOREIGN KEY (`joberoleid`) REFERENCES `jobrole` (`jobRoleId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `jobroleid_idx` (`jobroleid`),
+  CONSTRAINT `jobroleid` FOREIGN KEY (`jobroleid`) REFERENCES `jobrole` (`jobRoleId`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

@@ -1,1 +1,0 @@
-this folder is to store angular js directives

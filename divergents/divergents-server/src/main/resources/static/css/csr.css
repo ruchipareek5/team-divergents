@@ -67,3 +67,12 @@
 	color:white;
 
 }
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
+ border: 1px solid red;
+ }
+ .form-container{
+ background-color: #ECF0F1;
+  margin-left:5%;
+  margin-right:5%;
+  padding: 1em;
+  }

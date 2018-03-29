@@ -1,4 +1,122 @@
 <div ng-controller="aboutUs">
+
+<head>
+<link href="css/about-us.css" type="text/css" rel="stylesheet">
+</head>
 <div class="container-fluid">
-<div class="col-md-12"><label>About Us</label></div></div>
+<div class="col-md-12"><p class="competitionHeading">Apply For the World Skill Competitions</p></div></div>
+<div class="col-md-6">
+<div class=form-container>
+	
+<form class="form-horizontal">
+<div class="form-group">
+					      <label for="Name" >Name</label>
+					      	<input class="form-control" id="block" placeholder="Enter your Name" ng-model="find.name" ng-required="true" >
+					      
+					      	</div>
+					      	 <div class="form-group">
+					      <label for="E-mail" >E-mail</label>
+					      	<input class="form-control" id="block" placeholder="Enter your E-mail" ng-model="find.e-mail" ng-required="true" >
+					      
+					      	</div>
+					      	 <div class="form-group" >
+					      <label for="Address" > Address</label>
+					      	<input class="form-control" id="block" placeholder="Enter your Address"  ng-model=" find.address" ng-required="true" >
+					      
+					      	</div>
+					      	<div class="form-group" >
+					      	<label for="Age"> Age</label>
+					      	<input class="form-control" id="block" placeholder="Enter your Age"  input type="number" ng-model="find.contactNumber" ng-required="true" >
+					      	
+					      	</div>
+					      	
+					      	
+<div class="form-group col-md-3" >
+					      	<label for="Sector" >Sector</label>
+					      	<select class=" form-control " id="sector" placeholder="Select the sector" ng-model=" find.sector" ng-options="sector.id sector.name"    ng-required="true" >
+					      	</select>
+					      
+					      	
+					      	
+					      	
+					      	
+					      	
+					      	
+
+					      	</div> 	
+					   <div class="form-group col-md-4" style="margin-left:10%;" >
+					      	<label for="Category" >Category</label>
+					      	<select class=" form-control " id="block" placeholder="Select the category" ng-model="find.category" ng-required="true" >
+					      	</select>
+					  
+					      	</div> 
+					      <button class="btn btn-primary">Apply Now</button>	 
+					      		
+
+</form>
+
+</div>
+
+</div>
+  
+<div class="col-md-6">
+
+<p class="eventsHeading"> UPCOMING  EVENTS</p>
+<div class="competitionpanels">
+<div class="competition-full-panel">
+<div class="upper-panel">
+                <div class="competition">
+                    <div class="competition-panel">
+                        <div class="competition-panel-body" style="background-color:#F6AB3D;">
+                            <div class="information-panel">
+                            <b>WorldSkills Euro 2020</b>
+
+                            </div>
+                        </div>
+                        <div class="competition-panel-footer" style="background-color:#E18806; text-align:center;"> Graz, Austria</div>
+                    </div>
+                </div>
+
+
+</div>
+</div>
+
+<div class="upper-panel">
+                <div class="competition">
+                    <div class="competition-panel">
+                        <div class="competition-panel-body" style="background-color:#A3C3E7;">
+                            <div class="information-panel">
+                            <b> WorldSkills Kazan 2019</b>
+
+                            </div>
+                        </div>
+                        <div class="competition-panel-footer" style="background-color:#7BA9DC;text-align:center;"> Kazan, Russia 
+                      </div>
+                    </div>
+                </div>
+                </div>
+                
+                <div class="upper-panel">
+                <div class="competition">
+                    <div class="competition-panel">
+                        <div class="competition-panel-body" style="background-color:#c68d7f;">
+                            <div class="information-panel">
+                            <b>WorldSkills France 2018</b>
+ </div>
+                        </div>
+                        <div class="competition-panel-footer" style="background-color:#A07266;"> Caen, France
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                
+
+<button class="btn moreEvents">More Events</button>
+</div></div>
+<!--  <div class="explore">
+ <p class="exploreContent">Explore the journey of the competition </p>
+<button class="btn exploreButton">Explore</button></div>-->
+
+</div>
+
 </div>

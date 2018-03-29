@@ -133,25 +133,28 @@
   
   
   <div ng-switch-when="contact">
+  <div class=form-container>
+	{{user}}
+	<form class="form-horizontal" action="/">
   <div class="form-group" >
 					      <label for="Name" >Organisation Name</label>
-					      	<input class="form-control" id="block" placeholder="Enter  organisation Name" ng-model="find.Organisationname" required >
+					      	<input class="form-control" id="block" placeholder="Enter  organisation Name" ng-model="find.Organisationname" ng-required="true" >
 					      	</input>
 					      	</div>
 					      	 <div class="form-group" >
 					      <label for="Name" >POC Name</label>
-					      	<input class="form-control" id="block" placeholder="Enter your POC" ng-model="find.pocname" required >
+					      	<input class="form-control" id="block" placeholder="Enter your POC" ng-model="find.pocname" ng-required="true">
 					      	</input>
 					      	</div>
 					      	 <div class="form-group" >
 					      <label for="Name" > Contact number</label>
-					      	<input class="form-control" id="block" placeholder="Enter your Number"  input type="number" find.contactNumber" required >
+					      	<input class="form-control" id="block" placeholder="Enter your Number"  input type="number" find.contactNumber" ng-required="true">
 					      	</input>
 					      	</div>
 					      	<div class="form-group" >
 					      <label for="Name" >Select the Model</label>
 					      
-					      	<select class="form-control" id="block" placeholder="Enter your address" ng-model="find.address" required>
+					      	<select class="form-control" id="block" placeholder="Enter your address" ng-model="find.address" ng-required="true">
 					      	<option class="form-control" >Direct Sponsorship for skill development</option>
 					      	<option class="form-control" >Setting up of COE's/Institute</option>
 					      	<option class="form-control" >Setup Multi Skill Training Centers</option>
@@ -162,10 +165,12 @@
 					      	</input></div>
 					      	 <div class="form-group" >
 					      <label for="Name" >Amount</label>
-					      	<input class="form-control" id="block" placeholder="Enter your amount" ng-model="find.amount" required >
+					      	<input class="form-control" id="block" placeholder="Enter your amount"  input type="number" ng-model="find.amount" ng-required="true" >
 					      	</input>
 					      	</div>
-					      	<button class="btn btn-primary" >SUBMIT</button> 
+				      	<button class="btn btn-primary" >SUBMIT</button> 
+				      	</form>
+  </div>
   </div> 
    </div>   
   </div>

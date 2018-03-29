@@ -5,10 +5,6 @@
 }
 
 .carousel-inner >.item >img{
-  height:75vh;
+height:60vh;
   width:100%;
-}
-
-.item{
-    transition: all 1s;
 }

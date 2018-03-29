@@ -91,15 +91,12 @@ public class TpDashboardDao extends AbstractTransactionalDao {
 			Map<String,Object> parameters = new HashMap<>();
 			return getJdbcTemplate().queryForObject(tpDashboardConfigSql.getTotalSectorSkillCouncil(), parameters, Integer.class);
 		}
-		catch(DataAccessException dte)
+		
+		catch(DataAccessException e)
 		{
+			LOGGER.debug("An exception occured while finding total sector skill council");
 			return 0;
 		}
-//		catch(DataAccessException e)
-//		{
-//			LOGGER.debug("An exception occured while finding total sector skill council");
-//			return 0;
-//		}
 		catch(Exception e) {
 		
 			LOGGER.debug("An Exception occured while getting total number of sector skill councils " +e);

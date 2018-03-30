@@ -37,9 +37,10 @@
 		<div class="input-group col-md-6" style=" margin-bottom: 8pt;">
 			<input type= "text" class="form-control" ng-model="letter" placeholder="Please enter a Job Role for search"/>
 			<div class="input-group-btn">
-			<button class="btn btn-primary" ng-click="search(letter)">Search</button>
+			<button class="btn btn-primary" ng-click="search1(letter)">Search</button>
 			</div>
 		</div>
+		<p class="errormessage">{{errorMessage}}</p>
 	
 	
 		<div ui-grid="gridOptions" ui-grid-edit ui-grid-cellNav ui-grid-auto-resize class="grid grid-align"></div>  

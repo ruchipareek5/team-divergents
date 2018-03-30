@@ -32,23 +32,14 @@
 					      	
 					      	
 <div class="form-group col-md-3" >
-					      	<label for="Sector" >Sector</label>
-					      	<select class=" form-control " id="sector" placeholder="Select the sector" ng-model=" find.sector" ng-options="sector.id sector.name"    ng-required="true" >
-					      	</select>
-					      
-					      	
-					      	
-					      	
-					      	
-					      	
-					      	
-
-					      	</div> 	
-					   <div class="form-group col-md-4" style="margin-left:10%;" >
-					      	<label for="Category" >Category</label>
-					      	<select class=" form-control " id="block" placeholder="Select the category" ng-model="find.category" ng-required="true" >
-					      	</select>
-					  
+			
+						    
+		<select id="sector" ng-model="selectedSector" ng-options="sector.id as sector.name for sector in sectors track by sector.id">
+        <option value="" disable selected>Choose Sector</option>
+    </select>
+    <select class="col-md-2" id="category" ng-model="selectedCategory" ng-disabled="!selectedSector" ng-options="category.id as category.dep for category in ((sectors | filter:{'id':selectedSector})[0].categories) track by category.id">
+        <option value="" disable selected>Choose Category</option>
+    </select>
 					      	</div> 
 					      <button class="btn btn-primary">Apply Now</button>	 
 					      		

@@ -1,10 +1,15 @@
 jobRole:
  selectJobRole: > 
-  select *
+  select jobRoleId,jobRoleName,jobRoleDescription,jobRoleUrl,ssc
    from jobrole WHERE jobRoleName like :letter
    
  trainingcentreforJobRole: >
   select centreName, state
    from centre WHERE jobRoleId=:jobRoleId
+   
+ selectAllJobRole: > 
+  select jobRoleId,jobRoleName,jobRoleDescription,jobRoleUrl,ssc
+   from jobrole
+   
    
    

@@ -563,7 +563,7 @@ function googleTranslateElementInit() {
 <div ng-include src="'partials/champions.html'"></div>
 </div> 
 <div ng-switch-when="quick-facts-tp">
-<div ng-include src="'quickFactsIndustry.html'"></div>
+<div ng-include src="'trainingPartnerHomepage.html'"></div>
 </div>  
 <div ng-switch-when="register">
 <div ng-include src="'partials/register-with-nsdc.html'"></div>
@@ -582,7 +582,7 @@ function googleTranslateElementInit() {
 </div>      
 </div>
 </div>
-<div class="sticky-tab-feedback" ng-hide="tpSwitch == 'home'">
+<div class="sticky-tab-feedback" ng-hide="tpSwitch == 'home' || tpSwitch == 'quick-facts-tp'">
 <button class="btn btn-danger" value="Give Feedback">Give Feedback</button>
 </div>
 <nav class="navbar navbar-default navbar-fixed-bottom">

@@ -18,9 +18,9 @@ findtrainingcenter.controller('findtrainingcenter', function($scope,$http){
 	         enableHorizontalScrollbar:0,
 	         enableVerticalScrollbar:0,
 	         columnDefs: [
-	              { name: 'trainingCenterName', displayName: 'Center Name', cellClass:'trainingCenterCellClass',headerCellClass:'trainingCenters'},
-	              { name: 'address', displayName: 'Address' ,cellClass:'trainingCenterCellClass',headerCellClass:'trainingCenters' },
-	              { name: 'contactNumber',displayName: 'Contact' , cellClass:'trainingCenterCellClass',headerCellClass:'trainingCenters'},
+	              { name: 'trainingCenterName', displayName: 'Center Name', cellClass:'',headerCellClass:''},
+	              { name: 'address', displayName: 'Address' ,cellClass:'',headerCellClass:'' },
+	              { name: 'contactNumber',displayName: 'Contact' , cellClass:'',headerCellClass:''},
 	              { name: 'Interest', displayName:'Show Interest' , cellTemplate: '<i class="fa fa-thumbs-o-up" style="color: blue; cursor: pointer; width: 7pt; height:7pt; font-size: 2em" ng-click=grid.appScope.showYourInterest(row)> </i>',headerCellClass:'trainingCenters',cellClass:'trainingCenterCellClass'}
 	              
 	    ]

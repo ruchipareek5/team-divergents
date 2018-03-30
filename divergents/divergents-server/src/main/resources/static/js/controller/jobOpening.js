@@ -20,13 +20,13 @@ jobOpening.controller('jobOpening' , function($scope,$http){
 	         useExternalPagination: true,  
 	         
 	         columnDefs: [
-	              { name: 'jobId', displayName: 'Job Id', cellClass:'jobOpeningGrid',headerCellClass:'trainingCenters'},
-	              { name: 'jobTitle', displayName: 'Job Title' ,cellClass:'jobOpeningGrid',headerCellClass:'trainingCenters' },
-	              { name: 'organization',displayName: 'Organization' , cellClass:'jobOpeningGrid',headerCellClass:'trainingCenters'},
+	              { name: 'jobId', displayName: 'Job Id', cellClass:'jobOpeningGrid',headerCellClass:'',width: '10%'},
+	              { name: 'jobTitle', displayName: 'Job Title' ,cellClass:'jobOpeningGrid',headerCellClass:'' },
+	              { name: 'organization',displayName: 'Organization' , cellClass:'jobOpeningGrid',headerCellClass:''},
 	              { name: 'location',displayName: 'Location' , cellClass:'jobOpeningGrid',headerCellClass:'trainingCenters'},
 	              { name: 'ctc',displayName: 'CTC' , cellClass:'jobOpeningGrid',headerCellClass:'trainingCenters', width: '10%'},
-	              { name: 'jobDescription',displayName: 'Job Description' , cellClass:'jobOpeningGrid',headerCellClass:'trainingCenters', width: '30%'},
-	              { name: 'Show Interest', displayName:'Show Interest' , cellTemplate: '<i class="fa fa-thumbs-o-up" style="color: blue; cursor: pointer; font-size: 2em" ng-click=grid.appScope.showYourInterest(row)> </i>',headerCellClass:'trainingCenters',cellClass:'trainingCenterCellClass'}
+	              { name: 'jobDescription',displayName: 'Job Description' , cellClass:'jobOpeningGrid',headerCellClass:'trainingCenters', width: '20%'},
+	              { name: 'Show Interest', displayName:'Show Interest' , cellTemplate: '<i class="fa fa-thumbs-o-up" style="color: blue; cursor: pointer; font-size: 2em" ng-click=grid.appScope.showYourInterest(row)> </i>',headerCellClass:'trainingCenters',cellClass:''}
 	                      
 	    ]
 	  }; 	
@@ -44,6 +44,7 @@ jobOpening.controller('jobOpening' , function($scope,$http){
 	
 	
 	$scope.search= function(){
+		
 		if($scope.jobrolename=="" && $scope.location==""){
 			$scope.errorMessage="Enter the value to search";
 			$http.get('/getallJobOpenings')
@@ -58,7 +59,7 @@ jobOpening.controller('jobOpening' , function($scope,$http){
 		else if($scope.location==""){
 			$scope.errorMessage="";
 			var fd = new FormData();
-		    fd.append("jobrolename", $scope.jobrolename+"%")
+		    fd.append("jobrolename", "%"+$scope.jobrolename+"%")
 		    console.log(fd);
 		    var method = "POST";
 		    $http.post('/getJobOpeningsUsingJobRole', fd, {
@@ -76,7 +77,7 @@ jobOpening.controller('jobOpening' , function($scope,$http){
 		else if($scope.jobrolename==""){
 			$scope.errorMessage="";
 			var fd = new FormData();
-		    fd.append("location", $scope.location+"%")
+		    fd.append("location", "%"+$scope.location+"%")
 		    console.log(fd);
 		    var method = "POST";
 		    $http.post('/getJobOpeningsUsingLocation', fd, {
@@ -94,8 +95,8 @@ jobOpening.controller('jobOpening' , function($scope,$http){
 		else{
 			$scope.errorMessage="";
 			var fd = new FormData();
-			fd.append("jobrolename", $scope.jobrolename+"%")
-		    fd.append("location", $scope.location+"%")
+			fd.append("jobrolename", "%"+$scope.jobrolename+"%")
+		    fd.append("location", "%"+$scope.location+"%")
 		    console.log(fd);
 		    var method = "POST";
 		    $http.post('/getJobOpeningsUsingJobRoleandLocation', fd, {

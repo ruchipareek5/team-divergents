@@ -2,9 +2,10 @@ var jobRole = angular.module('divergents');
 
 jobRole.controller('jobRole' , function($scope,$http){
 	
-	$scope.alphabet="R";
+	$scope.alphabet="";
 	$scope.letter="";
 	$scope.showCenters= false;
+	$scope.errorMessage="";
    
 	$scope.gridOptions = {
 	         enableGridMenus : false,  
@@ -54,8 +55,10 @@ jobRole.controller('jobRole' , function($scope,$http){
 	
 	
 	$scope.search= function(x){
+		
+			$scope.errorMessage="";
 		var fd = new FormData();
-	    fd.append("letter", x+"%")
+	    fd.append("letter",x+"%")
 	    var method = "POST";
 	    $http.post('/getJobRoleForSelectedLetter', fd, {
 	    transformRequest: angular.identity,
@@ -66,6 +69,29 @@ jobRole.controller('jobRole' , function($scope,$http){
 	   },function errorCallback(response){
 	        console.log(JSON.stringify(response.data));
 	   });
+		
+	}
+	
+	
+	$scope.search1= function(x){
+		if($scope.letter==""){
+			$scope.errorMessage="Enter the Job Role";
+		}
+		else{
+			$scope.errorMessage="";
+		var fd = new FormData();
+	    fd.append("letter","%"+x+"%")
+	    var method = "POST";
+	    $http.post('/getJobRoleForSelectedLetter', fd, {
+	    transformRequest: angular.identity,
+	    headers: {'Content-Type': undefined}
+	   })
+	   .then(function(response){
+		   $scope.gridOptions.data = response.data;
+	   },function errorCallback(response){
+	        console.log(JSON.stringify(response.data));
+	   });
+		}
 	}
 	
 	

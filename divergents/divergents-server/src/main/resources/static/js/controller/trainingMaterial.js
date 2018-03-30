@@ -19,7 +19,7 @@ trainingMaterial.controller('trainingMaterial' , function($scope,$http){
 	         columnDefs: [
 	              { name: 'trainingmaterialid', displayName: 'Training Material Id', cellClass:'trainingCenterCellClass',headerCellClass:''},
 	              { name: 'trainingtitle', displayName: 'Training Title' ,cellClass:'trainingCenterCellClass',headerCellClass:'' },
-	              {name: 'trainingmaterialurl', displayName: 'Document', cellTemplate: '<a ng-href="{{row.entity.trainingmaterialurl}}" target="_blank" download><img src="images/pdf.png" class="pointer"></a>', cellClass:'pdf'}
+	              {name: 'trainingmaterialurl', displayName: 'Source( Online | Material)', cellTemplate: '<a ng-href="{{row.entity.trainingmaterialurl}}" target="_blank" download><img src="images/pdf.png" class="pointer"></a>', cellClass:'pdf'}
 	              
 	    ]
 	  }; 	
@@ -41,7 +41,7 @@ trainingMaterial.controller('trainingMaterial' , function($scope,$http){
 		  else{
 			  $scope.errorMessage="";
 	  		var fd = new FormData();
-	  	    fd.append("jobrolename", x+"%")
+	  	    fd.append("jobrolename","%"+x+"%")
 	  	    var method = "POST";
 	  	    $http.post('/gettrainingmaterialusingjobrole', fd, {
 	  	    transformRequest: angular.identity,

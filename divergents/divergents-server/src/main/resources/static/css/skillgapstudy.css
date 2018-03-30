@@ -57,5 +57,11 @@
     background-color: #eee;
 }
 .pdffile{
-	padding:2%;
+	padding:3%;
+}
+.pdffile .title{
+	font-size:20pt;
+}
+.skillgap{
+	padding:1%;
 }

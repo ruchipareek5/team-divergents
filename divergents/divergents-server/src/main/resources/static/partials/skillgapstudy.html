@@ -20,33 +20,64 @@
   <div class="col-md-6 contentMainContainer">
 <div class="contentContainer"ng-switch on="tab" >
 <div ng-switch-when="Statewise">
- <div class="col-md-5">
+ <div class="col-md-6">
  <div class="statewise" >
-  <select class="form-control"ng-model="selectState">
-					        <option value="" disabled selected>Select a state</option>
-					        <option ng-repeat="x in states" value="{{x}}">{{x}}</option>
-					      	</select></div>
+  <select class="form-control"ng-model="selectState" placeholder="Select State">
+                      <option value="" disabled selected>Select your option</option>
+                      <option selected="selected">Andhra Pradesh</option>
+                      <option>Arunachal Pradesh</option>
+	                  <option>Assam</option>
+	                  <option>Bihar</option>
+	                  <option>Chhattisgarh</option>
+	                  <option>Delhi</option>
+	                  <option>Goa</option>
+	                  <option>Gujarat</option>
+	                  <option>Haryana</option>
+	                  <option>Himachal Pradesh</option>
+	                  <option>Jammu & Kashmir</option>
+	                  <option>Jharkhand</option>
+	                  <option>Karnataka</option>
+	                  <option>Kerala</option>
+	                  <option>Madhya Pradesh</option>
+	                  <option>Maharashtra</option>
+	                  <option>Manipur</option>
+	                  <option>Meghalaya</option>
+	                  <option>Mizoram</option>
+	                  <option>Nagaland</option>
+	                  <option>Odisha</option>
+	                  <option>Punjab</option>
+	                  <option>Rajasthan</option>
+	                  <option>Sikkim</option>
+	                  <option>Tamil Nadu</option>
+	                  <option>Telangana</option>
+	                  <option>Tripura</option>
+	                  <option>Uttarakhand</option>
+	                  <option>Uttar Pradesh</option>
+	                  <option>West Bengal</option>
+					      	</select>
+	</div>
+	<div ng-show="selectState=='Andhra Pradesh'">
+   <div ui-grid="gridOptionstate" ui-grid-edit ui-grid-cellNav  ui-grid-auto-resize class="grid grid-align " style="height:30%"></div>
+   </div>
+   <div ng-show="selectState=='Delhi'">
+   <div ui-grid="gridOptionstate" ui-grid-edit ui-grid-cellNav  ui-grid-auto-resize class="grid grid-align " style="height:30%"></div>
+   </div>
+   <div ng-show="selectState=='Karnataka'">
+   <div ui-grid="gridOptionstate" ui-grid-edit ui-grid-cellNav  ui-grid-auto-resize class="grid grid-align " style="height:30%"></div>
+   </div>
+   <div ng-show="selectState=='Odisha'">
+   <div ui-grid="gridOptionstate" ui-grid-edit ui-grid-cellNav  ui-grid-auto-resize class="grid grid-align " style="height:30%"></div>
+   </div>
+   <div ng-show="selectState=='West Bengal'">
+   <div ui-grid="gridOptionstate" ui-grid-edit ui-grid-cellNav  ui-grid-auto-resize class="grid grid-align " style="height:30%"></div>
+   </div>
+   
+</div>
+</div>
 
-<div class="report">
-<div ng-show="showDetail">     
-<li><img src="images/pdf.png" class="pointer">&nbsp;<label>Exec Summary</label></li>
-<li><img src="images/pdf.png" class="pointer">&nbsp;<label>Skil Gap Report 2016</label></li>
-<li><img src="images/pdf.png" class="pointer">&nbsp;<label>Presentation</label></li>    
-</div>
-<ul>
-
-</ul>
-</div>
-</div>
-					      	</div>
 <div ng-switch-when="Industrywise">
-<p> Industry</p>
 <div class="col-md-5">
- <select class="form-control"ng-model="selectCategory">
-					        <option value="" disabled selected>Select a Category</option>
-					        <option ng-repeat="x in reports" value="{{x}}">{{x}}</option>
-					      	</select> 
-					      	</div>
+ <select class="form-control"ng-model="selectCategory"></div>
 					      
 </div>
 <div ng-switch-when="International">
@@ -59,6 +90,9 @@
 					      	</div>
 </div>
    </div>
+   </div>
+   <div ng-show="selectState=='Andhra Pradesh'">
+   <div ui-grid="gridOptionstate" ui-grid-edit ui-grid-cellNav class="grid grid-align "></div>
    </div>
    <div class="col-md-6">
 <p>Want to give suggestion?</p>

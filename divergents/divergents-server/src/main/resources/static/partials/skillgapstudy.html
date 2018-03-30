@@ -14,17 +14,16 @@
   <ul class="nav nav-pills nav-justified">
     <li class="active"><a class="state" data-toggle="tab" ng-click="tab='Statewise'">State Wise</a></li>
     <li><a data-toggle="tab" ng-click="tab='Industrywise'">Industry Wise</a></li>
-    <li><a data-toggle="tab" ng-click="tab='International'">International</a></li>
+    <li><a data-toggle="tab" ng-click="tab='International'">Analysis</a></li>
   </ul>
   <div class="row">
-  <div class="col-md-6 contentMainContainer">
 <div class="contentContainer"ng-switch on="tab" >
 <div ng-switch-when="Statewise">
  <div class="col-md-6">
  <div class="statewise" >
   <select class="form-control"ng-model="selectState" placeholder="Select State">
                       <option value="" disabled selected>Select your option</option>
-                      <option selected="selected">Andhra Pradesh</option>
+                      <option >Andhra Pradesh</option>
                       <option>Arunachal Pradesh</option>
 	                  <option>Assam</option>
 	                  <option>Bihar</option>
@@ -73,32 +72,85 @@
    </div>
    
 </div>
+   <div class="col-md-6">
+   <div class="idea">
+<p class="submitIdea">Wish to Contibute with Suggestions?</p>
+<div class="submitidea">
+<button class="submit btn btn-primary" ng-click="showYourInterest()">Submit Idea</button></div>
+
+
+   </div></div>
 </div>
 
 <div ng-switch-when="Industrywise">
-<div class="col-md-5">
- <select class="form-control"ng-model="selectCategory"></div>
+ <div class="col-md-6">
+ <div class="statewise" >
+  <select class="form-control"ng-model="selectCategory">
+                      <option value="" disabled selected>Select Category</option>
+                      <option >Education & Skill Development Services</option>
+                      <option>Furniture & Furnishings industry</option>
+	                  <option>Media & Entertainment</option>
+	                  <option>Organized Retail sector</option>
+	                  <option>Pharmaceuticals</option>
+	                  <option>Private Security Services</option>
+	                  <option>Telcommunications</option>
+	                  <option>Agriculture</option>
+	                  <option>Auto & Auto component</option>
+	                  <option>Banking & Financial Services Insurance</option>
+	                  <option>Beauty & Wellness </option>
+	                  <option>Building, Construction industry & Real Estate</option>
+	                  <option>Construction Materials & Building Hardware</option>
+	                  <option>Domestic Help</option>
+	                  <option>Electronics & IT hardware industry</option>
+	                  <option>Food Processing sector</option>
+	                  <option>Gems & Jewellery</option>
+	                  <option>Handlooms and Handicrafts</option>
+	                  <option>Healthcare Services</option>
+	                  <option>IT & ITes</option>
+	                  <option>Leather & Leather goods industry</option>
+	                  <option>Textile & Clothing industry</option>
+	                  <option>Tourism, Travel, Hospitality & Trade sector</option>
+	                  <option>Transportation, Logistics, Warehousing & Packaging</option>
+</select>
+	</div>
+	<div ng-show="selectCategory=='Education & Skill Development Services'">
+   <div class="pdffile">
+   <div><img src="images/pdf@2x.png" class="pointer"><span>Education & Skill Development Services</span></div>
+   </div>
+   </div>
+   <div ng-show="selectState=='Delhi'">
+   <div ui-grid="gridOptionstate" ui-grid-edit ui-grid-cellNav  ui-grid-auto-resize class="grid grid-align " style="height:30%"></div>
+   </div>
+   <div ng-show="selectState=='Karnataka'">
+   <div ui-grid="gridOptionstate" ui-grid-edit ui-grid-cellNav  ui-grid-auto-resize class="grid grid-align " style="height:30%"></div>
+   </div>
+   <div ng-show="selectState=='Odisha'">
+   <div ui-grid="gridOptionstate" ui-grid-edit ui-grid-cellNav  ui-grid-auto-resize class="grid grid-align " style="height:30%"></div>
+   </div>
+   <div ng-show="selectState=='West Bengal'">
+   <div ui-grid="gridOptionstate" ui-grid-edit ui-grid-cellNav  ui-grid-auto-resize class="grid grid-align " style="height:30%"></div>
+   </div>
+   
+</div>
+   <div class="col-md-6">
+   <div class="idea">
+<p class="submitIdea">Wish to Contibute with Suggestions?</p>
+<div class="submitidea">
+<button class="submit btn btn-primary" ng-click="showYourInterest()">Submit Idea</button></div>
+
+
+   </div></div>
 					      
 </div>
 <div ng-switch-when="International">
-<p> international</p>
-<div class="col-md-5">
- <select class="form-control"ng-model="selectState">
-					        <option value="" disabled selected>Select a state</option>
-					        <option ng-repeat="x in states" value="{{x}}">{{x}}</option>
-					      	</select> 
-					      	</div>
+
 </div>
    </div>
    </div>
    <div ng-show="selectState=='Andhra Pradesh'">
    <div ui-grid="gridOptionstate" ui-grid-edit ui-grid-cellNav class="grid grid-align "></div>
    </div>
-   <div class="col-md-6">
-<p>Want to give suggestion?</p>
-<button ng-click="showYourInterest()">Submit Idea</button>
 
-   </div></div>
 
 
 

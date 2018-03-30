@@ -18,7 +18,6 @@ placement.controller( 'placementController' , function($scope,$http,$timeout){
 	       }).then(function(response)
 	       
 	       	{
-	    	   console.log(response);
 	          $scope.gridOptions.data=response.data;
 	             });
 	}

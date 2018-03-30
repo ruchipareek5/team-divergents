@@ -37,3 +37,25 @@
   border-bottom: 1px solid;
   border-color: #d4d4d4;;
 }
+.submitIdea{
+	font-size:26pt;
+	font-weight:bold;
+	color:	#800000;
+}
+.idea{
+	padding:12%;
+}
+.submit{
+	color:#ffffff;
+	background-color:#000000;
+}
+.submitidea{
+	margin-left:24%;
+}
+.nav-justified>li {
+    float: none;
+    background-color: #eee;
+}
+.pdffile{
+	padding:2%;
+}

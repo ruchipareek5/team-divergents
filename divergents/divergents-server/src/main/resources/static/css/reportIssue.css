@@ -1,48 +1,35 @@
-.reportIssues{
+.container
+{
+
   width:100%;
   background-color: white;
   height:auto;
+
 }
-.reportIssuesHeading{
-	font-size:2em;
-}
-.reportIssuesForm
+.reportIssuesHeading
 {
-  height: auto;
-margin-left:21%;
-width:77%;
-margin-top: 2%;
-
-}
-.reportIssuesSubmit {
-  background-color:  #008A9F;
-  margin-left: 45%;
-  margin-bottom: 2%   ;
-  color:white;
-margin-top:2%;
-}
-
-.reportIssues p{
-font-size: 2em;
-margin-top: 2%;
-
-}
-.form-control{
-  width:45%;
-}
-.form-inline{
-  width: 81%;
-    margin-left: 3%;
     margin-top: 2%;
-    height: 5%;
+    color: RGB(1,120,188);
+    font-size:1.5em;
 }
-
-.nameForm label{
-	float:left;
+.successMessage
+{
+	color: green;
 }
-.row{
-	margin-top:1%;
+.errorMessage
+{
+	color: red;
 }
- input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
- border: 1px solid red;
- }
+.btn-primary
+{
+	margin-top: 2%;
+    margin-left: 60%;
+}
+hr:after
+{
+	border:2px;
+}
+.Institute
+{
+	margin-top: 1%;	
+}

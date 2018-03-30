@@ -1,0 +1,51 @@
+<div ng-controller="webinar">
+
+<head>
+
+<link rel="stylesheet" href="css/headwebinar.css">
+
+</head>
+
+
+<div >
+  <div class="main">
+  <h2 >Webinars</h2>
+  <div class="upcomingevent"><div class="upcoming"><h4 >Upcoming<h4></div>
+  
+<div ui-grid="gridOptionwebinar" ui-grid-edit ui-grid-cellNav class="grid grid-align "></div> 
+
+
+<!-- <div class="row">
+<h4 class="findwebinar"> Missed a Webinar?<button type="button" class="btn find">Find it!</button></h4>
+
+</div> -->
+</div>
+<div class="search-box">
+<div class="form-group row jobopeningmain">
+<div class="col-xs-2">
+<h4 class="findwebinar"> Missed a Webinar?</h4>
+
+</div >
+  <div class="col-xs-4">
+    <input class="form-control" id="title" type="text" ng-model="searchtitle" placeholder="Enter Title to search">
+  </div>
+  <div class="col-xs-3">
+    <button type="button" class="btn btn-primary"ng-click="showWebinarFunc()">Search</button>
+  </div>
+  <p>{{errorMessage}}</p> 
+  </div>
+
+       <div ng-show="showWebinar">         
+      <div ui-grid="gridOptionwebinar2" ui-grid-edit ui-grid-cellNav ui-grid-auto-resize class="grid grid-align "></div> 
+                
+                
+           		 </div>
+           		 </div>
+            
+        	
+
+
+</div>
+</div>
+</div>
+

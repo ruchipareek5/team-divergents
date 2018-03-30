@@ -58,13 +58,13 @@ public class IndustryDashboardController {
 	}
 	
 	@RequestMapping("/PlacementPercentageOfTopFiveTp")
-	public Collection<PlacementPercentageOfTopFiveTpDto> getPlacementPercentageOfTopFiveTp(@RequestParam("jobRole") String jobRole)
+	public Collection<PlacementPercentageOfTopFiveTpDto> getPlacementPercentageOfTopFiveTp()
 	{
 		try {
 			
-			LOGGER.debug("Request Parameter jobRole received in Controller");
-			LOGGER.debug("Sending the request parameter to service");
-			return industryDashboardService.getPlacementPercentageOfTopFiveTp(jobRole);
+			LOGGER.debug("Received request in the controller to get training partners with maximum placement percentage in two years");
+			LOGGER.debug("Sending the request to service");
+			return industryDashboardService.getPlacementPercentageOfTopFiveTp();
 		}
 		
 		catch(Exception e) {

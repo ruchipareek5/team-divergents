@@ -1,6 +1,11 @@
 var student = angular.module('divergents');
 
 student.controller('student' , function($scope, $http,$rootScope,$location){
+	
+	
+	$scope.feedbackshow= false;
+	$scope.feedbackSuccess="";
+	
    //$scope.studentHtml = 'studentHtml1';
    //$rootScope.templateShow = true;
 	$rootScope.screen = 'screen1';
@@ -54,5 +59,37 @@ student.controller('student' , function($scope, $http,$rootScope,$location){
 		var openStudentUrl = "/trainingPartner";
 		$location.path(openStudentUrl);
 		};	//-----------------------------------------------
+		
+		
+		$scope.feedbackfun=function(){
+			if($scope.feedbackshow== true){
+				$scope.feedbackshow= false;
+			}
+			else{
+				$scope.feedbackshow= true;
+			}
+		}
+		
+		
+		$scope.feedbackSubmit= function(){
+			$scope.feedbackSuccess="Thank you, we will get back to you shortly.";
+			var feedbackSubmit = "/submitFeedback";
+			 $http({
 
+					url : feedbackSubmit,
+					method : "POST",
+					data : angular.toJson($scope.feedback),
+					headers : {
+					'Content-type': undefined
+					           }
+
+		       }).then(function(response)
+		    		   {
+		    	   console.log(response);
+		    	   $scope.feedbackSuccess="Thank you, we will get back to you shortly.";
+		    		   });
+			
+		}
+		
+		
 });

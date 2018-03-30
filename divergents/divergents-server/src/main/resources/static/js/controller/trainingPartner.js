@@ -4,6 +4,9 @@ trainingPartner.controller( 'trainingPartner' , function($scope,$http,$rootScope
 	
 	//Method to route using $location.path()
 	
+	$scope.feedbackshow= false;
+	$scope.feedbackSuccess="";
+	
 	$scope.tpSwitch = 'home';
 	//$rootScope.screen = 'screen2';
 	//$rootScope.templateShow = false;
@@ -47,5 +50,36 @@ trainingPartner.controller( 'trainingPartner' , function($scope,$http,$rootScope
 		var openStudentUrl = "/trainingPartner";
 		$location.path(openStudentUrl);
 		};
-	//-----------------------------------------------
+
+
+		
+		$scope.feedback=function(){
+			if($scope.feedbackshow== true){
+				$scope.feedbackshow= false;
+			}
+			else{
+				$scope.feedbackshow= true;
+			}
+		}
+		
+		
+		$scope.feedbackSubmit= function(){
+			$scope.feedbackSuccess="Thank you, we will get back to you shortly.";
+			var feedbackSubmit = "/submitFeedback";
+			 $http({
+
+					url : feedbackSubmit,
+					method : "POST",
+					data : angular.toJson($scope.feedback),
+					headers : {
+					'Content-type': 'application/json'
+					           }
+
+		       }).then(function(response)
+		    		   {
+		    	   console.log(response);
+		    	   $scope.feedbackSuccess="Thank you, we will get back to you shortly.";
+		    		   });
+			
+		}
 });

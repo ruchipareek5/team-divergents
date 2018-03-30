@@ -5,6 +5,10 @@ govt.controller( 'govt' , function($scope,$http,$rootScope,$location){
 	//Method to route using $location.path()
 	
 	//$rootScope.screen = 'screen4';
+	
+	
+	$scope.feedbackshow= false;
+	$scope.feedbackSuccess="";
 $scope.switchGovt = 'quick-facts-govt';	
 	$rootScope.templateShow = false;
 	$scope.openStudent = function()
@@ -47,5 +51,35 @@ $scope.switchGovt = 'quick-facts-govt';
 		var openStudentUrl = "/trainingPartner";
 		$location.path(openStudentUrl);
 		};
-	//-----------------------------------------------
+	
+		
+		$scope.feedback=function(){
+			if($scope.feedbackshow== true){
+				$scope.feedbackshow= false;
+			}
+			else{
+				$scope.feedbackshow= true;
+			}
+		}
+		
+		
+		$scope.feedbackSubmit= function(){
+			$scope.feedbackSuccess="Thank you, we will get back to you shortly.";
+			var feedbackSubmit = "/submitFeedback";
+			 $http({
+
+					url : feedbackSubmit,
+					method : "POST",
+					data : angular.toJson($scope.feedback),
+					headers : {
+					'Content-type': 'application/json'
+					           }
+
+		       }).then(function(response)
+		    		   {
+		    	   console.log(response);
+		    	   $scope.feedbackSuccess="Thank you, we will get back to you shortly.";
+		    		   });
+			
+		}
 });

@@ -3,6 +3,9 @@
 	   margin-left:-44%;
 	
 }
+.competition-container{
+	padding:2%;
+}
 .competition-panel{
 	width:200pt;
 	margin-left:40%;
@@ -17,7 +20,7 @@
 .moreEvents{
 	background-color:#7BA9DC;
 	color:white;
-	margin-left:30%;
+	margin-left:38%;
 	
 }
 

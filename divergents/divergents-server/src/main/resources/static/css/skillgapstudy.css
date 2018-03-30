@@ -1,0 +1,16 @@
+.row {
+    margin:0px;
+}
+.switchButton ul{
+	font-size:14pt;
+}
+.report ul{
+	font-size:10pt;
+    list-style-type: none;
+}
+.statewise{
+	padding:2%;
+}
+.report{
+	padding:5%;
+}

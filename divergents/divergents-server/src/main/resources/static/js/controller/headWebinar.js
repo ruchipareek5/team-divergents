@@ -7,7 +7,8 @@ webinar.controller('webinar' , function($scope,$http){
 	
 	
 $scope.gridOptionwebinar = {
-	         enableGridMenus : false,  
+	         enableGridMenus : false, 
+	         rowHeight: 30,
 	         enableSorting: false, 
 	         enableFiltering: false,
 	         enableCellEdit : false,
@@ -80,5 +81,14 @@ $scope.gridOptionwebinar = {
    .error(function (error) {
       console.log("Error"+ error);
    });
+	
+	$scope.getTableHeight = function() {
+	       var rowHeight = 30;
+	       var headerHeight = 30;
+	       return {
+	          height: ($scope.gridOptionwebinar.data.length * rowHeight + headerHeight) + "px"
+	       };
+	    };
+	      
 
 });

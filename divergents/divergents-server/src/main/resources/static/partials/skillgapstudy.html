@@ -12,7 +12,7 @@
 
 <div class="switchButton">
   <ul class="nav nav-pills nav-justified">
-    <li class="active"><a data-toggle="tab" ng-click="tab='Statewise'">State Wise</a></li>
+    <li class="active"><a class="state" data-toggle="tab" ng-click="tab='Statewise'">State Wise</a></li>
     <li><a data-toggle="tab" ng-click="tab='Industrywise'">Industry Wise</a></li>
     <li><a data-toggle="tab" ng-click="tab='International'">International</a></li>
   </ul>
@@ -20,19 +20,29 @@
   <div class="col-md-6 contentMainContainer">
 <div class="contentContainer"ng-switch on="tab" >
 <div ng-switch-when="Statewise">
-<p> state</p>
- <div class="col-md-4">
- <select class="form-control"ng-model="selectState" required>
+ <div class="col-md-5">
+ <div class="statewise" >
+  <select class="form-control"ng-model="selectState">
 					        <option value="" disabled selected>Select a state</option>
 					        <option ng-repeat="x in states" value="{{x}}">{{x}}</option>
-					      	</select> 
-					      	</div>
+					      	</select></div>
+
+<div class="report">
+<div ng-show="showDetail">     
+<li><img src="images/pdf.png" class="pointer">&nbsp;<label>Exec Summary</label></li>
+<li><img src="images/pdf.png" class="pointer">&nbsp;<label>Skil Gap Report 2016</label></li>
+<li><img src="images/pdf.png" class="pointer">&nbsp;<label>Presentation</label></li>    
+</div>
+<ul>
+
+</ul>
+</div>
+</div>
 					      	</div>
 <div ng-switch-when="Industrywise">
 <p> Industry</p>
-
-<div class="col-md-4">
- <select class="form-control"ng-model="selectCategory" required>
+<div class="col-md-5">
+ <select class="form-control"ng-model="selectCategory">
 					        <option value="" disabled selected>Select a Category</option>
 					        <option ng-repeat="x in reports" value="{{x}}">{{x}}</option>
 					      	</select> 
@@ -41,8 +51,8 @@
 </div>
 <div ng-switch-when="International">
 <p> international</p>
-<div class="col-md-4">
- <select class="form-control" ng-model="selectState" required>
+<div class="col-md-5">
+ <select class="form-control"ng-model="selectState">
 					        <option value="" disabled selected>Select a state</option>
 					        <option ng-repeat="x in states" value="{{x}}">{{x}}</option>
 					      	</select> 
@@ -50,7 +60,7 @@
 </div>
    </div>
    </div>
-   <div class="col-md-6 contentMainContainer">
+   <div class="col-md-6">
 <p>Want to give suggestion?</p>
 <button ng-click="showYourInterest()">Submit Idea</button>
 

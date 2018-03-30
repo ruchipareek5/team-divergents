@@ -6,7 +6,7 @@ app.controller('domain', function($scope) {
         {name : "TOURISM & HOSPITALITY SECTOR SKILL COUNCIL", description : "Click Here for Information", image_url:"images/THSC.png", ssc_url:"https://www.thsc.in/"},
         {name : "BEAUTY & WELLNESS SECTOR SKILL COUNCIL", description : "Click Here for Information", image_url: "images/bwd.png", ssc_url:"http://www.bwssc.in/"},
         {name : "SKILL COUNCIL FOR GREEN JOBS", description : "Click Here for Information", image_url: "images/SCGJ.png", ssc_url:"http://sscgj.in/"},
-        {name : "APPAREL, MADE-UPS & HOME FURNISHING", description : "Click Here for Information", image_url: "images/AMHSSC.png", ssc_url:"http://sscamh.com/"},
+        {name : "APPAREL, MADE-UPS & 1HOME FURNISHING", description : "Click Here for Information", image_url: "images/AMHSSC.png", ssc_url:"http://sscamh.com/"},
         
         {name : "LIFE SCIENCES SECTOR SKILL COUNCIL", description : "Click Here for Information", image_url: "images/LSSSDC.png", ssc_url:"http://lsssdc.in/"},
         {name : "CONSTRUCTION SKILL DEVELOPMENT COUNCIL OF INDIA", description : "Click Here for Information", image_url: "images/CSDCI.png", ssc_url:"http://www.csdcindia.org/"},

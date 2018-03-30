@@ -9,6 +9,7 @@ jobOpening.controller('jobOpening' , function($scope,$http){
    
 	$scope.gridOptionsJobs = {
 	         enableGridMenus : false,  
+	         rowHeight: 30,
 	         enableSorting: false, 
 	         enableFiltering: false,
 	         enableCellEdit : false,
@@ -128,7 +129,13 @@ jobOpening.controller('jobOpening' , function($scope,$http){
 		
 		
 	}
-
+	$scope.getTableHeight = function() {
+	       var rowHeight = 30;
+	       var headerHeight = 30;
+	       return {
+	          height: ($scope.gridOptionsJobs.data.length * rowHeight + headerHeight) + "px"
+	       };
+	    };
 	
 	
 	

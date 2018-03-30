@@ -1,7 +1,7 @@
 <div ng-controller="jobOpening">
 
 
-<div >
+<div class="container-fluid">
 <div class="form-group row jobopeningmain">
   <div class="col-xs-5" style="padding-right:0pt">
     <input class="form-control" id="jobrolename" type="text" ng-model="jobrolename" placeholder="Enter Job Role">
@@ -16,7 +16,7 @@
   <p class="errormessage" ng-bind="errorMessage">{{errorMessage}}</p>
   <div class="jobopeningmain">
   <p class="headingOpportunity">Recent Job Openings</p>
-<div ui-grid="gridOptionsJobs" ui-grid-edit ui-grid-cellNav class="grid grid-align "></div> 
+<div ui-grid="gridOptionsJobs" ui-if="gridOptionsJobs.data.length>0"  class="grid grid-align "ui-grid-auto-resize ng-style="getTableHeight()"></div>
 </div> 
 
 <div class="row">

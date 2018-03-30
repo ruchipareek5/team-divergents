@@ -16,9 +16,9 @@ jobRole.controller('jobRole' , function($scope,$http){
 	         paginationPageSize: 2,   
 	         useExternalPagination: true,   
 	         columnDefs: [
-	              { name: 'jobRoleId', displayName: 'ID', cellClass:'trainingCenterCellClass',headerCellClass:'trainingCenters', width: '10%'},
-	              { name: 'jobRoleName', displayName: 'Job Role' ,cellClass:'trainingCenterCellClass',headerCellClass:'trainingCenters' , width: '30%'},
-	              { name: 'ssc',displayName: 'Sector Skill Council' , cellClass:'trainingCenterCellClass',headerCellClass:'trainingCenters', width: '30%'},
+	              { name: 'jobRoleId', displayName: 'ID', cellClass:'trainingCenterCellClass',headerCellClass:'', width: '10%'},
+	              { name: 'jobRoleName', displayName: 'Job Role' ,cellClass:'trainingCenterCellClass',headerCellClass:'' , width: '30%'},
+	              { name: 'ssc',displayName: 'Sector Skill Council' , cellClass:'trainingCenterCellClass',headerCellClass:'', width: '30%'},
 	              { name: 'Training Center | State', displayName:'Training Center | State' , cellTemplate: '<button type="button" class="btn btn-info btn-xs" style="margin-top:5pt" ng-click=grid.appScope.showTrainingCenter(row)>Check Training Center</button>',headerCellClass:'trainingCenters',cellClass:'trainingCenterCellClass',width: '30%'}
 	              
 	    ]
@@ -42,6 +42,14 @@ jobRole.controller('jobRole' , function($scope,$http){
 	    ]
 	  }; 	
 	
+	
+	$http.get('/getallJobRolesDetailsforStudent')
+    .success(function (response) {
+        $scope.gridOptions.data= response;
+    })
+    .error(function (error) {
+       console.log("Error"+ error);
+    });
 	
 	
 	

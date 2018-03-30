@@ -15,6 +15,8 @@ findtrainingcenter.controller('findtrainingcenter', function($scope,$http){
 	         paginationPageSizes: [10, 2, 50],
 	         paginationPageSize: 2,   
 	         useExternalPagination: true,   
+	         enableHorizontalScrollbar:0,
+	         enableVerticalScrollbar:0,
 	         columnDefs: [
 	              { name: 'trainingCenterName', displayName: 'Center Name', cellClass:'trainingCenterCellClass',headerCellClass:'trainingCenters'},
 	              { name: 'address', displayName: 'Address' ,cellClass:'trainingCenterCellClass',headerCellClass:'trainingCenters' },

@@ -4,47 +4,49 @@
 <link href="css/about-us.css" type="text/css" rel="stylesheet">
 </head>
 <div class="container-fluid">
-<div class="competition-container">
-<div class="col-md-12"><p class="competitionHeading">Apply For the World Skill Competitions</p></div>
+<div class="col-md-12"><p class="competitionHeading">Apply For the World Skill Competitions</p></div></div>
 <div class="col-md-6">
 <div class=form-container>
-	
-<form class="form-horizontal">
+	{{User}}
+<form class="form-horizontal" action="/">
 <div class="form-group">
-					      <label for="Name" >Name</label>
-					      	<input class="form-control" id="block" placeholder="Enter your Name" ng-model="find.name" ng-required="true" >
+					      <label for="Name" >Name :</label>
+					      	<input class="form-control" id="name" placeholder="Enter your Name" ng-model="find.name" ng-required="true" >
 					      
 					      	</div>
 					      	 <div class="form-group">
-					      <label for="E-mail" >E-mail</label>
-					      	<input class="form-control" id="block" placeholder="Enter your E-mail" ng-model="find.e-mail" ng-required="true" >
+					      <label for="E-mail" >E-mail :</label>
+					      	<input class="form-control" id="email" placeholder="Enter your E-mail" ng-model="find.mail" required >
 					      
 					      	</div>
 					      	 <div class="form-group" >
-					      <label for="Address" > Address</label>
-					      	<input class="form-control" id="block" placeholder="Enter your Address"  ng-model=" find.address" ng-required="true" >
+					      <label for="Address" > Address :</label>
+					      	<input class="form-control" id="address" placeholder="Enter your Address"  ng-model=" find.address" ng-required="true" >
 					      
 					      	</div>
 					      	<div class="form-group" >
-					      	<label for="Age"> Age</label>
-					      	<input class="form-control" id="block" placeholder="Enter your Age"  input type="number" ng-model="find.contactNumber" ng-required="true" >
+					      	<label for="Age"> Age :</label>
+					      	<input class="form-control" id="age" placeholder="Enter your Age"   type="number" ng-model="find.contactNumber" ng-required="true" >
 					      	
 					      	</div>
 					      	
 					      	
 <div class="form-group col-md-6" >
 			
-						    
-		<select id="sector" class="form-control col-md-3" ng-model="selectedSector" ng-options="sector.id as sector.name for sector in sectors track by sector.id">
+			<label for="chooseSector">Choose Sector and Choose Category :</label>			    
+		<select id="sector" class="form-control col-md-3 " ng-model="selectedSector" ng-options="sector.id as sector.name for sector in sectors track by sector.id">
         <option value="" disable selected>Choose Sector</option>
     </select>
-    <select class=" form-control col-md-2" id="category" ng-model="selectedCategory" ng-disabled="!selectedSector" ng-options="category.id as category.dep for category in ((sectors | filter:{'id':selectedSector})[0].categories) track by category.id">
+   
+    <label for="chooseCategory" ></label>	
+    <select class=" form-control col-md-3" id="category" ng-model="selectedCategory" ng-disabled="!selectedSector" ng-options="category.id as category.dep for category in ((sectors | filter:{'id':selectedSector})[0].categories) track by category.id">
         <option value="" disable selected>Choose Category</option>
-    </select>
-					      	</div> 
+    </select></div>
+   
+				</div>	     
 					      <button class="btn btn-primary">Apply Now</button>	 
 					      		
-
+	
 </form>
 
 </div>
@@ -103,12 +105,10 @@
                     </div>
                 
 
-<a href="http://worldskills.nsdcindia.org/cal-event.php" class="btn moreEvents">More Events</a>
+<a href="http://worldskills.nsdcindia.org/cal-event.php" target="_blank" class="btn moreEvents">More Events</a>
 </div></div>
 
 
-</div>
-</div>
 </div>
 
 

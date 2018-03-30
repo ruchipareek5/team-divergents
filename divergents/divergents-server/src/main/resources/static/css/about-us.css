@@ -1,6 +1,6 @@
 .btn-primary{
 	    margin-top: 13%;
-	   margin-left:-44%;
+	   margin-left:-5%;
 	
 }
 .competition-container{
@@ -28,6 +28,7 @@
 	    margin-top: 3%;
    font-size: 1.3em;
 }
+
 .exploreButton{
 	background-color:#55AAFF;
 	color:white;
@@ -40,5 +41,12 @@
 }
 .competitionHeading{
 	font-size:2em;
-	color:#DF3621;
+	color:#6C2B43;
 }
+#category {
+    margin-left: 235pt;
+    margin-top: -12%;
+}
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
+ border: 1px solid red;
+ }

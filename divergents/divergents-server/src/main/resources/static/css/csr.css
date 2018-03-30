@@ -1,8 +1,7 @@
 .csrheading{
 	font-size:2em;
 	color:#1F497D;
-	font-family:OpenSansRegular;
-}
+	}
 .model1{
 	background-color:#F6AB3D;
 	
@@ -71,8 +70,12 @@ input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
  border: 1px solid red;
  }
  .form-container{
- background-color: #ECF0F1;
+background-color:none;
   margin-left:5%;
   margin-right:5%;
   padding: 1em;
+  margin-top:-6%;
+  }
+  .btn-primary{
+  margin-left:40%;
   }

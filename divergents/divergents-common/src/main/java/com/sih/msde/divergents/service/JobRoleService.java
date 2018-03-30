@@ -39,7 +39,30 @@ public class JobRoleService {
 	}
 	
 	public Collection<JobRoleDto> getJobRoles(String letter){
-		 return jobRoleDao.getJobRoleDetails(letter);
+		 try {
+			 LOGGER.debug("Controller has requested Service to get the job roles based on search letter");
+			return jobRoleDao.getJobRoleDetails(letter);
+		} catch (Exception e) {
+			LOGGER.debug("An error occured while service process the request by Controller to get the job roles based on search letter" + e);
+			
+			return null;
+			
+		}
+	}
+	
+	
+	public Collection<JobRoleDto> getallJobRoles(){
+		try {
+			
+			LOGGER.debug("Controller has requested Service to get all the job roles");
+			
+			return jobRoleDao.getAllJobRoleDetails();
+		} catch (Exception e) {
+			
+			LOGGER.debug("An error occured while service process the request by Controller" + e);
+			
+			return null;
+		}
 	}
 
 }

@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.sih.msde.divergents.dto.JobRoleDto;
 import com.sih.msde.divergents.dto.TrainingCenterAccordingToJobRoleDto;
 import com.sih.msde.divergents.service.JobRoleService;
@@ -18,9 +17,7 @@ public class JobRoleController {
 
 	@Autowired
 	private JobRoleService jobRoleService;
-	
-	
-	
+		
 	@RequestMapping(value="/getJobRoleForSelectedLetter")
 	public Collection<JobRoleDto> getJobRolesForSelectedLetter(@RequestParam("letter") String letter){
 	
@@ -32,4 +29,9 @@ public class JobRoleController {
 		return jobRoleService.gettrainingCenters(jobroleId);
 	}
 	
+	
+	@RequestMapping("/getallJobRolesDetailsforStudent")
+	public Collection<JobRoleDto> getallJobRolesDetailsforStudent(){
+		return jobRoleService.getallJobRoles();
+	}
 }

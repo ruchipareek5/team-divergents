@@ -46,6 +46,21 @@ public class JobRoleDao extends AbstractTransactionalDao{
 			return null;
 		}
 	}
+	
+	public Collection<JobRoleDto> getAllJobRoleDetails() {
+		
+		try {
+			LOGGER.debug("Request Received from service to get all Job Roles ");
+			
+			Map<String, Object> parameters = new HashMap<>();
+			
+			return getJdbcTemplate().query(jobRoleConfig.getSelectAllJobRole(), parameters, ROW_MAPPER);
+		} catch (Exception e) {
+			
+			LOGGER.debug("An error occured while getting all the Job roles " + e);
+			return null;
+		}
+	}
 
 
 private static class JobRoleRowSelectRowMapper implements RowMapper<JobRoleDto> {

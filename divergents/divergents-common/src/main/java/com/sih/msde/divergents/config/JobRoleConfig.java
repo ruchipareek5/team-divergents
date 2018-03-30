@@ -9,7 +9,14 @@ public class JobRoleConfig {
 
 	private String selectJobRole;
 	private String trainingcentreforJobRole;
+	private String selectAllJobRole;
 	
+	public String getSelectAllJobRole() {
+		return selectAllJobRole;
+	}
+	public void setSelectAllJobRole(String selectAllJobRole) {
+		this.selectAllJobRole = selectAllJobRole;
+	}
 	public String getSelectJobRole() {
 		return selectJobRole;
 	}

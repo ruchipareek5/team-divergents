@@ -7,7 +7,7 @@ app.controller('domain', function($scope) {
         {name : "BEAUTY & WELLNESS SECTOR SKILL COUNCIL", description : "Click Here for Information", image_url: "images/bwd.png", ssc_url:"http://www.bwssc.in/"},
         {name : "SKILL COUNCIL FOR GREEN JOBS", description : "Click Here for Information", image_url: "images/SCGJ.png", ssc_url:"http://www.sscgj.in"},
         {name : "APPAREL, MADE-UPS & HOME FURNISHING", description : "Click Here for Information", image_url: "images/AMHSSC.png", ssc_url:"http://sscamh.com/"},
-        {name : "TEXTILE & HANDLOOM SECTOR SKILL COUNCIL", description : "Click Here for Information", image_url: "images/TSC.png", ssc_url:"http://texskill.in/"},
+        
         {name : "LIFE SCIENCES SECTOR SKILL COUNCIL", description : "Click Here for Information", image_url: "images/LSSSDC.png", ssc_url:"http://lsssdc.in/"},
         {name : "CONSTRUCTION SKILL DEVELOPMENT COUNCIL OF INDIA", description : "Click Here for Information", image_url: "images/CSDCI.png", ssc_url:"http://www.csdcindia.org/"},
         {name : "CAPITAL GOODS SKILL COUNCIL", description : "Click Here for Information", image_url: "images/cgsc.png", ssc_url:"http://www.sscgj.in"},
@@ -30,7 +30,7 @@ app.controller('domain', function($scope) {
         {name : "AEROSPACE & AVIATION SECTOR SKILL COUNCIL", description : "Click Here for Information ", image_url: "images/AASSC.png", ssc_url:"http://www.sscgj.in"},
         {name : "POWER SECTOR SKILL COUNCIL", description : "Click Here for Information ",  image_url: "images/PSSC.png", ssc_url:"http://www.sscgj.in"},
         {name : "SKILL COUNCIL FOR MINING SECTOR", description : "Click Here for Information ", image_url: "images/SCMS.png", ssc_url:"http://www.sscgj.in"},
-        {name : "PAINT AND COATINGS SKILL COUNCIL", description : "Click Here for Information ", image_url: "images/Paints-and-Coatings-Skill-Council.png", ssc_url:"http://www.sscgj.in"},
+        
         
         ];
 });

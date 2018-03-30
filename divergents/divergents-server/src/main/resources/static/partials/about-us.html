@@ -31,13 +31,13 @@
 					      	</div>
 					      	
 					      	
-<div class="form-group col-md-3" >
+<div class="form-group col-md-6" >
 			
 						    
-		<select id="sector" ng-model="selectedSector" ng-options="sector.id as sector.name for sector in sectors track by sector.id">
+		<select id="sector" class="form-control col-md-3" ng-model="selectedSector" ng-options="sector.id as sector.name for sector in sectors track by sector.id">
         <option value="" disable selected>Choose Sector</option>
     </select>
-    <select class="col-md-2" id="category" ng-model="selectedCategory" ng-disabled="!selectedSector" ng-options="category.id as category.dep for category in ((sectors | filter:{'id':selectedSector})[0].categories) track by category.id">
+    <select class=" form-control col-md-2" id="category" ng-model="selectedCategory" ng-disabled="!selectedSector" ng-options="category.id as category.dep for category in ((sectors | filter:{'id':selectedSector})[0].categories) track by category.id">
         <option value="" disable selected>Choose Category</option>
     </select>
 					      	</div> 
@@ -52,7 +52,7 @@
   
 <div class="col-md-6">
 
-<p class="eventsHeading" style="font-size:2.5em; text-align:center; color:#55AAFF"> UPCOMING  EVENTS</p>
+<p class="eventsHeading" style="font-size:2.5em;margin-left:10%; color:#55AAFF"> UPCOMING  EVENTS</p>
 <div class="competitionpanels">
 <div class="competition-full-panel">
 <div class="upper-panel">

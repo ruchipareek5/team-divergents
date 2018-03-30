@@ -12,7 +12,7 @@
   <p id="formHeading">Expression of Interest for Training Partner Affiliation</p>
 	<form role="form" id="" ng-submit="register()" >
     	
-    	<div class="successMessage">{{successMessage}}</div>
+    	<div class="successMessage" ng-show="successMessage > '1'">{{successMessage}}<a href="http://18.188.63.226:8080/" target="_blank">Click Here</a></div>
 		<div class="errorMessage">{{errorMessage}}</div>
 		<div class="registrationFailed">{{registrationFailed}}</div>
 		
@@ -29,8 +29,10 @@
     
     <div class="form-group">
 
-      <input type="text" class="form-control" id="jobRole" placeholder="Job Role for which affiliation is sort" name="jobRole" ng-model="affiliation.jobRole" required>
-    
+<!--       <input type="text" class="form-control" id="jobRole" placeholder="Job Role for which affiliation is sort" name="jobRole" ng-model="affiliation.jobRoleList" required> -->
+    <select class="form-control" ng-model="affiliation.jobRole" required>
+<option ng-repeat="x in jobRoleList" value="{{x.jobrole}}">{{x.jobrole}}</option>
+</select>
     </div>
     	
     <div class="form-group">

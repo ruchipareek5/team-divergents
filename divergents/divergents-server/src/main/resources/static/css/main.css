@@ -16,12 +16,12 @@
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
 }
-.goog-te-banner
-{
-	position:fixed;
-	top:15%;
-	z-index:0;
-}
+/* .goog-te-banner */
+/* { */
+/* 	position:fixed; */
+/* 	top:15%; */
+/* 	z-index:0; */
+/* } */
 .navbar-brand img
 {
 	height:25pt;

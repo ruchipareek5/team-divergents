@@ -1,7 +1,14 @@
 var submit = angular.module('divergents');
 
 submit.controller( 'submitController' , function($scope,$http,$timeout){
-	
+	  $http.get('/getallJobRoles')
+	  .then(function (response) {
+		  //console.log(response);
+	      $scope.jobRoleList = response.data;
+	  },function(errorResponse)
+	  {
+		  
+	  });
 	$scope.register = function(){
 		 var trainingPartnerAffiliationURI = "/registerInterestedTp";
 		 $http({
@@ -22,11 +29,8 @@ submit.controller( 'submitController' , function($scope,$http,$timeout){
 	    	   
 	    	   $scope.affiliation="";
 	    	   
-	    	   $scope.successMessage = "Submission Successful";
+	    	   $scope.successMessage = "Thank you for showing your interest. Please click here to complete the affiliation process";
 	    	   
-	    	   $timeout(function() {
-	            	  $scope.successMessage="";
-	               }, 2000);
 	    	   
 	    	   }
 	       else if (affiliationResponse == -1)

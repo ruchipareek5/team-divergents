@@ -2,7 +2,7 @@
 <head>
         <link href="css/dashboardGov.css" type="text/css" rel="stylesheet">
      
-    </head>
+  </head>
 <div class="container-fluid dashborad-container">
         <div class="dashborad-panelWrap">
             <h3 class="text">Overall Information</h3>
@@ -77,19 +77,20 @@
 <div class="form-group col-md-5">
 <select ng-model="chartType" ng-init = "chartTypeList[0].id" ng-options="option.id as option.name for option in chartTypeList" class="form-control"> </select>
 </div>
-<div class="form-group col-md-5"><input type="button" class="btn btn-generate-chart" ng-click=generateChart() name="generateChart" value="View Chart"/></div>
 </div>
 
 </form>
 </div>
         	
       <div class="col-md-6" id="chart">
-      <div id="total-csr" ng-show="chartType =='chart2'" style="width:550px;height:325px"></div>
-      <div id="placement-percent" ng-show="chartType =='chart1'" style="width:550px;height:325px"></div>
+      <div id="total-cs" ng-show="chartType =='chart4'" style="width:550px;height:325px"></div>
+      <div id="placement-percen" ng-show="chartType =='chart3'" style="width:550px;height:325px"></div>
 <!--       Code to generate chart -->
 
       </div>  	
         
         </div>
 
+</div>
+</div>
 </div>

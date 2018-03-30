@@ -69,7 +69,7 @@
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
 }
-</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</script>
         
 <!-- Screen 0 Video -->
 <section class="fullsize-video-bg" ng-controller="home" ng-hide="templateShow || templateShowI || templateShowGovt || templateShowTP">
@@ -197,7 +197,7 @@ function googleTranslateElementInit() {
             <li><a ng-click="studentSwitch = 'resources'">TENDERS & RFP's</a></li>
             <li><a ng-click="studentSwitch = 'champions'">HELPLINE</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">USER TYPE<span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">USER TYPE<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a ng-click="openIndustry()">INDUSTRY</a></li>
                 <li><a ng-click="openTrainingPartner()">TRAINING PARTNER</a></li>
@@ -209,7 +209,9 @@ function googleTranslateElementInit() {
       </div>
     </nav>
 </header>
-
+<div class="sticky-tab-feedback" ng-hide="studentSwitch == 'home'">
+<button class="btn btn-danger" value="Give Feedback">Give Feedback</button>
+</div>
 
 <!-- View of Student section -->
 <div class="col-md-12 divergents-middle-view">
@@ -316,7 +318,9 @@ function googleTranslateElementInit() {
       </div>
     </nav>
 </header>
-
+<div class="sticky-tab-feedback">
+<button class="btn btn-danger" value="Give Feedback">Give Feedback</button>
+</div>
 
 <!-- View of Industry section -->
 <div class="col-md-12 divergents-middle-view">
@@ -423,7 +427,9 @@ function googleTranslateElementInit() {
       </div>
     </nav>
 </header>
-
+<div class="sticky-tab-feedback">
+<button class="btn btn-danger" value="Give Feedback">Give Feedback</button>
+</div>
 
 <!-- View of Government section -->
 <div class="col-md-12 divergents-middle-view">
@@ -575,7 +581,9 @@ function googleTranslateElementInit() {
 </div>      
 </div>
 </div>
-
+<div class="sticky-tab-feedback" ng-hide="tpSwitch == 'home'">
+<button class="btn btn-danger" value="Give Feedback">Give Feedback</button>
+</div>
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container-fluid footer-blue">
         <div id="navbar-footer" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">

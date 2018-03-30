@@ -5,6 +5,23 @@
 	padding-left:0pt;
 	background-color:rgba(248,248,248,0.2)
 }
+#google_translate_element{
+	position:fixed;
+	top:20%;
+	left:-5%;
+	z-index:15;
+	-webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+.goog-te-banner
+{
+	position:fixed;
+	top:15%;
+	z-index:0;
+}
 .navbar-brand img
 {
 	height:25pt;

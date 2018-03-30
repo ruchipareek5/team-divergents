@@ -14,3 +14,26 @@
 .report{
 	padding:5%;
 }
+.grid{
+	margin-top:5%;
+}
+.pointer{
+  cursor: pointer;
+}
+.ui-grid-header-cell{
+  text-align: center;
+  background-color: #0375b4;
+  color:#ffffff;
+}
+.ui-grid-row:nth-child(odd) .ui-grid-cell {
+  background-color: #ffffff;
+}
+.ui-grid-row:nth-child(even) .ui-grid-cell {
+  background-color: #ffffff;
+}
+.ui-grid-cell{
+  text-align: center;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #d4d4d4;;
+}

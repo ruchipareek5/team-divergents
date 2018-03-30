@@ -17,6 +17,9 @@
 
    
 }
+.row{
+	margin:0;
+}
 .dashboard-panel
 {
 	width: auto;

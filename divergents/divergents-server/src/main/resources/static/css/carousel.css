@@ -27,7 +27,7 @@
 
 
     .slick-slide {
-      transition: all ease-in-out .3s;
+      transition: all ease-in-out .12s;
       opacity: .2;
     }
     

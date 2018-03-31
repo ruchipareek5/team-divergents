@@ -30,8 +30,20 @@
                 </accordion-heading>
                 <div ui-grid="gridOptionsSelectedScheme" ui-grid-edit ui-grid-cellNav ui-grid-auto-resize class="grid"></div>
             </accordion-group>
-
-            <!-- --------------------------------QUESTION 3------------------------------------ -->
+            <!----------------- ---------------------QUESTION 3--------------------------------------------------------------------------- -->
+            <accordion-group is-open="status.open11">
+                <accordion-heading>
+                    <div ng-click="getNamesOfTrainingCentresNotConductingTraining()">
+                        <div ng-click="$event.stopPropagation();">
+                            How many Training Centers are there, where no training has been conducted?
+                        </div>
+                        <i class="pull-right glyphicon" ng-class="{'glyphicon-minus': status.open11, 'glyphicon-plus': !status.open11}"></i>
+                    </div>
+                </accordion-heading>
+                <div ui-grid="gridOptionForNamesOfTrainingCentresNotConductingTraining" ui-grid-edit ui-grid-cellNav ui-grid-auto-resize class="grid"></div>
+            </accordion-group>
+            
+            <!-- --------------------------------QUESTION 4------------------------------------ -->
             <accordion-group is-open="status.open3">
                 <accordion-heading>
                     <div ng-click="getDataOfCandidatesMonthWise()">
@@ -44,19 +56,7 @@
                 <div ui-grid="gridOptionsSelectCandidates" ui-grid-edit ui-grid-cellNav ui-grid-auto-resize class="grid"></div>
             </accordion-group>
 
-            <!----------------- ---------------------QUESTION 4--------------------------------------------------------------------------- -->
-            <accordion-group is-open="status.open4">
-                <accordion-heading>
-                    <div ng-click="getDataOfCandidatesSchemeAndMonthWise()">
-                        <div ng-click="$event.stopPropagation();">
-                            How many candidates have we <select id="candidatetypeselect" ng-model="candidatesSelected.candidateEnrolledInMonth" ng-init="candidatesSelected.candidateEnrolledInMonth = candidatesOptions[0].id" ng-options="option.id as option.name for option in candidatesOptions"></select> in the scheme
-                            <select ng-model="selectedScheme.schemeForMonth" ng-init="selectedScheme.schemeForMonth = schemeDropDownOptions[0].id" ng-options="option.id as option.scheme for option in schemeDropDownOptions"> </select> in all month of the year <select ng-model="year.selectedYearForCondidate" ng-init="year.selectedYearForCondidate = yearOptions[0].id" ng-options="option.id as option.value for option in yearOptions"></select> ?
-                        </div>
-                        <i class="pull-right glyphicon" ng-class="{'glyphicon-minus': status.open4, 'glyphicon-plus': !status.open4}"></i>
-                    </div>
-                </accordion-heading>
-                <div ui-grid="gridOptionsSelectCandidatesSchemeWise" ui-grid-edit ui-grid-cellNav ui-grid-auto-resize class="grid"></div>
-            </accordion-group>
+
 </accordion>
 </div>
 

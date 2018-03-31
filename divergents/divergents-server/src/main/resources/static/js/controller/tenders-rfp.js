@@ -68,7 +68,7 @@ tenderRfp.controller('tenderRfp' , function($scope,$http){
         $scope.gridOptionrfp.data= response;
     })
     .error(function (error) {
-       console.log("Error"+ error);
+       //console.log("Error"+ error);
     });
 	
 

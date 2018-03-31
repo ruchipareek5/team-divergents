@@ -7,6 +7,11 @@ function myFunction() {
         x.className = "topnav";
     }
 }
+
+$('.navbar-brand').click(function() {
+    ///$videoSrc = $(this).data( "src" );
+	window.location.href = '/index';
+});
 //$(document).ready(function() { 
 //	var $li = $('#navbar-footer li').click(function() {
 //	    $li.removeClass('selected-tab');

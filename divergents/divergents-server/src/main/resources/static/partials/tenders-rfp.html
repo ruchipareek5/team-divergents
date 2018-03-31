@@ -34,9 +34,11 @@
         </div>
         <p class="errormessage" ng-bind="errorMessage">{{errorMessage}}</p>
         </div>
-	
-	
-	<div class="data-table">
+	<div ng-show="tenders">
+	<p>backend</p>
+	<div ui-grid="gridOptionsearch" ui-grid-edit ui-grid-cellNav class="grid grid-align "></div>
+	</div> 
+	<div class="data-table" ng-hide="ui-grid">
 	<h3>Active Tenders</h3>
 		<div ui-grid="gridOptionrfp" ui-grid-edit ui-grid-cellNav class="grid grid-align "></div> 
 		</div>

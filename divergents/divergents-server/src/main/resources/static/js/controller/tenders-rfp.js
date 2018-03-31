@@ -72,6 +72,43 @@ tenderRfp.controller('tenderRfp' , function($scope,$http){
     });
 	
 
+	$scope.gridOptionsearch = {
+	         enableGridMenus : false,  
+	         enableSorting: false, 
+	         enableFiltering: false,
+	         enableCellEdit : false,
+	         enableColumnMenus : false,
+	         enableHorizontalScrollbar:0,
+	         enableVerticalScrollbar:0,
+	         paginationPageSizes: [10, 2, 50],
+	         paginationPageSize: 2,   
+	         useExternalPagination: true,  
+	         
+	         columnDefs: [
+	              { name: 'srNo', displayName: 'Sr.', width:"5%"},
+	              { name: 'tenderNo', displayName: 'Tender No.' },
+	              { name: 'tenderTitle',displayName: 'Tender Title'},
+	              { name: 'department',displayName: 'Department'},
+	              { name: 'category',displayName: 'Category' },
+	              { name: 'startdate',displayName: 'Bid Start Date'/*, width: '30%'*/},
+	              { name: 'submissiondate', displayName:'Bid Submission Date',width:"10%"},
+	              { name: 'tenderDocument',displayName: 'Tender Document', cellTemplate: '<a ng-href="{{row.entity.tenderDocument}}" target="_blank" download><img src="images/pdf.png" class="pointer"></a>'},
+	              { name: 'applyOnline',displayName: 'Apply Online',cellTemplate:'<button type="button" class="btn apply" ng-click="apply()">Apply Now</button>'}
+	                      
+	    ]
+	  }; 	
+	
+	
+
+	$http.get('')
+   .success(function (response) {
+       $scope.gridOptionrfp.data= response;
+   })
+   .error(function (error) {
+      console.log("Error"+ error);
+   });	
+	
+	
 	$scope.search= function(){
 		if($scope.departmentType=="" && $scope.categoryType=="" && $scope.tenderno=="" && $scope.tendertitle==""){
 			$scope.errorMessage="Enter the value to search";
@@ -95,5 +132,23 @@ tenderRfp.controller('tenderRfp' , function($scope,$http){
 		}
 	
 }
+	$scope.search=function(){
+		if($scope.tenders== false){
+		$scope.tenders= true;}
+		else{
+			$scope.tenders= false;
+		}
+		
+		
+	}
+	$scope.search=function(){
+		if($scope.ui-grid== true){
+		$scope.ui-grid= false;}
+		else{
+			$scope.ui-grid= true;
+		}
+		
+		
+	}
 
 });

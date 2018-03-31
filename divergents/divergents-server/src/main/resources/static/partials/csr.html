@@ -1,10 +1,9 @@
-<div>
+<div ng-controller="csrIndustry">
 <p class="csrheading">Partner with Skill India through valuable Contributions</p>
 
 <head>
 <link rel="stylesheet" href="css/csr.css">
 </head>
-<script type="text/javascript" src="js/csr.js"></script>
 <div class= "container ">
 <div class="col-md-6">
   <div class= "row">
@@ -135,26 +134,28 @@
   <div ng-switch-when="contact">
   <div class=form-container>
 	{{user}}
-	<form class="form-horizontal" action="/">
-  <div class="form-group" >
+	<form role="form" id="" ng-submit="submit()"  class="form-horizontal">
+  <div class="successMessage">{{successMessage}}</div>
+		<div class="errorMessage">{{errorMessage}}</div>
+    	<div class="form-group">
 					      <label for="Name" >Organisation Name</label>
-					      	<input class="form-control" id="block" placeholder="Enter  organisation Name" ng-model="find.Organisationname" ng-required="true" >
+					      	<input type="text" class="form-control" id="orgName" placeholder="Enter organisation Name" name="orgName" ng-model="find.orgName" ng-required="true" >
 					      	
 					      	</div>
 					      	 <div class="form-group" >
 					      <label for="Name" >POC Name</label>
-					      	<input class="form-control" id="block" placeholder="Enter your POC" ng-model="find.pocname" ng-required="true">
+					      	<input type="text" class="form-control" id="pocName" placeholder="Enter your POC" name="pocName" ng-model="find.pocName" ng-required="true">
 					      	
 					      	</div>
 					      	 <div class="form-group" >
 					      <label for="Name" > Contact number</label>
-					      	<input class="form-control" id="block" placeholder="Enter your Number"  input type="number" ng-model="find.contactNumber" ng-required="true">
+					      	<input  class="form-control" id="contactNumber" placeholder="Enter your Number"  name="contactNumber" input type="number" ng-model="find.contactNumber" ng-required="true">
 					      	
 					      	</div>
 					      	<div class="form-group" >
 					      <label for="Name" >Select the Model</label>
 					      
-					      	<select class="form-control" id="block" placeholder="Enter your address" ng-model="find.address" ng-required="true">
+					      	<select class="form-control" id="selectedModel" placeholder="Enter your address" ng-model="find.address" ng-required="true">
 					      	<option class="form-control" >Direct Sponsorship for skill development</option>
 					      	<option class="form-control" >Setting up of COE's/Institute</option>
 					      	<option class="form-control" >Setup Multi Skill Training Centers</option>
@@ -165,10 +166,10 @@
 					      	</div>
 					      	 <div class="form-group" >
 					      <label for="Name" >Amount</label>
-					      	<input class="form-control" id="block" placeholder="Enter your amount"  input type="number" ng-model="find.amount" ng-required="true" >
+					      	<input class="form-control" id="amount" placeholder="Enter your amount"  name="contactNumber" input type="number" ng-model="find.amount" ng-required="true" >
 					      
 					      	</div>
-				      	<button class="btn btn-primary" >SUBMIT</button> 
+				      	<input type="submit" class="btn btn-info" value="Submit"/>
 				      	</form>
   </div>
   </div> 

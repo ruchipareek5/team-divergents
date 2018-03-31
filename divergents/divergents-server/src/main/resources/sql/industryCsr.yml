@@ -1,0 +1,3 @@
+industryCsr:
+ contributeInCsr: >
+  INSERT INTO industrycsr (orgName,pocName,contactNumber,selectedModel,amount) values (:orgName,:pocName,:contactNumber,:selectedModel,:amount)

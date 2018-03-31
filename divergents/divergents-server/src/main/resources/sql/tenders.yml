@@ -1,0 +1,15 @@
+tenders:
+ 
+ showTenders: >
+  select * from tenders where year(curdate()) = year(bidSubmissionDate) and month(curdate())<=month(bidSubmissionDate) and (tenderNumber=:tenderNumber or tenderCategory=:tenderCategory or tenderTitle=:tenderTitle
+   or tenderDepartment=:tenderDepartment)
+   
+ showTendersUsingTenderNumberTenderTitle: >
+   select * from tenders where year(curdate()) = year(bidSubmissionDate) and month(curdate())<=month(bidSubmissionDate) and (tenderNumber=:tenderNumber or tenderTitle=:tenderTitle)
+ 
+ showTendersUsingTenderNumberTenderTitleTenderDepartment: >
+   select * from tenders where year(curdate()) = year(bidSubmissionDate) and month(curdate())<=month(bidSubmissionDate) and (tenderNumber=:tenderNumber or tenderTitle=:tenderTitle
+   or tenderDepartment=:tenderDepartment);  
+   
+ showTendersUsingTenderNumberTenderTitleTenderCategory: >
+    select * from tenders where year(curdate()) = year(bidSubmissionDate) and month(curdate())<=month(bidSubmissionDate) and (tenderNumber=:tenderNumber or tenderCategory=:tenderCategory or tenderTitle=:tenderTitle)

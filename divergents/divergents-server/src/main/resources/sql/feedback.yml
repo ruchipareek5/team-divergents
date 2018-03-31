@@ -1,0 +1,4 @@
+feedback:
+ insertfeedback: >
+  insert into feedback (name,aadharnumber,email,suggestion)
+    values (:name,:aadharnumber,:email,:suggestion)

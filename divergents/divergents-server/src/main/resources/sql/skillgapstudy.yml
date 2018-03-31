@@ -1,0 +1,18 @@
+skillgapstudy:
+ selectSkillGapStudy: >
+  select jobrolename, noofskilledmanpower,count(candidateDetailsId) as countCandidate
+   from certificate
+    join candidate on certificate.candidateID=candidate.candidatedetailsID
+     join jobrole on certificate.jobroleID=jobrole.jobroleID where candidatestate= :state and candidateLocation= :district and certified="true";
+ 
+ selectSkillGapStudyusingState: >
+  select jobrolename, noofskilledmanpower,count(candidateDetailsId) as countCandidate
+   from certificate
+    join candidate on certificate.candidateID=candidate.candidatedetailsID
+     join jobrole on certificate.jobroleID=jobrole.jobroleID where candidatestate= :state and certified="true";   
+     
+ selectSkillGapStudyusingDistrict: >
+  select jobrolename, noofskilledmanpower,count(candidateDetailsId) as countCandidate
+   from certificate
+    join candidate on certificate.candidateID=candidate.candidatedetailsID
+     join jobrole on certificate.jobroleID=jobrole.jobroleID where candidateLocation= :district and certified="true";     

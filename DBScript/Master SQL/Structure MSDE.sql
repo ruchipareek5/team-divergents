@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: testdatabase
+-- Host: localhost    Database: msde
 -- ------------------------------------------------------
--- Server version	5.7.18-log
+-- Server version	5.7.16-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -100,7 +100,7 @@ CREATE TABLE `application` (
   PRIMARY KEY (`applicationId`),
   KEY `userId` (`userId`),
   CONSTRAINT `application_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -299,6 +299,7 @@ CREATE TABLE `candidate` (
   `candidateLocation` varchar(50) DEFAULT NULL,
   `candidateContact` bigint(12) DEFAULT NULL,
   `candidateMail` varchar(50) DEFAULT NULL,
+  `candidatestate` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`candidateDetailsId`),
   KEY `batchId` (`batchId`),
   KEY `employerId` (`employerId`),
@@ -349,7 +350,7 @@ CREATE TABLE `certificate` (
   KEY `candidateId` (`candidateId`),
   CONSTRAINT `certificate_ibfk_1` FOREIGN KEY (`jobroleId`) REFERENCES `jobrole` (`jobRoleId`),
   CONSTRAINT `certificate_ibfk_2` FOREIGN KEY (`candidateId`) REFERENCES `candidate` (`candidateDetailsId`)
-)  ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -407,6 +408,23 @@ CREATE TABLE `employer` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `feedback`
+--
+
+DROP TABLE IF EXISTS `feedback`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `feedback` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `aadharnumber` bigint(15) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `suggestion` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `industrypartnerships`
 --
 
@@ -422,6 +440,24 @@ CREATE TABLE `industrypartnerships` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `interestedtp`
+--
+
+DROP TABLE IF EXISTS `interestedtp`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `interestedtp` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `organisationName` varchar(55) NOT NULL,
+  `location` varchar(100) NOT NULL,
+  `jobRole` varchar(50) NOT NULL,
+  `pocName` varchar(50) NOT NULL,
+  `pocEmail` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `jobrole`
 --
 
@@ -434,6 +470,7 @@ CREATE TABLE `jobrole` (
   `jobRoleDescription` varchar(200) DEFAULT NULL,
   `jobRoleUrl` varchar(100) DEFAULT NULL,
   `ssc` varchar(100) DEFAULT NULL,
+  `noofskilledmanpower` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`jobRoleId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -479,6 +516,38 @@ CREATE TABLE `placementinformation` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `policygovernment`
+--
+
+DROP TABLE IF EXISTS `policygovernment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `policygovernment` (
+  `policygovId` varchar(30) NOT NULL,
+  `policygovNo` varchar(80) DEFAULT NULL,
+  `title` varchar(200) DEFAULT NULL,
+  `policydocUrl` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`policygovId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `relevantdocumentsindustry`
+--
+
+DROP TABLE IF EXISTS `relevantdocumentsindustry`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `relevantdocumentsindustry` (
+  `documentId` varchar(30) NOT NULL,
+  `documentNo` varchar(80) DEFAULT NULL,
+  `title` varchar(200) DEFAULT NULL,
+  `documentUrl` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`documentId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `relevantdocumentstp`
 --
 
@@ -491,6 +560,44 @@ CREATE TABLE `relevantdocumentstp` (
   `title` varchar(200) DEFAULT NULL,
   `policyDocUrl` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`policyId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `reportedissues`
+--
+
+DROP TABLE IF EXISTS `reportedissues`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `reportedissues` (
+  `issueId` int(11) NOT NULL AUTO_INCREMENT,
+  `issueWith` varchar(45) NOT NULL,
+  `reporteeName` varchar(50) NOT NULL,
+  `reporteeId` varchar(45) NOT NULL,
+  `institutionName` varchar(55) NOT NULL,
+  `institutionId` varchar(45) NOT NULL,
+  `issueType` varchar(45) NOT NULL,
+  `issueDescription` text,
+  `isVerified` tinyint(1) DEFAULT NULL,
+  `issueReportDate` date NOT NULL,
+  PRIMARY KEY (`issueId`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `reportgovernment`
+--
+
+DROP TABLE IF EXISTS `reportgovernment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `reportgovernment` (
+  `reportgovId` varchar(30) NOT NULL,
+  `reportgovNo` varchar(80) DEFAULT NULL,
+  `title` varchar(200) DEFAULT NULL,
+  `reportdocUrl` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`reportgovId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -643,7 +750,26 @@ CREATE TABLE `trainingcenter` (
   PRIMARY KEY (`trainingCenterId`),
   KEY `trainingPartnerId` (`trainingPartnerId`),
   CONSTRAINT `trainingcenter_ibfk_1` FOREIGN KEY (`trainingPartnerId`) REFERENCES `trainingpartner` (`trainingPartnerId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `trainingmaterial`
+--
+
+DROP TABLE IF EXISTS `trainingmaterial`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `trainingmaterial` (
+  `trainingmaterialid` int(11) NOT NULL,
+  `trainingtitle` varchar(100) NOT NULL,
+  `trainingmaterialurl` varchar(100) NOT NULL,
+  `trainingmaterialcol` varchar(45) NOT NULL,
+  `jobroleid` varchar(30) NOT NULL,
+  PRIMARY KEY (`trainingmaterialid`),
+  KEY `jobroleid` (`jobroleid`),
+  CONSTRAINT `trainingmaterial_ibfk_1` FOREIGN KEY (`jobroleid`) REFERENCES `jobrole` (`jobRoleId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -688,7 +814,7 @@ CREATE TABLE `trainingpartnerqualificationpack` (
   PRIMARY KEY (`trainingPartnerQualificationPackId`),
   KEY `trainingPartnerId` (`trainingPartnerId`),
   CONSTRAINT `trainingpartnerqualificationpack_ibfk_1` FOREIGN KEY (`trainingPartnerId`) REFERENCES `trainingpartner` (`trainingPartnerId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7102 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -796,24 +922,6 @@ CREATE TABLE `trainingpartnerregistration` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `trainingmaterial`
---
-
-DROP TABLE IF EXISTS `trainingmaterial`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `trainingmaterial` (
-  `trainingmaterialid` int(11) NOT NULL AUTO_INCREMENT,
-  `trainingtitle` varchar(100) DEFAULT NULL,
-  `trainingmaterialurl` varchar(100) DEFAULT NULL,
-  `jobroleid` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`trainingmaterialid`),
-  KEY `jobroleid_idx` (`jobroleid`),
-  CONSTRAINT `jobroleid` FOREIGN KEY (`jobroleid`) REFERENCES `jobrole` (`jobRoleId`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Table structure for table `user`
 --
 
@@ -830,23 +938,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`Id`),
   UNIQUE KEY `organizationName` (`organizationName`),
   UNIQUE KEY `userId` (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-
-DROP TABLE IF EXISTS `interestedtp`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `interestedtp` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `organisationName` varchar(55) NOT NULL,
-  `location` varchar(100) NOT NULL,
-  `jobRole` varchar(50) NOT NULL,
-  `pocName` varchar(50) NOT NULL,
-  `pocEmail` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -858,127 +950,4 @@ CREATE TABLE `interestedtp` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-26 18:45:29
-
---
--- Table structure for table `policygovernment`
---
-
-DROP TABLE IF EXISTS `policygovernment`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `policygovernment` (
-  `policygovId` varchar(30) NOT NULL,
-  `policygovNo` varchar(80) DEFAULT NULL,
-  `title` varchar(200) DEFAULT NULL,
-  `policydocUrl` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`policygovId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `policygovernment`
---
-
-LOCK TABLES `policygovernment` WRITE;
-/*!40000 ALTER TABLE `policygovernment` DISABLE KEYS */;
-/*!40000 ALTER TABLE `policygovernment` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `relevantdocumentsindustry`
---
-
-DROP TABLE IF EXISTS `relevantdocumentsindustry`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `relevantdocumentsindustry` (
-  `documentId` varchar(30) NOT NULL,
-  `documentNo` varchar(80) DEFAULT NULL,
-  `title` varchar(200) DEFAULT NULL,
-  `documentUrl` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`documentId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `relevantdocumentsindustry`
---
-
-LOCK TABLES `relevantdocumentsindustry` WRITE;
-/*!40000 ALTER TABLE `relevantdocumentsindustry` DISABLE KEYS */;
-/*!40000 ALTER TABLE `relevantdocumentsindustry` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `reportgovernment`
---
-
-DROP TABLE IF EXISTS `reportgovernment`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `reportgovernment` (
-  `reportgovId` varchar(30) NOT NULL,
-  `reportgovNo` varchar(80) DEFAULT NULL,
-  `title` varchar(200) DEFAULT NULL,
-  `reportdocUrl` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`reportgovId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `reportgovernment`
---
-
-LOCK TABLES `reportgovernment` WRITE;
-/*!40000 ALTER TABLE `reportgovernment` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reportgovernment` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
---
--- Table structure for table `trainingmaterial`
---
-
-DROP TABLE IF EXISTS `trainingmaterial`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `trainingmaterial` (
-  `trainingmaterialid` int(11) NOT NULL AUTO_INCREMENT,
-  `trainingtitle` varchar(100) DEFAULT NULL,
-  `trainingmaterialurl` varchar(100) DEFAULT NULL,
-  `jobroleid` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`trainingmaterialid`),
-  KEY `jobroleid_idx` (`jobroleid`),
-  CONSTRAINT `jobroleid` FOREIGN KEY (`jobroleid`) REFERENCES `jobrole` (`jobRoleId`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
---
--- Table structure for table `feedback`
---
-
-DROP TABLE IF EXISTS `feedback`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `feedback` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) DEFAULT NULL,
-  `aadharnumber` bigint(15) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `suggestion` text,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2018-03-27 10:55:12
+-- Dump completed on 2018-03-31  8:35:34

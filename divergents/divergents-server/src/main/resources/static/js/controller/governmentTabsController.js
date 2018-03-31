@@ -38,11 +38,11 @@ govPartnerTabs.controller('govPartnerTabs',function($scope,$http)
       .then(function(response) {
     	  if(response.data)
     		  {
-    		  $scope.totalCandidatesTrained = 0;
+    		  $scope.totalCandidatesTrained = response.data;
     		  }
     	  else
     		  {
-    		  $scope.totalCandidatesTrained =response.data;
+    		  $scope.totalCandidatesTrained = 0;
     		  }
           
       });

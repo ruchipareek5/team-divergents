@@ -133,7 +133,7 @@ tenderRfp.controller('tenderRfp' , function($scope,$http){
 	
 }
 	$scope.search=function(){
-		if($scope.tenders== false){
+		if($scope.tenders == false){
 		$scope.tenders= true;}
 		else{
 			$scope.tenders= false;
@@ -142,11 +142,13 @@ tenderRfp.controller('tenderRfp' , function($scope,$http){
 		
 	}
 	$scope.search=function(){
-		if($scope.ui-grid== true){
-		$scope.ui-grid= false;}
-		else{
-			$scope.ui-grid= true;
-		}
+//		if($scope.ui-grid== true){
+//			
+//		$scope.ui-grid = false;
+//		}
+//		else{
+//			$scope.ui-grid= true;
+//		}
 		
 		
 	}

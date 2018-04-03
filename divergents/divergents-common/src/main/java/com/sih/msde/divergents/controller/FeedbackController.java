@@ -18,12 +18,7 @@ public class FeedbackController {
 	
 	@Autowired
 	private FeedbackService feedbackService;
-	
-	
-	
-	
-	
-	
+		
 	@RequestMapping(value="/submitFeedback",method=RequestMethod.POST,consumes=MediaType.ALL_VALUE)
 	public Integer submitthefeedback(@RequestParam("name") String name, @RequestParam("aadharnumber") String aadharnumber, @RequestParam("email") String email, @RequestParam("suggestion") String suggestion){
 		FeedbackDto feedbackDto = new FeedbackDto(name,aadharnumber,email,suggestion);

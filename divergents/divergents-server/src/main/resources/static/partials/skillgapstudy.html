@@ -1,9 +1,7 @@
 <div ng-controller="gapStudy">
 
 <head>
-
 <link rel="stylesheet" href="css/skillgapstudy.css">
-
 </head>
 
 <div class="skillgap">
@@ -137,22 +135,28 @@
 <p class="submitIdea">Wish to Contribute with Suggestions?</p>
 <div class="submitidea">
 <button class="submit btn btn-primary" ng-click="showYourInterest()">Submit Idea</button></div>
-
-
-   </div></div>
+</div></div>
 					      
 </div>
 <div ng-switch-when="International">
+			<div class="form-group row jobopeningmain">
+			<div class="col-xs-5" style="padding-right:0pt">
+			    <input class="form-control" id="state" type="text" ng-model="state" placeholder="Enter State">
+			</div>
+			<div class="col-xs-3" style="padding-left:1pt; padding-right:1.5pt">
+			    <input class="form-control" id="district" type="text" ng-model="district" placeholder="Enter District">
+			</div>
+			<div>
+			    <button type="button" class="btn btn-primary"ng-click="search()">Search</button>
+			</div> 
+			</div>
+			
+			<div ui-grid="gridOptionSkillGap" ui-grid-edit ui-grid-cellNav class="grid grid-align "></div>
+			   
 
 </div>
    </div>
    </div>
-   <div ng-show="selectState=='Andhra Pradesh'">
-   <div ui-grid="gridOptionstate" ui-grid-edit ui-grid-cellNav class="grid grid-align "></div>
-   </div>
-
-
-
 
 </div>
 

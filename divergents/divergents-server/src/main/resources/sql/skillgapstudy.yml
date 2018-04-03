@@ -1,18 +1,19 @@
 skillgapstudy:
  selectSkillGapStudy: >
-  select jobrolename, noofskilledmanpower,count(candidateDetailsId) as countCandidate
+  select count(candidateDetailsId) as countCandidate , jobRoleName,  candidatestate, certified, noofskilledmanpower, candidateLocation
    from certificate
     join candidate on certificate.candidateID=candidate.candidatedetailsID
-     join jobrole on certificate.jobroleID=jobrole.jobroleID where candidatestate= :state and candidateLocation= :district and certified="true";
- 
- selectSkillGapStudyusingState: >
-  select jobrolename, noofskilledmanpower,count(candidateDetailsId) as countCandidate
-   from certificate
-    join candidate on certificate.candidateID=candidate.candidatedetailsID
-     join jobrole on certificate.jobroleID=jobrole.jobroleID where candidatestate= :state and certified="true";   
+     join jobrole on certificate.jobroleID=jobrole.jobroleID group by jobRoleName having candidatestate= :state and candidateLocation=:district and certified= 'true';
      
- selectSkillGapStudyusingDistrict: >
-  select jobrolename, noofskilledmanpower,count(candidateDetailsId) as countCandidate
+ selectSkillGapStudyusingState: >
+  select count(candidateDetailsId) as countCandidate, jobRoleName,  candidatestate, certified, noofskilledmanpower
    from certificate
     join candidate on certificate.candidateID=candidate.candidatedetailsID
-     join jobrole on certificate.jobroleID=jobrole.jobroleID where candidateLocation= :district and certified="true";     
+     join jobrole on certificate.jobroleID=jobrole.jobroleID group by jobRoleName having candidatestate= :state and certified= 'true';
+   
+ selectSkillGapStudyusingDistrict: >
+  select count(candidateDetailsId) as countCandidate, jobRoleName,  candidatestate, candidateLocation, certified, noofskilledmanpower
+   from certificate
+    join candidate on certificate.candidateID=candidate.candidatedetailsID
+     join jobrole on certificate.jobroleID=jobrole.jobroleID group by jobRoleName having candidateLocation= :district and certified= 'true';
+   

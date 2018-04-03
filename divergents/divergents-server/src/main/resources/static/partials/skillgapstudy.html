@@ -1,12 +1,25 @@
 <div ng-controller="gapStudy">
 
 <head>
-<link rel="stylesheet" href="css/skillgapstudy.css">
+<link rel="text/stylesheet" href="css/skillgapstudy.css"/>
+<style>
+.skillGapSearch{
+	margin-top: 5pt;
+    margin-left: 5pt;
+    }
+    
+.skillGapSearchButton{
+	background-color: #49135179;
+	border-color: #49135179;
+	color: #ffffff;
+}
+</style>
+
 </head>
 
 <div class="skillgap">
 <h3 class="title">Skill Gap Study</h3>
-<p> data</p>
+<p></p>
 
 <div class="switchButton">
   <ul class="nav nav-pills nav-justified">
@@ -72,7 +85,7 @@
 </div>
    <div class="col-md-6">
    <div class="idea">
-<p class="submitIdea">Wish to Contibute with Suggestions?</p>
+<p class="submitIdea">Wish to Contribute with Suggestions?</p>
 <div class="submitidea">
 <button class="submit btn btn-primary" ng-click="showYourInterest()">Submit Idea</button></div>
 
@@ -139,15 +152,15 @@
 					      
 </div>
 <div ng-switch-when="International">
-			<div class="form-group row jobopeningmain">
+			<div class="form-group row skillGapSearch">
 			<div class="col-xs-5" style="padding-right:0pt">
-			    <input class="form-control" id="state" type="text" ng-model="state" placeholder="Enter State">
+			    <input class="form-control" type="text" ng-model="stateforanalysis" placeholder="Please Enter State">
 			</div>
 			<div class="col-xs-3" style="padding-left:1pt; padding-right:1.5pt">
-			    <input class="form-control" id="district" type="text" ng-model="district" placeholder="Enter District">
+			    <input class="form-control" type="text" ng-model="districtforanalysis" placeholder="Please Enter District">
 			</div>
 			<div>
-			    <button type="button" class="btn btn-primary"ng-click="search()">Search</button>
+			    <button type="button" class="btn skillGapSearchButton" ng-click="search()">Search</button>
 			</div> 
 			</div>
 			

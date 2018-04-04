@@ -11,7 +11,7 @@ public class ShowTendersConfigSql {
 	private String showTendersUsingTenderNumberTenderTitle; //using tender number and tender title
 	private String showTendersUsingTenderNumberTenderTitleTenderDepartment; //using tender number, tender title, tender department
 	private String showTendersUsingTenderNumberTenderTitleTenderCategory; //using tender number,tender category , tender title
-	
+	private String showActiveTender;
 	
 	public String getShowTenders() {
 		return showTenders;
@@ -39,6 +39,13 @@ public class ShowTendersConfigSql {
 			String showTendersUsingTenderNumberTenderTitleTenderCategory) {
 		this.showTendersUsingTenderNumberTenderTitleTenderCategory = showTendersUsingTenderNumberTenderTitleTenderCategory;
 	}
+	public String getshowActiveTender() {
+		return showActiveTender;
+	}
+	public void setshowActiveTender(String showActiveTender) {
+		this.showActiveTender = showActiveTender;
+	}
+	
 	
 	
 	

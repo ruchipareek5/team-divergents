@@ -41,4 +41,10 @@ public class ShowTendersService {
 		LOGGER.debug("Parameters received from controller to get active tenders");
 		return showTendersDao.getshowTendersUsingTenderNumberTenderTitleTenderCategory(tenderNumber, tenderTitle, tenderCategory);
 	}
+	
+	public Collection<ShowTendersDto> getshowActiveTender()
+	{
+		LOGGER.debug("Request received in the service from controllers to get active tenders");
+		return showTendersDao.getshowActiveTender();
+	}
 }

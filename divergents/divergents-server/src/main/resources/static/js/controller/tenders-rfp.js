@@ -1,16 +1,18 @@
 var tenderRfp = angular.module('divergents');
 
 tenderRfp.controller('tenderRfp' , function($scope,$http){
+	$scope.tenders=true
+	$scope.Active=true
 	$scope.reset= function(){
-		$scope.departmentType="chart1";
-			$scope.categoryType="category1";
-			$scope.tenderno="" ;
-			$scope.tendertitle="";
+		$scope.tenderDepartment="chart1";
+			$scope.tenderCategory="category1";
+			$scope.tenderNumber="" ;
+			$scope.tenderTitle="";
 		
 	}
 	
-	$scope.departmentType = 'chart1';
-	  $scope.departmentTypeList = [{ id:'chart1',name:'Select Department'},
+	$scope.tenderDepartment = 'chart1';
+	  $scope.tenderDepartmentList = [{ id:'chart1',name:'Select Department'},
 	                               { id:'chart2',name:'IISC'},
 	                               { id:'chart3',name:'Admin'},
 	                               { id:'chart4',name:'PR & Communication'},
@@ -28,15 +30,16 @@ tenderRfp.controller('tenderRfp' , function($scope,$http){
 	                               {id:'chart16',name:'PMKVY'},
 	                               {id:'chart17',name:'Quality Assurance'},
 	                               {id:'chart18',name:'Corporate Strategy and New Initiatives'}];
-	  $scope.categoryType = 'category1';
-	  $scope.categoryTypeList = [{ id:'category1',name:'Select Category'},
+	  $scope.tenderCategory = 'category1';
+	  $scope.tenderCategoryList = [{ id:'category1',name:'Select Category'},
 	                               { id:'category2',name:'TEN (Tender)'},
 	                               { id:'category3',name:'IFP (Invitation For Proposal)'},
 	                               { id:'category4',name:'RFP'},
 	                               { id:'category5',name:'EoI (Expression Of Interest)'},
 	                               { id:'category6',name:'RFQ (Request for Quotation)'}];
 	$scope.gridOptionrfp = {
-	         enableGridMenus : false,  
+	         enableGridMenus : false,
+	         rowHeight: 30,
 	         enableSorting: false, 
 	         enableFiltering: false,
 	         enableCellEdit : false,
@@ -49,7 +52,7 @@ tenderRfp.controller('tenderRfp' , function($scope,$http){
 	         
 	         columnDefs: [
 	              { name: 'srNo', displayName: 'Sr.', width:"5%"},
-	              { name: 'tenderNo', displayName: 'Tender No.' },
+	              { name: 'tenderNumber', displayName: 'Tender No.' },
 	              { name: 'tenderTitle',displayName: 'Tender Title'},
 	              { name: 'department',displayName: 'Department'},
 	              { name: 'category',displayName: 'Category' },
@@ -73,7 +76,8 @@ tenderRfp.controller('tenderRfp' , function($scope,$http){
 	
 
 	$scope.gridOptionsearch = {
-	         enableGridMenus : false,  
+	         enableGridMenus : false,
+	         rowHeight: 30,
 	         enableSorting: false, 
 	         enableFiltering: false,
 	         enableCellEdit : false,
@@ -85,72 +89,125 @@ tenderRfp.controller('tenderRfp' , function($scope,$http){
 	         useExternalPagination: true,  
 	         
 	         columnDefs: [
-	              { name: 'srNo', displayName: 'Sr.', width:"5%"},
-	              { name: 'tenderNo', displayName: 'Tender No.' },
+	              { name: 'tenderNumber', displayName: 'Tender No.' },
 	              { name: 'tenderTitle',displayName: 'Tender Title'},
-	              { name: 'department',displayName: 'Department'},
-	              { name: 'category',displayName: 'Category' },
-	              { name: 'startdate',displayName: 'Bid Start Date'/*, width: '30%'*/},
-	              { name: 'submissiondate', displayName:'Bid Submission Date',width:"10%"},
-	              { name: 'tenderDocument',displayName: 'Tender Document', cellTemplate: '<a ng-href="{{row.entity.tenderDocument}}" target="_blank" download><img src="images/pdf.png" class="pointer"></a>'},
+	              { name: 'tenderDepartment',displayName: 'Department'},
+	              { name: 'tenderCategory',displayName: 'Category' },
+	              { name: 'tenderDocument',displayName: 'Tender Doc', cellTemplate: '<a ng-href="{{row.entity.tenderDocument}}" target="_blank" download><img src="images/pdf.png" class="pointer"></a>', cellClass:'pdf'},
 	              { name: 'applyOnline',displayName: 'Apply Online',cellTemplate:'<button type="button" class="btn apply" ng-click="apply()">Apply Now</button>'}
 	                      
 	    ]
 	  }; 	
 	
-	
-
-	$http.get('')
-   .success(function (response) {
-       $scope.gridOptionrfp.data= response;
-   })
-   .error(function (error) {
-      console.log("Error"+ error);
-   });	
-	
-	
-	$scope.search= function(){
-		if($scope.departmentType=="" && $scope.categoryType=="" && $scope.tenderno=="" && $scope.tendertitle==""){
-			$scope.errorMessage="Enter the value to search";
-			$http.get('/gettenderRfp')
-		    .success(function (response) {
-		        $scope.gridOptionrfp.data= response;
-		    })
-		    .error(function (error) {
-		       console.log("Error"+ error);
-		    });
-		}
-		
-		else {
-			$http.get('/getalltenderRfps')
-	    .success(function (response) {
-	        $scope.gridOptionrfp.data= response;
-	    })
-	    .error(function (error) {
-	       console.log("Error"+ error);
-	    });
-		}
-	
-}
 	$scope.search=function(){
-		if($scope.tenders == false){
-		$scope.tenders= true;}
+		if($scope.tenders=="false"){
+		$scope.tenders=="true";
+		}
+		else if($scope.Active=="true"){
+			$scope.Active=="false";
+			}
 		else{
-			$scope.tenders= false;
+			$scope.Active=="true";
+		}
+	}
+	
+	
+$scope.search= function(){
+	if($scope.tenderCategory=="category1" && $scope.tenderDepartment=="chart1" && $scope.tenderNumber=="" && $scope.tenderDepartment==""){
+		$scope.errorMessage="Select and fill fields to search";
+	}
+		
+	else if($scope.tenderCategory=="" && $scope.tenderDepartment==""){
+			$scope.errorMessage="";
+			tenderNumber=$scope.tenderNumber;
+		    tenderTitle=$scope.tenderTitle;
+		    var method = "GET";
+		    $http.get('/getshowTendersUsingTenderNumbertenderTitle',{
+		    transformRequest: angular.identity,
+		    params:{tenderNumber,tenderTitle},
+		    headers: {'Content-Type': undefined}
+		   })
+		   .then(function(response){
+			   console.log(response);
+			   $scope.gridOptionsearch.data = response.data;
+		   },function errorCallback(response){
+		        console.log(JSON.stringify(response.data));
+		   });
+		}
+		
+		else if($scope.tenderCategory==""){
+			$scope.errorMessage="";
+			tenderNumber=$scope.tenderNumber;
+		    tenderTitle=$scope.tenderTitle;
+		    tenderDepartment=$scope.tenderDepartment;
+		    var method = "GET";
+		    $http.post('/getshowTendersUsingTenderNumbertenderTitleTenderDepartment', {
+		    transformRequest: angular.identity,
+		    params:{tenderNumber,tenderTitle,tenderDepartment},
+		    headers: {'Content-Type': undefined}
+		   })
+		   .then(function(response){
+			   console.log(response);
+			   $scope.gridOptionsearch.data = response.data;
+		   },function errorCallback(response){
+		        console.log(JSON.stringify(response.data));
+		   });
+		}
+		
+		else if($scope.tenderDepartment==""){
+			$scope.errorMessage="";
+			tenderNumber=$scope.tenderNumber;
+		    tenderTitle=$scope.tenderTitle;
+		    tenderCategory=$scope.tenderCategory;
+		    var method = "GET";
+		    $http.get('/getshowTendersUsingTenderNumbertenderTitleTenderCategory', {
+		    transformRequest: angular.identity,
+		    params:{tenderNumber,tenderTitle,tenderCategory},
+		    headers: {'Content-Type': undefined}
+		   })
+		   .then(function(response){
+			   console.log(response);
+			   $scope.gridOptionsearch.data = response.data;
+		   },function errorCallback(response){
+		        console.log(JSON.stringify(response.data));
+		   });
 		}
 		
 		
-	}
-	$scope.search=function(){
-//		if($scope.ui-grid== true){
-//			
-//		$scope.ui-grid = false;
-//		}
-//		else{
-//			$scope.ui-grid= true;
-//		}
-		
-		
-	}
+		else{
+			$scope.errorMessage="";
+            tenderNumber=$scope.tenderNumber;
+			tenderTitle = $scope.tenderTitle;
+			tenderCategory = $scope.tenderCategory;
+			tenderDepartment = $scope.tenderDepartment;
+			var method = "GET";
+		    $http.get('/getShowTenders', {
+		    transformRequest: angular.identity,
+		    params:{tenderNumber,tenderTitle,tenderCategory,tenderDepartment},
+		    headers: {'Content-Type': undefined}
+		   })
+		   .then(function(response){
+			   console.log(response);
+			   $scope.gridOptionsearch.data = response.data;
+		   },function errorCallback(response){
+		        console.log(JSON.stringify(response.data));
+		   });
+		}
+}
+
+	$scope.getTableHeight = function() {
+	       var rowHeight = 30;
+	       var headerHeight = 30;
+	       return {
+	          height: ($scope.gridOptionsearch.data.length * rowHeight + headerHeight) + "px"
+	       };
+	    };
+	    $scope.getTableHeight = function() {
+		       var rowHeight = 30;
+		       var headerHeight = 30;
+		       return {
+		          height: ($scope.gridOptionrfp.data.length * rowHeight + headerHeight) + "px"
+		       };
+		    };
 
 });

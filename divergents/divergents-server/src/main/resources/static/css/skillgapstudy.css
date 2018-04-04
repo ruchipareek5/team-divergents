@@ -65,3 +65,39 @@
 .skillgap{
 	padding:1%;
 }
+
+
+.skillGapSearch{
+	margin-top: 13pt;
+    margin-left: 5pt;
+    }
+    
+.skillGapSearchButton{
+	background-color: #49135179;
+	border-color: #49135179;
+	color: #ffffff;
+}
+
+.card {
+ background-size: 100% 100%;
+  display:inline-block;
+  float:left;
+  width: 17%;
+  height:30%;
+  margin:1%;
+  padding-top:5%;
+  text-align:center;
+  font-size: 9pt;
+  border: 1px solid lightgray;
+  color:#d64161;
+  font-weight: bold;
+  font-family:'Open sans';
+  cursor:pointer;
+}
+
+.card:hover {
+  background-size: 100% 100%;
+  color: black;
+  transition: 0.5s ease all;
+  -webkit-transition: 0.5s ease all;
+}

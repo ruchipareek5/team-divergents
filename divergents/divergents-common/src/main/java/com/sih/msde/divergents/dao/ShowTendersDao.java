@@ -150,6 +150,21 @@ public class ShowTendersDao extends AbstractTransactionalDao {
     		  return null;
     	  }
       }
+      
+      public Collection<ShowTendersDto> getshowActiveTender() {
+  		
+    	  try {
+  			LOGGER.debug("Request Received from Service to get all the tenders");
+  			Map<String, Object> parameters = new HashMap<>();
+  			return getJdbcTemplate().query(showTendersConfigSql.getshowActiveTender(), parameters, ROW_MAPPER);
+  		
+  		} catch (Exception e) {
+
+  			LOGGER.debug("An error occured while getting the blocks" + e);
+  			return null;
+  		}
+  	}
+      	
     
       private static class ShowTendersDaoRowMapper implements RowMapper<ShowTendersDto> {
 
@@ -161,13 +176,17 @@ public class ShowTendersDao extends AbstractTransactionalDao {
     			String tenderTitle = resultSet.getString("tenderTitle");
     			String tenderCategory = resultSet.getString("tenderCategory");
     			String tenderDepartment = resultSet.getString("tenderDepartment");
+    			String tenderDocument = resultSet.getString("tenderDocument");
+    			String bidStartDate = resultSet.getString("bidStartDate");
+    			String bidSubmissionDate = resultSet.getString("bidSubmissionDate");
 				
-    			return new ShowTendersDto(tenderNumber,tenderTitle,tenderCategory,tenderDepartment);
+    			return new ShowTendersDto(tenderNumber,tenderTitle,tenderCategory,tenderDepartment,tenderDocument,bidStartDate,bidSubmissionDate);
     					
 
     		}
 
     			        
     		}
-    		
+
+		
 }

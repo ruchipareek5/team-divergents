@@ -13,3 +13,6 @@ tenders:
    
  showTendersUsingTenderNumberTenderTitleTenderCategory: >
     select * from tenders where year(curdate()) = year(bidSubmissionDate) and month(curdate())<=month(bidSubmissionDate) and (tenderNumber=:tenderNumber or tenderCategory=:tenderCategory or tenderTitle=:tenderTitle)
+ 
+ showActiveTender: >
+    select* from tenders;

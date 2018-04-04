@@ -47,4 +47,11 @@ public class ShowTendersController {
 		LOGGER.debug("Parameters received in controller to get the total active tenders");
 		return showTendersService.getshowTendersUsingTenderNumberTenderTitleTenderCategory(tenderNumber, tenderTitle, tenderCategory);
 	}
+	
+	@RequestMapping("/getshowActiveTenders")
+	public Collection<ShowTendersDto> getshowActiveTenders()
+	{
+		LOGGER.debug("Parameters received in the controller for fetching active tenders");
+		return showTendersService.getshowActiveTender();
+	}
 }

@@ -79,3 +79,11 @@ background-color:none;
   .btn-primary{
   margin-left:40%;
   }
+  .successMessage
+{
+	color: green;
+}
+.errorMessage
+{
+	color: red;
+}

@@ -51,22 +51,21 @@ tenderRfp.controller('tenderRfp' , function($scope,$http){
 	         useExternalPagination: true,  
 	         
 	         columnDefs: [
-	              { name: 'srNo', displayName: 'Sr.', width:"5%"},
 	              { name: 'tenderNumber', displayName: 'Tender No.' },
 	              { name: 'tenderTitle',displayName: 'Tender Title'},
-	              { name: 'department',displayName: 'Department'},
-	              { name: 'category',displayName: 'Category' },
-	              { name: 'startdate',displayName: 'Bid Start Date'/*, width: '30%'*/},
-	              { name: 'submissiondate', displayName:'Bid Submission Date',width:"10%"},
-	              { name: 'tenderDocument',displayName: 'Tender Document', cellTemplate: '<a ng-href="{{row.entity.tenderDocument}}" target="_blank" download><img src="images/pdf.png" class="pointer"></a>'},
-	              { name: 'applyOnline',displayName: 'Apply Online',cellTemplate:'<button type="button" class="btn apply" ng-click="apply()">Apply Now</button>'}
+	              { name: 'tenderDepartment',displayName: 'Department'},
+	              { name: 'tenderCategory',displayName: 'Category' },
+	              { name: 'bidStartDate',displayName: 'Bid Start Date'},
+	              { name: 'bidSubmissionDate', displayName:'Bid Submission Date'},
+	              { name: 'tenderDocument',displayName: 'Tender Doc', cellTemplate: '<a ng-href="{{row.entity.tenderDocument}}" target="_blank" download><img src="images/pdf.png" class="pointer"></a>', cellClass:'pdf'},
+	              { name: 'applyOnline',displayName: 'Apply Online',cellTemplate:'<a href="partials/applyonline.html" target="_blank"><button type="button" class="btn apply">Apply Now</button></a>'}
 	                      
 	    ]
 	  }; 	
 	
 	
 
-	$http.get('partials/data.json')
+	$http.get('/getshowActiveTenders')
     .success(function (response) {
         $scope.gridOptionrfp.data= response;
     })
@@ -93,6 +92,8 @@ tenderRfp.controller('tenderRfp' , function($scope,$http){
 	              { name: 'tenderTitle',displayName: 'Tender Title'},
 	              { name: 'tenderDepartment',displayName: 'Department'},
 	              { name: 'tenderCategory',displayName: 'Category' },
+	              { name: 'bidStartDate',displayName: 'Bid Start Date'},
+	              { name: 'bidSubmissionDate', displayName:'Bid Submission Date'},
 	              { name: 'tenderDocument',displayName: 'Tender Doc', cellTemplate: '<a ng-href="{{row.entity.tenderDocument}}" target="_blank" download><img src="images/pdf.png" class="pointer"></a>', cellClass:'pdf'},
 	              { name: 'applyOnline',displayName: 'Apply Online',cellTemplate:'<button type="button" class="btn apply" ng-click="apply()">Apply Now</button>'}
 	                      

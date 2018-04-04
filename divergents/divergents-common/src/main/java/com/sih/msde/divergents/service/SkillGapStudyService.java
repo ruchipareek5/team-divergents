@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.sih.msde.divergents.dao.SkillGapStudyDao;
+import com.sih.msde.divergents.dto.RecommendedCoursesDto;
 import com.sih.msde.divergents.dto.SkillGapStudyDto;
 
 @Service
@@ -32,6 +33,22 @@ public class SkillGapStudyService {
 		}
 	}
 	
+	
+	public Collection<RecommendedCoursesDto> getRecommendedCourseusingStateandDistrict(String state, String district){
+		try {
+			
+			LOGGER.debug("Controller has requested Service to get Recommended course using State and District");
+			
+			return skillGapStudyDao.getRecommendedCoursesusingStateandDistrict(state, district);
+			
+		} catch (Exception e) {
+			
+			LOGGER.debug("An error occured while service process the request by Controller to get Recommended course using State and District" + e);
+			
+			return null;
+		}
+	}
+	
 	public Collection<SkillGapStudyDto> getSkillGapStudyusingDistrict(String district){
 		try {
 			
@@ -47,6 +64,22 @@ public class SkillGapStudyService {
 		}
 	}
 	
+	
+	public Collection<RecommendedCoursesDto> getRecommendedCourseusingDistrict(String district){
+		try {
+			
+			LOGGER.debug("Controller has requested Service to get the recommended course using district");
+			
+			return skillGapStudyDao.getRecommendedCoursesusingDistrict(district);
+			
+		} catch (Exception e) {
+			
+			LOGGER.debug("An error occured while service process the request by Controller to get the recommended course using district" + e);
+			
+			return null;
+		}
+	}
+	
 	public Collection<SkillGapStudyDto> getSkillGapStudyusingState(String state){
 		try {
 			
@@ -57,6 +90,23 @@ public class SkillGapStudyService {
 		} catch (Exception e) {
 			
 			LOGGER.debug("An error occured while service process the request by Controller to get Skill gap study using state" + e);
+			
+			return null;
+		}
+	}
+
+	
+	
+	public Collection<RecommendedCoursesDto> getRecommendedCourseusingState(String state){
+		try {
+			
+			LOGGER.debug("Controller has requested Service to get Recommended Course using state");
+			
+			return skillGapStudyDao.getRecommendedCoursesusingState(state);
+			
+		} catch (Exception e) {
+			
+			LOGGER.debug("An error occured while service process the request by Controller to get Recommended Course using state" + e);
 			
 			return null;
 		}

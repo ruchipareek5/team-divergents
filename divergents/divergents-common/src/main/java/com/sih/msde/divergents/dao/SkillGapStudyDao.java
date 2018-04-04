@@ -14,19 +14,20 @@ import org.springframework.stereotype.Repository;
 
 import com.sih.msde.divergents.common.AbstractTransactionalDao;
 import com.sih.msde.divergents.config.SkillGapStudyConfig;
+import com.sih.msde.divergents.dto.RecommendedCoursesDto;
 import com.sih.msde.divergents.dto.SkillGapStudyDto;
 
 @Repository
 public class SkillGapStudyDao extends AbstractTransactionalDao {
 	
-
-	
 	@Autowired
 	private  SkillGapStudyConfig skillGapStudyConfig;
+		
 	
+	private static final SkillGapStudyRowSelectRowMapper ROW_MAPPER = new SkillGapStudyRowSelectRowMapper();
 	
-private static final SkillGapStudyRowSelectRowMapper ROW_MAPPER = new SkillGapStudyRowSelectRowMapper();
-	
+	private static final RecommendedCourseRowSelectRowMapper RecommendRowmapper = new RecommendedCourseRowSelectRowMapper();
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(SkillGapStudyDao.class);
 	
 	
@@ -51,6 +52,25 @@ private static final SkillGapStudyRowSelectRowMapper ROW_MAPPER = new SkillGapSt
 	}
 	
 	
+	public Collection<RecommendedCoursesDto> getRecommendedCoursesusingStateandDistrict(String state, String district) {
+		
+		try {
+			LOGGER.debug("Request Received from service to get recommended course using state and district");
+			
+			Map<String, Object> parameters = new HashMap<>();
+			
+			parameters.put("state", state);
+			parameters.put("district", district);
+			
+			return getJdbcTemplate().query(skillGapStudyConfig.getSelectRecommendedCourseusingDistrictandState(), parameters, RecommendRowmapper);
+		} catch (Exception e) {
+			
+			LOGGER.debug("An error occured while getting recommended course using state and District" + e);
+			return null;
+		}
+	}
+	
+	
 	public Collection<SkillGapStudyDto> getSkillReportusingState(String state) {
 		
 		try {
@@ -65,6 +85,25 @@ private static final SkillGapStudyRowSelectRowMapper ROW_MAPPER = new SkillGapSt
 		} catch (Exception e) {
 			
 			LOGGER.debug("An error occured while getting the skill gap study using state" + e);
+			return null;
+		}
+	}
+	
+	
+public Collection<RecommendedCoursesDto> getRecommendedCoursesusingState(String state) {
+		
+		try {
+			LOGGER.debug("Request Received from service to get recommended course using state");
+			
+			Map<String, Object> parameters = new HashMap<>();
+			
+			
+			parameters.put("state", state);
+			
+			return getJdbcTemplate().query(skillGapStudyConfig.getSelectRecommendedCourseusingState(), parameters, RecommendRowmapper);
+		} catch (Exception e) {
+			
+			LOGGER.debug("An error occured while getting the recommended course using state" + e);
 			return null;
 		}
 	}
@@ -89,6 +128,26 @@ private static final SkillGapStudyRowSelectRowMapper ROW_MAPPER = new SkillGapSt
 	}
 	
 	
+	
+public Collection<RecommendedCoursesDto> getRecommendedCoursesusingDistrict(String district) {
+		
+		try {
+			LOGGER.debug("Request Received from service to get recommended courses using district");
+			
+			Map<String, Object> parameters = new HashMap<>();
+			
+			parameters.put("district", district);
+			
+			
+			return getJdbcTemplate().query(skillGapStudyConfig.getSelectRecommendedCourseusingDistrict(), parameters, RecommendRowmapper);
+		} catch (Exception e) {
+			
+			LOGGER.debug("An error occured while getting the recommended courses using district" + e);
+			return null;
+		}
+	}
+	
+	
 
 
 private static class SkillGapStudyRowSelectRowMapper implements RowMapper<SkillGapStudyDto> {
@@ -106,5 +165,20 @@ private static class SkillGapStudyRowSelectRowMapper implements RowMapper<SkillG
 	}
 
 
+
+private static class RecommendedCourseRowSelectRowMapper implements RowMapper<RecommendedCoursesDto> {
+
+	@Override
+	public RecommendedCoursesDto mapRow(ResultSet resultSet, int rowNum)
+			throws SQLException {
+		String trainingmaterialid = resultSet.getString("trainingmaterialid");
+		String trainingmaterialurl = resultSet.getString("trainingmaterialurl");
+		String trainingtitle = resultSet.getString("trainingtitle");
+		String trainingmaterialcol = resultSet.getString("trainingmaterialcol");
+		return new RecommendedCoursesDto(trainingmaterialid, trainingmaterialurl, trainingtitle, trainingmaterialcol);
+		
+	}
+		        
+	}
 
 }

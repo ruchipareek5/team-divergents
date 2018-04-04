@@ -1,7 +1,6 @@
 var capacityBuilder = angular.module('divergents');
 
-capacityBuilder.controller('capacitybuilder',function($scope,$http)
-		{
+capacityBuilder.controller('capacitybuilder',function($scope,$http){
 	$scope.showCapacityBuilding =false;
 	$http.get("/getallJobRoles").then(function(response){
 		
@@ -96,13 +95,13 @@ capacityBuilder.controller('capacitybuilder',function($scope,$http)
 			         paginationPageSize: 2,   
 			         useExternalPagination: true,   
 					 columnDefs: [
-			              { name: 'ID', displayName: 'Training ID', cellClass:'trainingCenterCellClass',headerCellClass:'', width: '10%'},
-			              { name: 'trainingTitle', displayName: 'Training Title' ,cellClass:'trainingCenterCellClass',headerCellClass:'' , width: '25%'},
-						  { name: 'SSC', displayName: 'Sector Skill Council' ,cellClass:'trainingCenterCellClass',headerCellClass:'' , width: '25%'},
-			              { name: 'StartDate',displayName: 'Start Date' , cellClass:'trainingCenterCellClass',headerCellClass:'', width: '10%'},
-			              { name: 'EndDate', displayName:'End Date' , cellTemplate: '<button type="button" class="btn btn-info btn-xs" style="margin-top:5pt" ng-click=grid.appScope.showTrainingCenter(row)>Register</button>',headerCellClass:'trainingCenters',cellClass:'trainingCenterCellClass',width: '10%'},
-						  { name: 'Curriculum',displayName: 'Curriculum' , cellClass:'trainingCenterCellClass',headerCellClass:'', width: '10%', cellTemplate: '<a ng-href="{{row.entity.Curriculum}}" target="_blank" download><img src="images/pdf.png" class="pointer"></a>'},
-						  { name: 'Register',displayName: 'Register' , cellClass:'trainingCenterCellClass',headerCellClass:'', width: '10%', cellTemplate: '<button type="button" class="btn btn-info btn-xs" style="margin-top:5pt" ng-click=grid.appScope.showCapacityBuilding(row)>Register</button>'},
+						 { name: 'trainingid', displayName: 'Training ID', cellClass:'trainingCenterCellClass',headerCellClass:'', width: '10%'},
+			              { name: 'trainingtitle', displayName: 'Training Title' ,cellClass:'trainingCenterCellClass',headerCellClass:'' , width: '25%'},
+						  { name: 'ssc', displayName: 'Sector Skill Council' ,cellClass:'trainingCenterCellClass',headerCellClass:'' , width: '25%'},
+			              { name: 'startdate',displayName: 'Start Date' , cellClass:'trainingCenterCellClass',headerCellClass:'', width: '10%'},
+			              { name: 'enddate', displayName:'End Date',headerCellClass:'trainingCenters',cellClass:'trainingCenterCellClass',width: '10%'},
+						  { name: 'curriculum',displayName: 'Curriculum' , cellClass:'trainingCenterCellClass',headerCellClass:'', width: '10%', cellTemplate: '<a ng-href="{{row.entity.Curriculum}}" target="_blank" download><img src="images/pdf.png" class="pointer"></a>'},
+						  { name: 'Register',displayName: 'Register' , cellClass:'trainingCenterCellClass',headerCellClass:'', width: '11%', cellTemplate: '<button type="button" class="btn btn-info btn-xs" style="margin-top:5pt" ng-click=grid.appScope.showCapacityBuilding(row)>Register</button>'},
 			              
 			    ]
 		};
@@ -117,25 +116,27 @@ capacityBuilder.controller('capacitybuilder',function($scope,$http)
 				         paginationPageSize: 2,   
 				         useExternalPagination: true,   
 						 columnDefs: [
-				              { name: 'ID', displayName: 'Training ID', cellClass:'trainingCenterCellClass',headerCellClass:'', width: '10%'},
-				              { name: 'trainingTitle', displayName: 'Training Title' ,cellClass:'trainingCenterCellClass',headerCellClass:'' , width: '25%'},
-							  { name: 'SSC', displayName: 'Sector Skill Council' ,cellClass:'trainingCenterCellClass',headerCellClass:'' , width: '25%'},
-				              { name: 'StartDate',displayName: 'Start Date' , cellClass:'trainingCenterCellClass',headerCellClass:'', width: '10%'},
-				              { name: 'EndDate', displayName:'End Date' , cellTemplate: '<button type="button" class="btn btn-info btn-xs" style="margin-top:5pt" ng-click=grid.appScope.showTrainingCenter(row)>Register</button>',headerCellClass:'trainingCenters',cellClass:'trainingCenterCellClass',width: '10%'},
-							  { name: 'Curriculum',displayName: 'Curriculum' , cellClass:'trainingCenterCellClass',headerCellClass:'', width: '10%', cellTemplate: '<a ng-href="{{row.entity.Curriculum}}" target="_blank" download><img src="images/pdf.png" class="pointer"></a>'},
-							  { name: 'Register',displayName: 'Register' , cellClass:'trainingCenterCellClass',headerCellClass:'', width: '10%', cellTemplate: '<button type="button" class="btn btn-info btn-xs" style="margin-top:5pt" ng-click=grid.appScope.showCapacityBuilding(row)>Register</button>'},
+						      { name: 'trainingid', displayName: 'Training ID', cellClass:'trainingCenterCellClass',headerCellClass:'', width: '10%'},
+				              { name: 'trainingtitle', displayName: 'Training Title' ,cellClass:'trainingCenterCellClass',headerCellClass:'' , width: '25%'},
+							  { name: 'ssc', displayName: 'Sector Skill Council' ,cellClass:'trainingCenterCellClass',headerCellClass:'' , width: '25%'},
+				              { name: 'startdate',displayName: 'Start Date' , cellClass:'trainingCenterCellClass',headerCellClass:'', width: '10%'},
+				              { name: 'enddate', displayName:'End Date',headerCellClass:'trainingCenters',cellClass:'trainingCenterCellClass',width: '10%'},
+							  { name: 'curriculum',displayName: 'Curriculum' , cellClass:'trainingCenterCellClass',headerCellClass:'', width: '10%', cellTemplate: '<a ng-href="{{row.entity.Curriculum}}" target="_blank" download><img src="images/pdf.png" class="pointer"></a>'},
+							  { name: 'Register',displayName: 'Register' , cellClass:'trainingCenterCellClass',headerCellClass:'', width: '11%', cellTemplate: '<button type="button" class="btn btn-info btn-xs" style="margin-top:5pt" ng-click=grid.appScope.showCapacityBuilding(row)>Register</button>'},
 				              
 				    ]
 			};
-		$http.get('partials/dataCapacityAB.json')
+		$http.get('/getallUpcomingTrainingsForAssessmentBody')
 		   .success(function (response) {
+			   console.log(response);
 		       $scope.gridOptionsABCapacity.data= response;
 		   })
 		   .error(function (error) {
 		      console.log("Error"+ error);
 		   });	
-		$http.get('partials/dataCapacityTp.json')
+		$http.get('/getallUpcomingTrainingsForTrainingPartner')
 		   .success(function (response) {
+			   console.log(response);
 		       $scope.gridOptionsTPCapacity.data= response;
 		   })
 		   .error(function (error) {
@@ -149,4 +150,22 @@ capacityBuilder.controller('capacitybuilder',function($scope,$http)
 				$scope.showCapacity = true;
 			}
 		}
-		});
+		
+		
+		$scope.getTableHeightTP = function() {
+		       var rowHeight = 30;
+		       var headerHeight = 30;
+		       return {
+		          height: ($scope.gridOptionsTPCapacity.data.length * rowHeight + headerHeight) + "px"
+		       };
+		    };
+		$scope.getTableHeightAB = function() {
+			       var rowHeight = 30;
+			       var headerHeight = 30;
+			       return {
+			          height: ($scope.gridOptionsABCapacity.data.length * rowHeight + headerHeight) + "px"
+			       };
+			    };
+		
+		
+});

@@ -1,15 +1,14 @@
-<head>
+
 <head> <link rel="stylesheet" href="css/DashboardTp.css"></head>
-</head>
+
 <div class="container-fluid" ng-controller="capacitybuilder">
 
-            <div class="upper-panel" >
+            <div class="upper-panel">
                 <div class="dashboard-col-sm-2">
                     <div class="dashboard-panel">
                         <div class="dashboard-panel-body" style="background-color:#F6AB3D;">
                             <div class="totalJobRoles">
                             <b>{{totalJobRoles}}</b>
-
                             </div>
                         </div>
                         <div class="dashboard-panel-footer" style="background-color:#E18806;">JOB ROLES</div>
@@ -64,11 +63,12 @@
                     </div>
                 </div>
             </div>
-			<div class="capacity-building">
-			<div ui-grid="gridOptionsTPCapacity" ui-grid-edit ui-grid-cellNav ui-grid-auto-resize  style="height:100pt;overflow:hidden;"></div>
+			<div class="capacity-building" style="margin-bottom: 10pt">
+			<div ui-grid="gridOptionsTPCapacity" ui-if="gridOptionsTPCapacity.data.length>0" ui-grid-edit ui-grid-cellNav ui-grid-auto-resize  ng-style="getTableHeightTP()"></div>
 </div>
+	
 			<div class="capacity-building">
-			<div ui-grid="gridOptionsABCapacity" ui-grid-edit ui-grid-cellNav ui-grid-auto-resize style="height:100pt; overflow:hidden;"></div>
+			<div ui-grid="gridOptionsABCapacity" ui-if="gridOptionsABCapacity.data.length>0" ui-grid-edit ui-grid-cellNav ui-grid-auto-resize ng-style="getTableHeightAB()"></div>
 </div>
 		<div class="modal fade in" id="myFormModal" ng-show="showCapacity">
 		  <div class="modal-dialog">

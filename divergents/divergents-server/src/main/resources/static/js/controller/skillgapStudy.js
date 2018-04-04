@@ -1,11 +1,16 @@
 var gapStudy = angular.module('divergents');
 
 gapStudy.controller('gapStudy' , function($scope,$http){
-	
-	
 	$scope.showDetail= false;
-	$scope.stateforanalysis="";
+	$scope.errorMaessage="";
 	$scope.tab = "Statewise";
+	$scope.skillgap = {
+			state : "",
+			district: ""
+	};
+	$scope.cards = [];
+	
+	
     $scope.gridOptionstate = {
 	         enableGridMenus : false,  
 	         enableSorting: false, 
@@ -42,6 +47,13 @@ gapStudy.controller('gapStudy' , function($scope,$http){
 	  }; 	
 	
 	
+
+	$http.get('partials/data4.json')
+   .then(function (response) {
+       $scope.gridOptionstate.data= response.data;
+   }, function (error) {
+      console.log("Error"+ error);
+   });
 	              
 	$scope.showYourInterest=function(){
 		if($scope.showInterest== false){
@@ -53,7 +65,94 @@ gapStudy.controller('gapStudy' , function($scope,$http){
 
 	
 	$scope.search= function(){
-		console.log($scope.stateforanalysis);
-		console.log($scope.districtforanalysis);
+		
+
+		
+		if($scope.skillgap.state=="" && $scope.skillgap.district==""){
+			$scope.errorMessage="Enter the value to search";
+			
+		}
+		
+		else if($scope.skillgap.district==""){
+			$scope.errorMessage="";
+			var fd = new FormData();
+		    fd.append("state", $scope.skillgap.state)
+		    console.log(fd);
+		    var method = "POST";
+		    $http.post('/getSkillGapStudyUsingState', fd, {
+		    transformRequest: angular.identity,
+		    headers: {'Content-Type': undefined}
+		   })
+		   .then(function(response){
+			   console.log(response);
+			   $scope.gridOptionSkillGap.data = response.data;
+		   },function errorCallback(response){
+		        console.log(JSON.stringify(response.data));
+		   });
+		    
+		    var url= 'getRecommendedCourseUsingState?state='+$scope.skillgap.state;
+		    $http.get(url)
+		    .then(function(response){
+		    	console.log(response.data);
+		    	$scope.cards = response.data;
+		    });
+		    
+		}
+		
+		else if($scope.skillgap.state==""){
+			$scope.errorMessage="";
+			var fd = new FormData();
+		    fd.append("district", $scope.skillgap.district)
+		    console.log(fd);
+		    var method = "POST";
+		    $http.post('/getSkillGapStudyUsingDistrict', fd, {
+		    transformRequest: angular.identity,
+		    headers: {'Content-Type': undefined}
+		   })
+		   .then(function(response){
+			   console.log(response);
+			   $scope.gridOptionSkillGap.data = response.data;
+		   },function errorCallback(response){
+		        console.log(JSON.stringify(response.data));
+		   });
+		    
+		    
+		    var url= 'getRecommendedCourseUsingDistrict?district='+$scope.skillgap.district;
+		    $http.get(url)
+		    .then(function(response){
+		    	console.log(response.data);
+		    	$scope.cards = response.data;
+		    });
+		}
+		
+		else{
+			$scope.errorMessage="";
+			var fd = new FormData();
+			fd.append("state",$scope.skillgap.state)
+		    fd.append("district", $scope.skillgap.district)
+		    console.log(fd);
+		    var method = "POST";
+		    $http.post('/getSkillGapStudyUsingStateandDistrict', fd, {
+		    transformRequest: angular.identity,
+		    headers: {'Content-Type': undefined}
+		   })
+		   .then(function(response){
+			   console.log(response);
+			   $scope.gridOptionSkillGap.data = response.data;
+		   },function errorCallback(response){
+		        console.log(JSON.stringify(response.data));
+		   });
+		    
+		    var url= 'getRecommendedCoursesUsingStateandDistrict?state='+$scope.skillgap.state+'&district='+$scope.skillgap.district;
+			    $http.get(url)
+			    .then(function(response){
+			    	console.log(response.data);
+			    	$scope.cards = response.data;
+			    });
+		}
+	
+	
 	}
+	
+  
 });

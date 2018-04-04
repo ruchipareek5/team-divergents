@@ -23,7 +23,7 @@ public class IndustryCsrDao extends AbstractTransactionalDao{
 	public int submitForCsr(IndustryCsrDto industryCsrDto)
 	{
 		try {
-			LOGGER.debug("Received Request from service to insert details into the database" +industryCsrDto.getorgName());
+			LOGGER.debug("Received Request from service to insert details into the database");
 			Map<String,Object> parameters = new HashMap<>();
 			LOGGER.debug("Creating hashmap of objects");
 			parameters.put("orgName",industryCsrDto.getorgName());
@@ -31,10 +31,9 @@ public class IndustryCsrDao extends AbstractTransactionalDao{
 			parameters.put("contactNumber",industryCsrDto.getcontactNumber());
 			parameters.put("selectedModel",industryCsrDto.getselectedModel());
 			parameters.put("amount",industryCsrDto.getamount());
-			
+			LOGGER.debug("Trying to insert the parameters into the database");
 		 submitStatus = getJdbcTemplate().update(industryCsrConfigSql.getcontributeInCsr(), parameters);
-		LOGGER.debug("status" + submitStatus);
-			return submitStatus;
+		return submitStatus;
 			
 		}
 		catch(Exception e)

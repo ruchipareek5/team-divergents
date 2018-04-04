@@ -4,7 +4,7 @@
 </head>
 
 	<div class="skillgap">
-		<h3 class="title">Skill Gap Study</h3>
+		<h4 class="title">Skill Gap Study</h4>
 	
 		<div class="switchButton">
 		  <ul class="nav nav-pills nav-justified">
@@ -146,18 +146,19 @@
 				    <input class="form-control" id="district" type="text" ng-model="skillgap.district" placeholder="Enter District">
 				</div>
 				<div>
-				    <button type="button" class="btn skillGapSearchButton"ng-click="search()">Search</button>
+				    <button type="button" class="btn skillGapSearchButton" ng-click="search()">Search</button>
 				</div> 
 			</div>
 					
-			<div ui-grid="gridOptionSkillGap" ui-if="gridOptionSkillGap.data.length>0" ui-grid-edit ui-grid-cellNav ui-grid-auto-resize ng-style="getTableHeight()" class="grid grid-align " style="margin-top:0pt;"></div>
+			<div ng-show="AnalysisGrid" ui-grid="gridOptionSkillGap" ui-if="gridOptionSkillGap.data.length>0" ui-grid-edit ui-grid-cellNav ui-grid-auto-resize ng-style="getTableHeight()" class="grid grid-align " style="margin-top:0pt;"></div>
 					   
-			<div>
-				<h3>RECOMMENDED COURSES</h3>
+			<div ng-show="AnalysisGrid">
+				<h4>RECOMMENDED COURSES</h4>
 					<div ng-repeat="card in cards" class="card" style="background-image: url('{{card.trainingmaterialcol}}');">
 		            {{card.trainingtitle}} <br/>
 		            {{card.trainingmaterialid}} <br/>
-		            {{card.trainingmaterialurl}}
+		             <a ng-href="{{card.trainingmaterialurl}}" target="_blank">Learn Now</a>
+		            <!--{{card.trainingmaterialurl}}  -->
 		        	</div>
         	</div>
 		</div>

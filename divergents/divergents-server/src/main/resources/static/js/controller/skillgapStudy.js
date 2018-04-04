@@ -10,6 +10,8 @@ gapStudy.controller('gapStudy' , function($scope,$http){
 	};
 	$scope.cards = [];
 	
+	$scope.AnalysisGrid= false;
+	
 	
     $scope.gridOptionstate = {
 	         enableGridMenus : false,  
@@ -66,11 +68,10 @@ gapStudy.controller('gapStudy' , function($scope,$http){
 	
 	$scope.search= function(){
 		
-
+		$scope.AnalysisGrid= true;
 		
 		if($scope.skillgap.state=="" && $scope.skillgap.district==""){
 			$scope.errorMessage="Enter the value to search";
-			
 		}
 		
 		else if($scope.skillgap.district==""){
@@ -153,6 +154,16 @@ gapStudy.controller('gapStudy' , function($scope,$http){
 	
 	
 	}
+	
+	
+	$scope.getTableHeight = function() {
+	       var rowHeight = 30;
+	       var headerHeight = 30;
+	       return {
+	          height: ($scope.gridOptionSkillGap.data.length * rowHeight + headerHeight) + "px"
+	       };
+	    };
+
 	
   
 });

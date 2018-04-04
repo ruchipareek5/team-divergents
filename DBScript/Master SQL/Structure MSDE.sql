@@ -1,8 +1,10 @@
--- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
+CREATE DATABASE  IF NOT EXISTS `msde` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `msde`;
+-- MySQL dump 10.13  Distrib 5.6.23, for Win64 (x86_64)
 --
 -- Host: localhost    Database: msde
 -- ------------------------------------------------------
--- Server version	5.7.16-log
+-- Server version	5.6.24-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,7 +20,7 @@
 --
 -- Table structure for table `abassessor`
 --
-use msde;
+
 DROP TABLE IF EXISTS `abassessor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -425,6 +427,24 @@ CREATE TABLE `feedback` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `industrycsr`
+--
+
+DROP TABLE IF EXISTS `industrycsr`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `industrycsr` (
+  `srNo` int(10) NOT NULL AUTO_INCREMENT,
+  `orgName` varchar(200) DEFAULT NULL,
+  `pocName` varchar(20) DEFAULT NULL,
+  `contactNumber` varchar(11) NOT NULL,
+  `selectedModel` varchar(200) DEFAULT NULL,
+  `amount` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`srNo`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `industrypartnerships`
 --
 
@@ -454,7 +474,7 @@ CREATE TABLE `interestedtp` (
   `pocName` varchar(50) NOT NULL,
   `pocEmail` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -668,6 +688,26 @@ CREATE TABLE `target` (
   `role` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`targetYear`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='	';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `tenders`
+--
+
+DROP TABLE IF EXISTS `tenders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tenders` (
+  `srNo` int(10) NOT NULL AUTO_INCREMENT,
+  `tenderNumber` varchar(20) DEFAULT NULL,
+  `tenderTitle` varchar(200) DEFAULT NULL,
+  `tenderDepartment` varchar(200) DEFAULT NULL,
+  `tenderCategory` varchar(200) DEFAULT NULL,
+  `bidStartDate` date DEFAULT NULL,
+  `bidSubmissionDate` date DEFAULT NULL,
+  `tenderDocument` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`srNo`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -950,4 +990,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-31  8:35:34
+-- Dump completed on 2018-04-04 16:23:19

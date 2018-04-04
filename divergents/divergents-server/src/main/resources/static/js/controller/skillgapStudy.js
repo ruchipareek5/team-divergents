@@ -67,15 +67,14 @@ gapStudy.controller('gapStudy' , function($scope,$http){
 
 	
 	$scope.search= function(){
-		
-		$scope.AnalysisGrid= true;
-		
+				
 		if($scope.skillgap.state=="" && $scope.skillgap.district==""){
 			$scope.errorMessage="Enter the value to search";
 		}
 		
 		else if($scope.skillgap.district==""){
 			$scope.errorMessage="";
+			$scope.AnalysisGrid= true;
 			var fd = new FormData();
 		    fd.append("state", $scope.skillgap.state)
 		    console.log(fd);
@@ -101,6 +100,7 @@ gapStudy.controller('gapStudy' , function($scope,$http){
 		}
 		
 		else if($scope.skillgap.state==""){
+			$scope.AnalysisGrid= true;
 			$scope.errorMessage="";
 			var fd = new FormData();
 		    fd.append("district", $scope.skillgap.district)
@@ -127,6 +127,7 @@ gapStudy.controller('gapStudy' , function($scope,$http){
 		}
 		
 		else{
+			$scope.AnalysisGrid= true;
 			$scope.errorMessage="";
 			var fd = new FormData();
 			fd.append("state",$scope.skillgap.state)

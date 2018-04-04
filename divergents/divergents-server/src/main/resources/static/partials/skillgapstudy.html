@@ -149,7 +149,7 @@
 				    <button type="button" class="btn skillGapSearchButton" ng-click="search()">Search</button>
 				</div> 
 			</div>
-					
+			<p class="errormessage">{{errorMessage}}</p>		
 			<div ng-show="AnalysisGrid" ui-grid="gridOptionSkillGap" ui-if="gridOptionSkillGap.data.length>0" ui-grid-edit ui-grid-cellNav ui-grid-auto-resize ng-style="getTableHeight()" class="grid grid-align " style="margin-top:0pt;"></div>
 					   
 			<div ng-show="AnalysisGrid">

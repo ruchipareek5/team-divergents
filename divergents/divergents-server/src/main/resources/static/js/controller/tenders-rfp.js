@@ -1,8 +1,8 @@
 var tenderRfp = angular.module('divergents');
 
 tenderRfp.controller('tenderRfp' , function($scope,$http){
-	$scope.tenders=true
-	$scope.Active=true
+	$scope.tenders=false;
+	$scope.Active=true;
 	$scope.reset= function(){
 		$scope.tenderDepartment="chart1";
 			$scope.tenderCategory="category1";
@@ -99,20 +99,22 @@ tenderRfp.controller('tenderRfp' , function($scope,$http){
 	    ]
 	  }; 	
 	
-	$scope.search=function(){
-		if($scope.tenders=="false"){
-		$scope.tenders=="true";
-		}
-		else if($scope.Active=="true"){
-			$scope.Active=="false";
-			}
-		else{
-			$scope.Active=="true";
-		}
-	}
+	
 	
 	
 $scope.search= function(){
+	
+	
+	if($scope.tenders==false && $scope.Active==true){
+		$scope.tenders=true;
+		$scope.Active=false;
+	}
+	else{
+		$scope.tenders=false;
+		$scope.Active=true;
+	}
+	
+	
 	if($scope.tenderCategory=="category1" && $scope.tenderDepartment=="chart1" && $scope.tenderNumber=="" && $scope.tenderDepartment==""){
 		$scope.errorMessage="Select and fill fields to search";
 	}

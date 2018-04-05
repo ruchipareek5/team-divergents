@@ -21,12 +21,13 @@ public class SkillCompetitionDao extends AbstractTransactionalDao {
 	private SkillcompetitionConfig skillcompetitionConfig;
 	
 	int skillcompetitionsubmitStatus;
-	public int submitskillcompetition(String partcipantName, String participantEmail, String participantAddress, String participantAge, String skillSector, String skillSectorCategory){
+	public int submitskillcompetition(String participantName, String participantEmail, String participantAddress, String participantAge, String skillSector, String skillSectorCategory){
 		try {
 			LOGGER.debug("Received Request from service to insert details into the database" );
-			Map<String,Object> parameters = new HashMap<>();
+			
+		    Map<String,Object> parameters = new HashMap<>();
 			LOGGER.debug("Creating hashmap of objects");
-			parameters.put("partcipantName", partcipantName);
+			parameters.put("participantName", participantName);
 			parameters.put("participantEmail",participantEmail);
 			parameters.put("participantAddress",participantAddress);
 			parameters.put("participantAge",participantAge);

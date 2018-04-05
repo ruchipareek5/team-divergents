@@ -1,63 +1,73 @@
-<div ng-controller="aboutUs">
+<div>
 
 <head>
 <link href="css/about-us.css" type="text/css" rel="stylesheet">
 </head>
 <div class="container-fluid">
-<div class="col-md-12"><p class="competitionHeading">Apply For the World Skill Competitions</p></div></div>
+<div class="col-md-12 ">
+<div class="row wsc">
 <div class="col-md-6 applySkillform">
-<div class=form-container>
-	{{User}}
-
-<div class="form-group">
+<p class="competitionHeading">Apply For the World Skill Competitions</p>
+<div class=form-container ng-controller="aboutUs">
+{{user}}
+<form role="form" id="" ng-submit="submit()">
+<div class="successMessage">{{successMessage}}</div>
+		<div class="errorMessage">{{errorMessage}}</div>
+                          <div class="form-group">
 					      <label for="Name" >Name :</label>
-					      	<input class="form-control" id="name" placeholder="Enter your Name" ng-model="find.name" required >
+					      	<input type="text" class="form-control" id="name" placeholder="Enter your Name" ng-model="find.participantName" ng-required="true" >
 					      
 					      	</div>
 					      	 <div class="form-group">
 					      <label for="E-mail" >E-mail :</label>
-					      	<input class="form-control" id="email" placeholder="Enter your E-mail" ng-model="find.mail" required >
+					      	<input type="email" class="form-control" id="email" placeholder="Enter your E-mail" ng-model="find.participantEmail" ng-required="true" >
 					      
 					      	</div>
 					      	 <div class="form-group" >
 					      <label for="Address" > Address :</label>
-					      	<input class="form-control" id="address" placeholder="Enter your Address"  ng-model=" find.address" required>
+					      	<input type="text" class="form-control" id="address" placeholder="Enter your Address"  ng-model=" find.participantAddress" ng-required="true">
 					      
 					      	</div>
 					      	<div class="form-group" >
 					      	<label for="Age"> Age :</label>
-					      	<input class="form-control" id="age" placeholder="Enter your Age"   type="number" ng-model="find.contactNumber" required >
+					      	<input type="number" class="form-control" id="age" placeholder="Enter your Age"   type="number" ng-model="find.participantAge" ng-required="true" >
 					      	
 					      	</div>
 					      	
-					      	
-<div class="form-group col-md-6" >
-			
-			<label for="chooseSector">Choose Sector and Choose Category :</label>			    
-		<select id="sector" class="form-control col-md-3 " ng-model="selectedSector" ng-options="sector.id as sector.name for sector in sectors track by sector.id">
+					      	<div class="form-group" >
+                            <label for="chooseSector">Choose Sector and Choose Category :</label>
+                            
+			<div class="col-md-12">
+			<div class="row dropdown">	
+			<div class="col-md-6">	
+				    
+		<select id="sector" class="form-control col-md-3 " ng-model="find.skillSector" ng-options="sector.id as sector.name for sector in sectors track by sector.id" ng-required="true">
         <option value="" disable selected>Choose Sector</option>
-    </select>
-   
-    <label for="chooseCategory" ></label>	
-    <select class=" form-control col-md-3" id="category" ng-model="selectedCategory" ng-disabled="!selectedSector" ng-options="category.id as category.dep for category in ((sectors | filter:{'id':selectedSector})[0].categories) track by category.id">
+    </select></div>
+   	<div class="col-md-6">
+    <select class=" form-control category col-md-3" id="category" ng-model="find.skillSectorCategory" ng-disabled="!find.skillSector" ng-options="category.id as category.dep for category in ((sectors | filter:{'id':find.skillSector})[0].categories) track by category.id" ng-required="true">
         <option value="" disable selected>Choose Category</option>
     </select></div>
-   
 				</div>	     
-					      <button class="btn btn-primary">Apply Now</button>	 
+				</div>
+				</div>
+					      <input type="submit" class="btn btn-primary" value="Apply Now"/>
+					      </form>	 
 					      		
 	
 
 
 </div>
-
 </div>
+
+
   
 <div class="col-md-5">
-
-<p class="eventsHeading" > UPCOMING  EVENTS</p>
-<div class="competitionpanels">
-<div class="competition-full-panel">
+<div class="heading events">
+<p class="eventsHeading">Upcoming Events</p>
+<div class="row wsc">
+<div class="col-md-3"></div>
+<div class=" col-md-6 competition-full-panel">
 <div class="upper-panel">
                 <div class="competitionEuro">
                     <div class="competition-panel">
@@ -72,7 +82,6 @@
                 </div>
 
 
-</div>
 </div>
 
 <div class="upper-panel">
@@ -105,9 +114,17 @@
                     </div>
                 
 
-<a href="http://worldskills.nsdcindia.org/cal-event.php" target="_blank" class="btn moreEvents">More Events</a>
-</div></div>
 
+</div>
+<div class="col-md-3"></div>
+</div>
+<a href="http://worldskills.nsdcindia.org/cal-event.php" target="_blank" class="btn moreEvents">More Events</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 

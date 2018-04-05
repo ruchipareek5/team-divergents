@@ -95,7 +95,7 @@ tenderRfp.controller('tenderRfp' , function($scope,$http){
 	              { name: 'bidStartDate',displayName: 'Bid Start Date'},
 	              { name: 'bidSubmissionDate', displayName:'Bid Submission Date'},
 	              { name: 'tenderDocument',displayName: 'Tender Doc', cellTemplate: '<a ng-href="{{row.entity.tenderDocument}}" target="_blank" download><img src="images/pdf.png" class="pointer"></a>', cellClass:'pdf'},
-	              { name: 'applyOnline',displayName: 'Apply Online',cellTemplate:'<button type="button" class="btn apply" ng-click="apply()">Apply Now</button>'}
+	              { name: 'applyOnline',displayName: 'Apply Online',cellTemplate:'<a href="partials/applyonline.html" target="_blank"><button type="button" class="btn apply">Apply Now</button></a>'}
 	                      
 	    ]
 	  }; 	
@@ -116,7 +116,7 @@ $scope.search= function(){
 	}
 	
 	
-	if($scope.tenderCategory=="category1" && $scope.tenderDepartment=="chart1" && $scope.tenderNumber=="" && $scope.tenderDepartment==""){
+	if($scope.tenderCategory=="category1" && $scope.tenderDepartment=="chart1" && $scope.tenderNumber=="" && $scope.tenderTitle==""){
 		$scope.errorMessage="Select and fill fields to search";
 	}
 		
@@ -137,6 +137,15 @@ $scope.search= function(){
 		        console.log(JSON.stringify(response.data));
 		   });
 		}
+	else if($scope.tenderNumber=="" && $scope.tenderDepartment==""){
+		$scope.errorMessage="Enter Teneder Number and Tender Title to Search";
+	}
+	else if($scope.tenderTitle==""){
+		$scope.errorMessage="Enter Tender Title to Search";
+	}
+	else if($scope.tenderNumber=="" ){
+		$scope.errorMessage="Enter Teneder Number to Search";
+	}
 		
 		else if($scope.tenderCategory==""){
 			$scope.errorMessage="";

@@ -602,7 +602,7 @@ CREATE TABLE `reportedissues` (
   `isVerified` tinyint(1) DEFAULT NULL,
   `issueReportDate` date NOT NULL,
   PRIMARY KEY (`issueId`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -636,7 +636,7 @@ CREATE TABLE `rpl` (
   `hrPocEmail` varchar(55) DEFAULT NULL,
   `organisationName` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -673,6 +673,25 @@ CREATE TABLE `showinterest` (
   CONSTRAINT `showinterest_ibfk_1` FOREIGN KEY (`batchId`) REFERENCES `batch` (`batchId`),
   CONSTRAINT `showinterest_ibfk_2` FOREIGN KEY (`agencyId`) REFERENCES `agency` (`agencyId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `skillcompetiton`
+--
+
+DROP TABLE IF EXISTS `skillcompetiton`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `skillcompetiton` (
+  `srNo` int(11) NOT NULL AUTO_INCREMENT,
+  `participantName` varchar(100) DEFAULT NULL,
+  `participantEmail` varchar(45) DEFAULT NULL,
+  `participantAddress` varchar(150) DEFAULT NULL,
+  `participantAge` int(3) DEFAULT NULL,
+  `skillSector` varchar(30) DEFAULT NULL,
+  `skillSectorCategory` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`srNo`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -961,29 +980,6 @@ CREATE TABLE `trainingpartnerregistration` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-
-
---
--- Table structure for table `upcomingtraining`
---
-
-DROP TABLE IF EXISTS `upcomingtraining`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `upcomingtraining` (
-  `trainingid` varchar(30) NOT NULL,
-  `trainingtitle` varchar(100) DEFAULT NULL,
-  `ssc` varchar(100) DEFAULT NULL,
-  `startdate` date DEFAULT NULL,
-  `enddate` date DEFAULT NULL,
-  `curriculum` varchar(200) DEFAULT NULL,
-  `userrole` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`trainingid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-
 --
 -- Table structure for table `user`
 --
@@ -1013,4 +1009,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-04 16:23:19
+-- Dump completed on 2018-04-05 19:34:07

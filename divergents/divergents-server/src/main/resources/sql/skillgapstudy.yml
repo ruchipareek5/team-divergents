@@ -23,7 +23,7 @@ skillgapstudy:
     join candidate on certificate.candidateID=candidate.candidatedetailsID
      join jobrole on certificate.jobroleID=jobrole.jobroleID
       join trainingmaterial on jobrole.jobRoleId=trainingmaterial.jobroleid
-       group by jobRoleName having candidatestate= :state and certified= 'true' 
+       group by trainingmaterialid having candidatestate= :state and certified= 'true' 
         order by count(candidateDetailsId) desc
          limit 5 ;
          
@@ -34,7 +34,7 @@ skillgapstudy:
     join candidate on certificate.candidateID=candidate.candidatedetailsID
      join jobrole on certificate.jobroleID=jobrole.jobroleID
       join trainingmaterial on jobrole.jobRoleId=trainingmaterial.jobroleid
-       group by jobRoleName having candidateLocation= :district and certified= 'true' 
+       group by trainingmaterialid having candidateLocation= :district and certified= 'true' 
         order by count(candidateDetailsId) desc
          limit 5 ;
          
@@ -45,7 +45,7 @@ skillgapstudy:
     join candidate on certificate.candidateID=candidate.candidatedetailsID
      join jobrole on certificate.jobroleID=jobrole.jobroleID
       join trainingmaterial on jobrole.jobRoleId=trainingmaterial.jobroleid
-       group by jobRoleName having candidatestate= :state and candidateLocation= :district and certified= 'true' 
+       group by trainingmaterialid having candidatestate= :state and candidateLocation= :district and certified= 'true' 
         order by count(candidateDetailsId) desc
          limit 5 ;
    

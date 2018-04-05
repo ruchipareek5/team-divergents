@@ -359,7 +359,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `trainingmaterial` WRITE;
 /*!40000 ALTER TABLE `trainingmaterial` DISABLE KEYS */;
-INSERT INTO `trainingmaterial` VALUES (1021,'Quality Technician','http://indiaskillsonline.com/','abc','JR2'),(1101,'Agriculture and farming','http://indiaskillsonline.com/','abc','JR1'),(1102,'Agriculture Tools','https://www.nsdcindia.org/sites/default/files/MC_AGR%20Q0301_Banana%20Farmer_30.10.2017.pdf','abc','JR1'),(1103,'Small poultry farmer','https://www.nsdcindia.org/sites/default/files/MC_AGR-Q0101_Paddy_Farmer_20-06-2017.pdf','abc','JR1'),(1301,'Hair Stylist','http://indiaskillsonline.com/','abc','JR6');
+INSERT INTO `trainingmaterial` VALUES (1021,'Quality Technician','http://indiaskillsonline.com/','images/trainingpartner.png','JR2'),(1101,'Agriculture and farming','http://indiaskillsonline.com/','images/goverment background.png','JR1'),(1102,'Agriculture Tools','https://www.nsdcindia.org/sites/default/files/MC_AGR%20Q0301_Banana%20Farmer_30.10.2017.pdf','images/goverment background.png','JR1'),(1103,'Small poultry farmer','https://www.nsdcindia.org/sites/default/files/MC_AGR-Q0101_Paddy_Farmer_20-06-2017.pdf','images/goverment background.png','JR1'),(1301,'Hair Stylist','http://indiaskillsonline.com/','images/goverment background.png','JR6');
 /*!40000 ALTER TABLE `trainingmaterial` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -391,6 +391,19 @@ LOCK TABLES `trainingpartnerregistration` WRITE;
 /*!40000 ALTER TABLE `trainingpartnerregistration` DISABLE KEYS */;
 /*!40000 ALTER TABLE `trainingpartnerregistration` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+
+--
+-- Dumping data for table `upcomingtraining`
+--
+
+LOCK TABLES `upcomingtraining` WRITE;
+/*!40000 ALTER TABLE `upcomingtraining` DISABLE KEYS */;
+INSERT INTO `upcomingtraining` VALUES ('AB101','Mechanical Aggregates Repairing','Automotive Skills Development Council','2018-08-02','2018-06-30','evdcsgv','AB'),('TP101','Platform Skills','Tourism & Hospitality','2018-04-11','2018-06-30','whdfbh','TP');
+/*!40000 ALTER TABLE `upcomingtraining` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 --
 -- Dumping data for table `user`

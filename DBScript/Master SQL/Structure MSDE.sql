@@ -961,6 +961,29 @@ CREATE TABLE `trainingpartnerregistration` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
+
+--
+-- Table structure for table `upcomingtraining`
+--
+
+DROP TABLE IF EXISTS `upcomingtraining`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `upcomingtraining` (
+  `trainingid` varchar(30) NOT NULL,
+  `trainingtitle` varchar(100) DEFAULT NULL,
+  `ssc` varchar(100) DEFAULT NULL,
+  `startdate` date DEFAULT NULL,
+  `enddate` date DEFAULT NULL,
+  `curriculum` varchar(200) DEFAULT NULL,
+  `userrole` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`trainingid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+
 --
 -- Table structure for table `user`
 --

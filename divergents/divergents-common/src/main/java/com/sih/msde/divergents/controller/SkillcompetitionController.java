@@ -15,7 +15,7 @@ import com.sih.msde.divergents.service.SkillcompetitionService;
 
 @RestController
 public class SkillcompetitionController {
-	private static final Logger LOGGER = LoggerFactory.getLogger(RplInterestExpressionController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(SkillcompetitionController.class);
 
 	@Autowired
 	private SkillcompetitionService skillcompetitionService;
@@ -25,10 +25,10 @@ public class SkillcompetitionController {
 	public Integer submittheskillcompetition(@RequestBody SkillcompetitionDto skillCompetitionDto){
 		
 		try {
-			LOGGER.debug("Request received from front end to submit  the skill competition form" +SkillcompetitionDto());
+			LOGGER.debug("Request received from front end to submit  the skill competition form" +skillCompetitionDto.getparticipantName());
 			skillcompetitionsubmitStatus = skillcompetitionService.Skillcompetitionforsubmit(skillCompetitionDto);
 			
-			System.out.println(skillCompetitionDto.getparticipantName());
+			
 			
 			return skillcompetitionsubmitStatus;
 		} catch (Exception e) {

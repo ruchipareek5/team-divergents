@@ -1,80 +1,80 @@
 var aboutUs = angular.module('divergents');
 
-aboutUs.controller('aboutUs', function($scope, $http)
-		{
-    
+aboutUs.controller('aboutUs', function($scope, $http, $timeout){
+
+	
     $scope.sectors =[
   {
-    'id': '1',
+    'id': 'Construction and Building Technology',
      'name': "Construction and Building Technology",
      'categories': [{
-        'id': '11',
+        'id': 'Architectural Stonemasonry',
         'dep': "Architectural Stonemasonry"
     }, {
-        'id': '12',
+        'id': 'Bricklaying',
         'dep': "Bricklaying"
    
     
     
     },
     {
-        'id': '13',
+        'id': 'Cabinetmaking',
         'dep': "Cabinetmaking"
    
     
     
     },
     {
-        'id': '14',
+        'id': 'Carpentry',
         'dep': "Carpentry"
    
     
     
     },
     {
-        'id': '15',
+        'id': 'Concrete Construction Work',
         'dep': "Concrete Construction Work"
    
     
     
     },
     {
-        'id': '16',
+        'id': 'Electrical Installations',
         'dep': "Electrical Installations"
    
     
     
     },
     {
-        'id': '17',
+        'id': 'Joinery',
         'dep': "Joinery"
    
     
     
     },
     {
-        'id': '18',
+        'id': 'Landscape Gardening',
         'dep': "Landscape Gardening"
    
     
     
     },
     {
-        'id': '20',
+        'id': 'Plastering and Drywall Systems',
         'dep': "Plastering and Drywall Systems"
    
     
     
     },
     {
-        'id': '21',
+        'id': 'Plumbing and Heating',
         'dep': "Plumbing and Heating"
    
     
     
     },
     {
-        'id': '22',
+        'id': 'Refrigeration and Air Conditioning',
         'dep': "Refrigeration and Air Conditioning"
    
     
@@ -86,24 +86,24 @@ aboutUs.controller('aboutUs', function($scope, $http)
     ]
   },
   {
-    'id': '2',
+    'id': 'Creative Arts and Fashion',
      'name': "Creative Arts and Fashion",
      'categories':  [{
-        'id': '23',
+        'id': 'Fashion Technology',
         'dep': "Fashion Technology"
     }, {
-        'id': '24',
+        'id': 'Floristry',
         'dep': "Floristry"
     },
     {
-        'id': '25',
+        'id': 'Graphic Design Technology',
         'dep': "Graphic Design Technology"
    
     
     
     },
     {
-        'id': '25',
+        'id': 'jewellry',
         'dep': "jewellry"
    
     
@@ -112,4 +112,45 @@ aboutUs.controller('aboutUs', function($scope, $http)
     
     ]
   }];
+    
+    $scope.submit = function(){
+    	var submitSkillcompetitionURI = "/submitSkillcompetition";
+		 $http({
+
+				url : submitSkillcompetitionURI,
+				method : "POST",
+				data : angular.toJson($scope.find),
+				headers : {
+				'Content-type': 'application/json'
+				           }
+
+	       }).then(function(response)
+	       
+	       	{
+	        var findResponse=response.data;
+	       
+	       if(findResponse == 1)
+	    	   {
+	    	   
+	    	   $scope.find="";
+	    	   
+	    	   $scope.successMessage = "Submission Successful";
+	    	   
+	    	   $timeout(function() {
+	            	  $scope.successMessage="";
+	               }, 2000);
+	    	   
+	    	   }
+	       else 
+    	   {
+    	   $scope.find="";
+    	   $scope.errorMessage = "Data cannot be submitted";
+    	   
+    	   $timeout(function() {
+            	  $scope.errorMessage="";
+               }, 2000);
+    	   }
+       });
+}
+    
 });

@@ -18,7 +18,7 @@ public class SkillcompetitionService {
    public int Skillcompetitionforsubmit(SkillcompetitionDto skillcompetitionDto) {
 	int skillcompetitionsubmitStatus;
 	
-	skillcompetitionsubmitStatus = skillcompetitionDao.submitskillcompetition(skillcompetitionDto.getparticipantName(),skillcompetitionDto.getparticipantEmail(), skillcompetitionDto.getparticipantAddress(), skillcompetitionDto.getparticipantAge(), skillcompetitionDto.getskillSector(),skillcompetitionDto.getskillSectorCategory());
+    skillcompetitionsubmitStatus = skillcompetitionDao.submitskillcompetition(skillcompetitionDto.getparticipantName(),skillcompetitionDto.getparticipantEmail(), skillcompetitionDto.getparticipantAddress(), skillcompetitionDto.getparticipantAge(), skillcompetitionDto.getskillSector(),skillcompetitionDto.getskillSectorCategory());
 	
 	
 	return skillcompetitionsubmitStatus;
